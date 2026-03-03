@@ -1,44 +1,94 @@
 #!/usr/bin/env bash
+# ─────────────────────────────────────────────────────────────────────────────
 # core/profiles.sh
+#
+# PURPOSE:
+#   Defines all download profiles as named format strings for yt-dlp's -f flag.
+#   Separates VIDEO profiles from MUSIC profiles so each mode has its own
+#   sensible defaults without the user needing to know yt-dlp syntax.
+#
+# VIDEO PROFILES (mode=video):
+#   car    - 720p H.264 + AAC in MP4  →  safe for all car head units
+#   hd     - 1080p H.264 + AAC in MP4 →  best quality car-compatible
+#   fast   - single best MP4 stream   →  no re-encoding needed
+#   best   - max quality → MKV        →  archiving
+#
+# MUSIC PROFILES (mode=music):
+#   mp3    - MP3 320kbps + embedded metadata + cover art
+#   m4a    - M4A AAC best quality     →  better for Apple CarPlay
+#   opus   - Opus (best streaming codec, smallest file size)
+#
+# USED BY: downloader.sh, ui.sh (combo box population)
+# ─────────────────────────────────────────────────────────────────────────────
 
+# ── Video format strings ──────────────────────────────────────────────────────
 PROFILE_CAR_FORMAT='bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720]'
+PROFILE_HD_FORMAT='bestvideo[vcodec^=avc1][height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=1080]+bestaudio/best[height<=1080]'
 PROFILE_FAST_FORMAT='best[ext=mp4]/best'
 PROFILE_BEST_FORMAT='bestvideo+bestaudio/best'
-PROFILE_AUDIO_FORMAT='bestaudio/best'
 
+# ── Music format strings ──────────────────────────────────────────────────────
+PROFILE_MP3_FORMAT='bestaudio/best'
+PROFILE_M4A_FORMAT='bestaudio[ext=m4a]/bestaudio'
+PROFILE_OPUS_FORMAT='bestaudio[ext=webm]/bestaudio'
+
+# get_profile_format MODE KEY  →  echoes yt-dlp -f format string
 get_profile_format() {
-    case "$1" in
-        car)   echo "$PROFILE_CAR_FORMAT"   ;;
-        fast)  echo "$PROFILE_FAST_FORMAT"  ;;
-        best)  echo "$PROFILE_BEST_FORMAT"  ;;
-        audio) echo "$PROFILE_AUDIO_FORMAT" ;;
-        *)     echo "$PROFILE_CAR_FORMAT"   ;;
+    local mode="$1" key="$2"
+    case "${mode}:${key}" in
+        video:car)   echo "$PROFILE_CAR_FORMAT"  ;;
+        video:hd)    echo "$PROFILE_HD_FORMAT"   ;;
+        video:fast)  echo "$PROFILE_FAST_FORMAT" ;;
+        video:best)  echo "$PROFILE_BEST_FORMAT" ;;
+        music:mp3)   echo "$PROFILE_MP3_FORMAT"  ;;
+        music:m4a)   echo "$PROFILE_M4A_FORMAT"  ;;
+        music:opus)  echo "$PROFILE_OPUS_FORMAT" ;;
+        # Fallback: try key alone for backwards compat
+        *:car)   echo "$PROFILE_CAR_FORMAT"  ;;
+        *:fast)  echo "$PROFILE_FAST_FORMAT" ;;
+        *:mp3)   echo "$PROFILE_MP3_FORMAT"  ;;
+        *)       echo "$PROFILE_CAR_FORMAT"  ;;
     esac
 }
 
+# get_profile_merge MODE KEY  →  echoes --merge-output-format value
 get_profile_merge() {
-    case "$1" in
-        audio) echo "mp3" ;;
-        best)  echo "mkv" ;;
-        *)     echo "mp4" ;;
+    local mode="$1" key="$2"
+    case "${mode}:${key}" in
+        music:*)  echo "mp3" ;;
+        video:best) echo "mkv" ;;
+        *)        echo "mp4"  ;;
     esac
 }
 
+# get_profile_label KEY  →  human-readable label
 get_profile_label() {
     case "$1" in
-        car)   echo "Car Compatible (720p H.264 + AAC)" ;;
-        fast)  echo "Fast Mode (Best single MP4)"       ;;
-        best)  echo "Best Quality (Max res + audio)"    ;;
-        audio) echo "Audio Only (MP3 high quality)"     ;;
-        *)     echo "Car Compatible (720p H.264 + AAC)" ;;
+        car)  echo "Car Compatible (720p H.264+AAC)"  ;;
+        hd)   echo "HD (1080p H.264+AAC)"             ;;
+        fast) echo "Fast (Best single MP4)"            ;;
+        best) echo "Best Quality (max res, MKV)"       ;;
+        mp3)  echo "MP3 320kbps (Music)"               ;;
+        m4a)  echo "M4A AAC (Apple CarPlay Music)"     ;;
+        opus) echo "Opus (smallest size)"              ;;
+        *)    echo "$1" ;;
     esac
 }
 
-list_profiles_yad() {
-    echo "car|Car Compatible (720p H.264 + AAC)"
-    echo "fast|Fast Mode (Best single MP4)"
-    echo "best|Best Quality (Max res + audio)"
-    echo "audio|Audio Only (MP3 high quality)"
+# list_video_profiles_yad / list_music_profiles_yad
+# Output: "key|label" per line — consumed by ui.sh for combo boxes
+list_video_profiles_yad() {
+    echo "car|Car Compatible (720p H.264+AAC)"
+    echo "hd|HD (1080p H.264+AAC)"
+    echo "fast|Fast (Best single MP4)"
+    echo "best|Best Quality (max res, MKV)"
 }
 
-is_audio_profile() { [[ "$1" == "audio" ]]; }
+list_music_profiles_yad() {
+    echo "mp3|MP3 320kbps (Music)"
+    echo "m4a|M4A AAC (Apple CarPlay Music)"
+    echo "opus|Opus (smallest size)"
+}
+
+is_music_profile() { [[ "$1" == "mp3" || "$1" == "m4a" || "$1" == "opus" ]]; }
+is_video_profile() { ! is_music_profile "$1"; }

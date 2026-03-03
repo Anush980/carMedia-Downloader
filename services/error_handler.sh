@@ -1,64 +1,80 @@
 #!/usr/bin/env bash
-# services/error_handler.sh — Logging + error dialogs
-# BASE_DIR is set by main.sh
-
-LOG_DIR="${BASE_DIR}/logs"
-LOG_APP="${LOG_DIR}/app.log"
-LOG_ERROR="${LOG_DIR}/error.log"
-mkdir -p "$LOG_DIR"
-
-# Print to terminal AND log file
-_log() {
-    local level="$1" msg="$2"
-    local ts; ts=$(date '+%Y-%m-%d %H:%M:%S')
-    local line="[$ts] [$level] $msg"
-    echo "$line"                          # always visible in terminal
-    echo "$line" >> "$LOG_APP"
-    [[ "$level" == "ERROR" ]] && echo "$line" >> "$LOG_ERROR"
-}
-
-log_info()  { _log "INFO " "$1"; }
-log_warn()  { _log "WARN " "$1"; }
-log_error() { _log "ERROR" "$1"; }
+# ─────────────────────────────────────────────────────────────────────────────
+# services/error_handler.sh
+#
+# PURPOSE:
+#   Centralized error categorization and user-facing error dialogs.
+#   All errors flow through handle_error() so they are:
+#     1. Logged (via logger.sh)
+#     2. Shown to user as a YAD popup with a helpful hint
+#
+# ERROR TYPES:
+#   user        - bad input, unsupported URL
+#   network     - connectivity issues
+#   ytdlp       - yt-dlp failures (private video, extractor error, etc.)
+#   filesystem  - disk full, no write permission
+#   playlist    - playlist parsing failures
+#
+# USED BY: All modules
+# ─────────────────────────────────────────────────────────────────────────────
 
 handle_error() {
     local type="$1" msg="$2"
     log_error "[$type] $msg"
+
     local hint
     case "$type" in
         user)       hint="Check your input and try again." ;;
-        network)    hint="Check internet connection." ;;
-        ytdlp)      hint="Check the URL or update yt-dlp from Settings." ;;
-        filesystem) hint="Check disk space and folder permissions." ;;
-        *)          hint="See logs/error.log for details." ;;
+        network)    hint="Check your internet connection." ;;
+        ytdlp)      hint="Check the URL — video may be private, removed, or age-restricted.\nTry updating yt-dlp from Settings." ;;
+        filesystem) hint="Check available disk space and folder write permissions." ;;
+        playlist)   hint="Playlist may be private or the URL is incorrect." ;;
+        *)          hint="See logs/error.log for full details." ;;
     esac
-    if command -v yad &>/dev/null; then
-        yad --error \
-            --title="CarMedia – Error" \
-            --text="<b>${msg}</b>\n\n${hint}" \
-            --button="OK:0" --width=440 --center 2>/dev/null || true
-    fi
+
+    yad --error \
+        --title="CarMedia Pro – Error" \
+        --text="<b>${msg}</b>\n\n<i>${hint}</i>" \
+        --button="OK:0" \
+        --width=460 --center 2>/dev/null || true
 }
 
 show_success_dialog() {
     local title="$1" msg="$2"
-    log_info "SUCCESS: $title — $msg"
-    if command -v yad &>/dev/null; then
-        yad --info \
-            --title="CarMedia – $title" \
-            --text="$msg" \
-            --button="OK:0" --width=380 --center 2>/dev/null || true
-    fi
+    log_info "SUCCESS: $title"
+    yad --info \
+        --title="CarMedia Pro – $title" \
+        --text="$msg" \
+        --button="OK:0" \
+        --width=400 --center 2>/dev/null || true
 }
 
 check_dependency() {
-    local cmd="$1" hint="${2:-}"
-    log_info "Checking dependency: $cmd"
+    local cmd="$1" hint="${2:-install it}"
+    log_info "Checking: $cmd"
     if ! command -v "$cmd" &>/dev/null; then
-        log_error "MISSING: $cmd"
-        handle_error "user" "Required tool not found: $cmd\n\nInstall:\n$hint"
+        log_error "MISSING dependency: $cmd"
+        yad --error \
+            --title="CarMedia Pro – Missing Dependency" \
+            --text="<b>Required tool not found: <tt>$cmd</tt></b>\n\n$hint" \
+            --button="OK:0" --width=460 --center 2>/dev/null || true
         return 1
     fi
-    log_info "  OK: $cmd -> $(command -v "$cmd")"
+    log_info "  OK: $cmd ($(command -v "$cmd"))"
     return 0
+}
+
+# Recursively kills a process and all its descendants (useful for bash subshells)
+kill_process_tree() {
+    local pid="$1"
+    local sig="${2:-TERM}"
+    [[ "$pid" -le 0 ]] && return 0
+    
+    local children
+    children=$(pgrep -P "$pid" 2>/dev/null)
+    for child in $children; do
+        kill_process_tree "$child" "$sig"
+    done
+    
+    kill -"$sig" "$pid" 2>/dev/null || true
 }
