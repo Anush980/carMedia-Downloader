@@ -1,0 +1,9 @@
+[2026-03-03 19:14:27] [ERROR] Required tool not found: yt-dlp\nInstall with: pip install yt-dlp  OR  sudo pacman -S yt-dlp
+
+Usage: yt-dlp [OPTIONS] URL [URL...]
+
+yt-dlp: error: no such option: --http2
+[2026-03-03 20:45:33] [ERROR] [user] Please enter a video or playlist URL.
+[2026-03-03 21:00:51] [ERROR] Worker: all attempts failed for https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:00:51] [ERROR] [ytdlp] Download failed after 2 attempts.\nURL: https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:01:47] [ERROR] [user] Please enter a video or playlist URL.

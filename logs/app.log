@@ -1,0 +1,157 @@
+[2026-03-03 19:14:27] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:14:27] [ERROR] Required tool not found: yt-dlp\nInstall with: pip install yt-dlp  OR  sudo pacman -S yt-dlp
+[2026-03-03 19:15:20] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:15:20] [INFO]  All dependencies found
+[2026-03-03 19:15:28] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:15:28] [INFO]  All dependencies found
+[2026-03-03 19:15:38] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:15:38] [INFO]  All dependencies found
+[2026-03-03 19:15:48] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:15:48] [INFO]  All dependencies found
+[2026-03-03 19:17:18] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:17:18] [INFO]  All dependencies found
+[2026-03-03 19:19:29] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:19:29] [INFO]  All dependencies found
+[2026-03-03 19:21:00] [INFO]  === CarMedia Downloader starting ===
+[2026-03-03 19:21:00] [INFO]  All dependencies found
+[2026-03-03 20:09:13] [INFO]  === CarMedia Downloader starting (BASE_DIR=/home/anush/Personal_Project/carMedia Downloader) ===
+[2026-03-03 20:09:13] [INFO]  All dependencies OK. Launching UI…
+[2026-03-03 20:10:22] [INFO]  Submit: url=https://www.youtube.com/watch?v=6Hljp0rgyZM&pp=ygUMeWFkIGJhc2ggdWkg profile=car dir=/home/anush/Videos/carMediaVideo limit=0
+[2026-03-03 20:10:22] [INFO]  Download start: url=https://www.youtube.com/watch?v=6Hljp0rgyZM&pp=ygUMeWFkIGJhc2ggdWkg profile=car dir=/home/anush/Videos/carMediaVideo limit=0
+[2026-03-03 20:10:22] [INFO]  Attempt 1…
+[2026-03-03 20:42:52] [INFO]  === CarMedia Downloader v1.2 starting (BASE_DIR=/home/anush/Personal_Project/carMedia Downloader) ===
+[2026-03-03 20:42:52] [INFO]  Dependencies OK. Starting UI…
+[2026-03-03 20:43:38] [INFO]  Submitting: url=https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDMMidFsTTlHuOs&start_radio=1 profile=car dir=/home/anush/Videos/carMediaVideo limit=0
+[2026-03-03 20:43:38] [INFO]  Queued job #1: url=https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDMMidFsTTlHuOs&start_radio=1 profile=car
+[2026-03-03 20:45:22] [INFO]  === CarMedia Downloader v1.2 starting (BASE_DIR=/home/anush/Personal_Project/carMedia Downloader) ===
+[2026-03-03 20:45:22] [INFO]  Dependencies OK. Starting UI…
+[2026-03-03 20:45:28] [INFO]  === CarMedia Downloader v1.2 starting (BASE_DIR=/home/anush/Personal_Project/carMedia Downloader) ===
+[2026-03-03 20:45:28] [INFO]  Dependencies OK. Starting UI…
+[2026-03-03 20:45:31] [INFO]  === CarMedia Downloader v1.2 starting (BASE_DIR=/home/anush/Personal_Project/carMedia Downloader) ===
+[2026-03-03 20:45:31] [INFO]  Dependencies OK. Starting UI…
+[2026-03-03 20:45:33] [ERROR] [user] Please enter a video or playlist URL.
+[2026-03-03 20:46:12] [INFO]  Submitting: url=https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDMMidFsTTlHuOs&start_radio=1 profile=audio dir=/home/anush/Music/carMediaMusic limit=0
+[2026-03-03 20:46:12] [INFO]  Queued job #1: url=https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDMMidFsTTlHuOs&start_radio=1 profile=audio
+[2026-03-03 20:51:30] [INFO ] Checking dependency: yad
+[2026-03-03 20:51:30] [INFO ]   OK: yad -> /usr/bin/yad
+[2026-03-03 20:51:30] [INFO ] Checking dependency: yt-dlp
+[2026-03-03 20:51:30] [INFO ]   OK: yt-dlp -> /usr/bin/yt-dlp
+[2026-03-03 20:51:30] [INFO ] Checking dependency: ffmpeg
+[2026-03-03 20:51:30] [INFO ]   OK: ffmpeg -> /usr/bin/ffmpeg
+[2026-03-03 20:51:30] [INFO ] start_ui called
+[2026-03-03 20:51:30] [INFO ] Loading config: /home/anush/Personal_Project/carMedia Downloader/config/settings.conf
+[2026-03-03 20:51:30] [INFO ] Opening main window (SAVE_DIR=/home/anush/CarMedia profile=car)
+[2026-03-03 20:51:30] [INFO ] show_main_window
+[2026-03-03 20:52:02] [INFO ] Main window closed with btn=0
+[2026-03-03 20:52:02] [INFO ] _submit raw=[https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1|Car Compatible (720p H.264 + AAC)|/home/anush/Videos/carMediaVideo|TRUE|0|]
+[2026-03-03 20:52:02] [INFO ] Parsed: url=[https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1] profile=[Car Compatible (720p H.264 + AAC)] dir=[/home/anush/Videos/carMediaVideo] playlist=[TRUE] limit=[0]
+[2026-03-03 20:52:02] [INFO ] Detected platform: youtube
+[2026-03-03 20:52:02] [INFO ] Starting dm_run: url=https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1 profile=car dir=/home/anush/Videos/carMediaVideo limit=0
+[2026-03-03 20:52:02] [INFO ] dm_run: url=https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1 profile=car save=/home/anush/Videos/carMediaVideo limit=0
+[2026-03-03 20:52:02] [INFO ] STATE_FILE=/tmp/carmedia_state_UcirDm  FIFO=/tmp/carmedia_fifo_7kZT4B
+[2026-03-03 20:52:02] [INFO ] Worker PID: 1960082
+[2026-03-03 20:52:02] [INFO ] Worker: fetching title for https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1
+[2026-03-03 20:52:02] [INFO ] Launching YAD progress window
+[2026-03-03 20:52:02] [INFO ] Feeder started
+[2026-03-03 20:52:02] [INFO ] Feeder PID: 1960088
+[2026-03-03 20:52:07] [INFO ] Worker: title = Ani Choying Drolma - Phoolko Aankhama [Official Lyrical Video]
+[2026-03-03 20:52:07] [INFO ] Building yt-dlp args: profile=car dir=/home/anush/Videos/carMediaVideo limit=0
+[2026-03-03 20:52:07] [INFO ] yt-dlp args built: --output /home/anush/Videos/carMediaVideo/%(title)s.%(ext)s --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --extractor-args youtube:player_client=android --concurrent-fragments 5 --buffer-size 16K --retries 3 --fragment-retries 5 --add-metadata --newline https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1
+[2026-03-03 20:52:07] [INFO ] Worker attempt 1: yt-dlp --output /home/anush/Videos/carMediaVideo/%(title)s.%(ext)s --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --extractor-args youtube:player_client=android --concurrent-fragments 5 --buffer-size 16K --retries 3 --fragment-retries 5 --add-metadata --newline https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1
+[2026-03-03 20:57:09] [INFO ] YAD exited with button code: 2
+[2026-03-03 20:57:09] [INFO ] User paused — SIGSTOP to 1960082
+[2026-03-03 20:57:09] [INFO ] Launching YAD progress window
+[2026-03-03 20:57:09] [INFO ] Feeder PID: 1962967
+[2026-03-03 20:57:09] [INFO ] Feeder started
+[2026-03-03 20:57:14] [INFO ] YAD exited with button code: 1
+[2026-03-03 20:57:14] [WARN ] User cancelled — killing worker 1960082
+[2026-03-03 20:57:15] [INFO ] dm_run complete
+[2026-03-03 20:57:15] [INFO ] dm_run returned — asking user for next action
+[2026-03-03 20:57:18] [INFO ] User chose exit
+[2026-03-03 20:57:25] [INFO ] Checking dependency: yad
+[2026-03-03 20:57:25] [INFO ]   OK: yad -> /usr/bin/yad
+[2026-03-03 20:57:25] [INFO ] Checking dependency: yt-dlp
+[2026-03-03 20:57:25] [INFO ]   OK: yt-dlp -> /usr/bin/yt-dlp
+[2026-03-03 20:57:25] [INFO ] Checking dependency: ffmpeg
+[2026-03-03 20:57:25] [INFO ]   OK: ffmpeg -> /usr/bin/ffmpeg
+[2026-03-03 20:57:25] [INFO ] start_ui called
+[2026-03-03 20:57:25] [INFO ] Loading config: /home/anush/Personal_Project/carMedia Downloader/config/settings.conf
+[2026-03-03 20:57:25] [INFO ] Opening main window (SAVE_DIR=/home/anush/CarMedia profile=car)
+[2026-03-03 20:57:25] [INFO ] show_main_window
+[2026-03-03 20:57:53] [INFO ] Main window closed with btn=2
+[2026-03-03 20:57:53] [INFO ] show_settings_window
+[2026-03-03 20:58:50] [INFO ] Settings closed btn=1
+[2026-03-03 20:58:50] [INFO ] show_main_window
+[2026-03-03 20:58:52] [INFO ] Main window closed with btn=1
+[2026-03-03 20:58:52] [INFO ] User exited
+[2026-03-03 20:58:56] [INFO ] Checking dependency: yad
+[2026-03-03 20:58:56] [INFO ]   OK: yad -> /usr/bin/yad
+[2026-03-03 20:58:56] [INFO ] Checking dependency: yt-dlp
+[2026-03-03 20:58:56] [INFO ]   OK: yt-dlp -> /usr/bin/yt-dlp
+[2026-03-03 20:58:56] [INFO ] Checking dependency: ffmpeg
+[2026-03-03 20:58:56] [INFO ]   OK: ffmpeg -> /usr/bin/ffmpeg
+[2026-03-03 20:58:56] [INFO ] start_ui called
+[2026-03-03 20:58:56] [INFO ] Loading config: /home/anush/Personal_Project/carMedia Downloader/config/settings.conf
+[2026-03-03 20:58:56] [INFO ] Opening main window (SAVE_DIR=/home/anush/CarMedia profile=car)
+[2026-03-03 20:58:56] [INFO ] show_main_window
+[2026-03-03 20:59:20] [INFO ] Main window closed with btn=2
+[2026-03-03 20:59:20] [INFO ] show_settings_window
+[2026-03-03 20:59:37] [INFO ] Settings closed btn=0
+[2026-03-03 20:59:37] [INFO ] Settings saved
+[2026-03-03 20:59:37] [INFO ] SUCCESS: Saved — Preferences saved.
+[2026-03-03 20:59:38] [INFO ] show_main_window
+[2026-03-03 21:00:00] [INFO ] Main window closed with btn=0
+[2026-03-03 21:00:00] [INFO ] _submit raw=[https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1|Car Compatible (720p H.264 + AAC)|/home/anush/Videos/carMediaVideo|TRUE|5|]
+[2026-03-03 21:00:00] [INFO ] Parsed: url=[https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1] profile=[Car Compatible (720p H.264 + AAC)] dir=[/home/anush/Videos/carMediaVideo] playlist=[TRUE] limit=[5]
+[2026-03-03 21:00:00] [INFO ] Detected platform: youtube
+[2026-03-03 21:00:00] [INFO ] Starting dm_run: url=https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1 profile=car dir=/home/anush/Videos/carMediaVideo limit=5
+[2026-03-03 21:00:00] [INFO ] dm_run: url=https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1 profile=car save=/home/anush/Videos/carMediaVideo limit=5
+[2026-03-03 21:00:00] [INFO ] STATE_FILE=/tmp/carmedia_state_QPIwBS  FIFO=/tmp/carmedia_fifo_78cGsy
+[2026-03-03 21:00:00] [INFO ] Worker PID: 1971035
+[2026-03-03 21:00:00] [INFO ] Worker: fetching title for https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:00:00] [INFO ] Launching YAD progress window
+[2026-03-03 21:00:00] [INFO ] Feeder PID: 1971041
+[2026-03-03 21:00:00] [INFO ] Feeder started
+[2026-03-03 21:00:05] [INFO ] Worker: title = BAIMAANI - Alkaa Subedi, Kushal Singh | Sabin Karki | Beest Productions (Official Music Video)
+[2026-03-03 21:00:05] [INFO ] Building yt-dlp args: profile=car dir=/home/anush/Videos/carMediaVideo limit=5
+[2026-03-03 21:00:05] [INFO ] yt-dlp args built: --output /home/anush/Videos/carMediaVideo/%(title)s.%(ext)s --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --extractor-args youtube:player_client=android --concurrent-fragments 5 --buffer-size 16K --retries 3 --fragment-retries 5 --playlist-end 5 --add-metadata --newline https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:00:05] [INFO ] Worker attempt 1: yt-dlp --output /home/anush/Videos/carMediaVideo/%(title)s.%(ext)s --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --extractor-args youtube:player_client=android --concurrent-fragments 5 --buffer-size 16K --retries 3 --fragment-retries 5 --playlist-end 5 --add-metadata --newline https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:00:32] [INFO ] Worker attempt 1 exit_code=1
+[2026-03-03 21:00:32] [WARN ] Worker: attempt 1 failed, updating yt-dlp...
+[2026-03-03 21:00:32] [INFO ] Running: yt-dlp -U
+Latest version: stable@2026.02.21 from yt-dlp/yt-dlp
+yt-dlp is up to date (stable@2026.02.21 from yt-dlp/yt-dlp)
+[2026-03-03 21:00:34] [INFO ] yt-dlp: 2026.02.21 -> 2026.02.21
+[2026-03-03 21:00:34] [INFO ] Building yt-dlp args: profile=car dir=/home/anush/Videos/carMediaVideo limit=5
+[2026-03-03 21:00:34] [INFO ] yt-dlp args built: --output /home/anush/Videos/carMediaVideo/%(title)s.%(ext)s --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --extractor-args youtube:player_client=android --concurrent-fragments 5 --buffer-size 16K --retries 3 --fragment-retries 5 --playlist-end 5 --add-metadata --newline https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:00:34] [INFO ] Worker attempt 2: yt-dlp --output /home/anush/Videos/carMediaVideo/%(title)s.%(ext)s --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --extractor-args youtube:player_client=android --concurrent-fragments 5 --buffer-size 16K --retries 3 --fragment-retries 5 --playlist-end 5 --add-metadata --newline https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:00:51] [INFO ] Worker attempt 2 exit_code=1
+[2026-03-03 21:00:51] [ERROR] Worker: all attempts failed for https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:00:51] [ERROR] [ytdlp] Download failed after 2 attempts.\nURL: https://www.youtube.com/watch?v=Tlebj8VooKI&list=RDTlebj8VooKI&start_radio=1
+[2026-03-03 21:01:36] [INFO ] YAD exited with button code: 2
+[2026-03-03 21:01:36] [INFO ] User paused — SIGSTOP to 1971035
+[2026-03-03 21:01:36] [INFO ] Launching YAD progress window
+[2026-03-03 21:01:36] [INFO ] Feeder PID: 1971851
+[2026-03-03 21:01:36] [INFO ] Feeder started
+[2026-03-03 21:01:36] [INFO ] Feeder: worker gone, sending 100
+[2026-03-03 21:01:36] [INFO ] Feeder exiting
+[2026-03-03 21:01:38] [INFO ] YAD exited with button code: 3
+[2026-03-03 21:01:38] [INFO ] User resumed — SIGCONT to 1971035
+[2026-03-03 21:01:38] [INFO ] Launching YAD progress window
+[2026-03-03 21:01:38] [INFO ] Feeder started
+[2026-03-03 21:01:38] [INFO ] Feeder PID: 1972013
+[2026-03-03 21:01:38] [INFO ] Feeder: worker gone, sending 100
+[2026-03-03 21:01:39] [INFO ] Feeder exiting
+[2026-03-03 21:01:44] [INFO ] YAD exited with button code: 1
+[2026-03-03 21:01:44] [WARN ] User cancelled — killing worker 1971035
+[2026-03-03 21:01:44] [INFO ] dm_run complete
+[2026-03-03 21:01:44] [INFO ] dm_run returned — asking user for next action
+[2026-03-03 21:01:46] [INFO ] show_main_window
+[2026-03-03 21:01:47] [INFO ] Main window closed with btn=0
+[2026-03-03 21:01:47] [INFO ] _submit raw=[|Car Compatible (720p H.264 + AAC)|/home/anush/Videos/carMediaVideo|FALSE|0|]
+[2026-03-03 21:01:47] [INFO ] Parsed: url=[] profile=[Car Compatible (720p H.264 + AAC)] dir=[/home/anush/Videos/carMediaVideo] playlist=[FALSE] limit=[0]
+[2026-03-03 21:01:47] [WARN ] Empty URL submitted
+[2026-03-03 21:01:47] [ERROR] [user] Please enter a video or playlist URL.
+[2026-03-03 21:01:49] [INFO ] show_main_window
+[2026-03-03 21:01:51] [INFO ] Main window closed with btn=1
+[2026-03-03 21:01:51] [INFO ] User exited
