@@ -108,13 +108,20 @@ build_yt_dlp_args() {
         YT_DLP_ARGS+=( --add-metadata )
     fi
 
-    # ── Speed optimisations ───────────────────────────────────────────────────
-    # NOTE: Do NOT force --extractor-args youtube:player_client=android here.
-    # The android client now requires a GVS PO Token (mid-2024 YouTube change).
-    # Without the token it only serves format 18 (360p), causing strict format
-    # strings (car/hd profiles) to find no matching streams → exit code 2.
-    # yt-dlp's default client selection (web + safari fallback) gives full
-    # HD format access without any token.
+    # ── Player client (anti-403 fix) ─────────────────────────────────────────
+    # HTTP 403 Forbidden = YouTube's bot-detection blocking the default web
+    # client on anonymous or new IPs. Fix: force the iOS client, which YouTube
+    # does not restrict for anonymous access and does NOT require a PO Token
+    # (unlike the android client which got locked behind PO tokens mid-2024).
+    # The iOS client delivers full HD streams, so car/hd profiles still work.
+    #
+    # When the user has configured a browser cookie source we skip this — the
+    # authenticated web session already bypasses 403 naturally.
+    local cb="${COOKIE_BROWSER:-none}"
+    if [[ "$cb" == "none" || -z "$cb" ]]; then
+        YT_DLP_ARGS+=( --extractor-args "youtube:player_client=ios,mweb" )
+        log_info "  Player client: ios,mweb (anonymous anti-403)"
+    fi
 
     # Parallel fragment download (DASH/HLS)
     YT_DLP_ARGS+=( --concurrent-fragments "${YT_CONCURRENT_FRAGS:-5}" )
@@ -124,10 +131,7 @@ build_yt_dlp_args() {
     YT_DLP_ARGS+=( --retry-sleep linear=1::2 )
 
     # ── Browser Cookies (for age-restricted / login-required videos) ──────────
-    # Set COOKIE_BROWSER to chrome, firefox, brave, or chromium in Settings.
-    # yt-dlp will read the browser's cookie store so authenticated downloads
-    # work even for members-only / age-gated / sign-in-required content.
-    local cb="${COOKIE_BROWSER:-none}"
+    # Set COOKIE_BROWSER in Settings → 🍪 Browser Cookies.
     if [[ "$cb" != "none" && -n "$cb" ]]; then
         YT_DLP_ARGS+=( --cookies-from-browser "$cb" )
         log_info "  Using cookies from browser: $cb"
