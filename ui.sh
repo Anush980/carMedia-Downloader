@@ -36,7 +36,9 @@ start_ui() {
     MAX_PLAYLIST_LIMIT="${MAX_PLAYLIST_LIMIT:-50}"
     AUTO_UPDATE="${AUTO_UPDATE:-false}"
     DEV_MODE="${DEV_MODE:-false}"
+    COOKIE_BROWSER="${COOKIE_BROWSER:-none}"
     export DEV_MODE
+    export COOKIE_BROWSER
 
     [[ "$AUTO_UPDATE" == "true" ]] && { log_info "Auto-update on"; update_ytdlp; }
 
@@ -277,6 +279,16 @@ show_settings_window() {
     log_info "show_settings_window"
     local result btn
 
+    # Build cookie browser combo (active item first)
+    local _cb_active="${COOKIE_BROWSER:-none}"
+    local _cb_list="None!Chrome!Firefox!Brave!Chromium"
+    case "$_cb_active" in
+        chrome)   _cb_list="Chrome!None!Firefox!Brave!Chromium" ;;
+        firefox)  _cb_list="Firefox!None!Chrome!Brave!Chromium" ;;
+        brave)    _cb_list="Brave!None!Chrome!Firefox!Chromium" ;;
+        chromium) _cb_list="Chromium!None!Chrome!Firefox!Brave" ;;
+    esac
+
     result=$(yad --form \
         --title="$APP_TITLE – Settings" \
         --text="<b>⚙  Preferences</b>" \
@@ -289,6 +301,7 @@ show_settings_window() {
         --field="🔢  Max Playlist Items (threshold)":NUM "${MAX_PLAYLIST_LIMIT:-50}!1..500!1!0" \
         --field="⚡  Concurrent Fragments (speed)":NUM "${YT_CONCURRENT_FRAGS:-5}!1..16!1!0" \
         --field="🔄  Auto-update yt-dlp on start":CHK "${AUTO_UPDATE:-false}" \
+        --field="🍪  Browser Cookies (age-restricted/private)":CB "$_cb_list" \
         --button="⬆ Update yt-dlp Now:2" \
         --button="gtk-cancel:1" \
         --button="gtk-save:0" \
@@ -303,8 +316,8 @@ show_settings_window() {
 }
 
 _save_settings() {
-    local new_dir mode_label video_label music_label max_pl frags auto_upd
-    IFS="|" read -r new_dir mode_label video_label music_label max_pl frags auto_upd <<< "$1"
+    local new_dir mode_label video_label music_label max_pl frags auto_upd cookie_label
+    IFS="|" read -r new_dir mode_label video_label music_label max_pl frags auto_upd cookie_label <<< "$1"
 
     local new_video_profile; new_video_profile=$(_label_to_video_key "$video_label")
     local new_music_profile; new_music_profile=$(_label_to_music_key "$music_label")
@@ -312,6 +325,16 @@ _save_settings() {
     [[ "$auto_upd" == "TRUE" ]] && auto_upd="true" || auto_upd="false"
     local frags_int="${frags%%.*}"
     local maxpl_int="${max_pl%%.*}"
+
+    # Translate label → yt-dlp browser name (lowercase, 'none' for disabled)
+    local new_cookie
+    case "${cookie_label,,}" in   # lowercase the label
+        chrome)   new_cookie="chrome"   ;;
+        firefox)  new_cookie="firefox"  ;;
+        brave)    new_cookie="brave"    ;;
+        chromium) new_cookie="chromium" ;;
+        *)        new_cookie="none"     ;;
+    esac
 
     cat > "${BASE_DIR}/config/settings.conf" << CONF
 DEFAULT_DOWNLOAD_DIR="${new_dir}"
@@ -321,6 +344,7 @@ DEFAULT_MUSIC_PROFILE="${new_music_profile}"
 MAX_PLAYLIST_LIMIT=${maxpl_int}
 YT_CONCURRENT_FRAGS=${frags_int}
 AUTO_UPDATE="${auto_upd}"
+COOKIE_BROWSER="${new_cookie}"
 CONF
 
     SAVE_DIR="$new_dir"
@@ -331,7 +355,9 @@ CONF
     MAX_PLAYLIST_LIMIT="$maxpl_int"
     YT_CONCURRENT_FRAGS="$frags_int"
     AUTO_UPDATE="$auto_upd"
+    COOKIE_BROWSER="$new_cookie"
+    export COOKIE_BROWSER
 
-    log_info "Settings saved: dir=$new_dir mode=$new_mode vp=$new_video_profile mp=$new_music_profile maxpl=$maxpl_int frags=$frags_int"
+    log_info "Settings saved: dir=$new_dir mode=$new_mode vp=$new_video_profile mp=$new_music_profile maxpl=$maxpl_int frags=$frags_int cookies=$new_cookie"
     show_success_dialog "Settings Saved" "Preferences saved successfully."
 }

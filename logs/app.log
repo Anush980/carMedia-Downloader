@@ -26253,3 +26253,1144 @@ playlist
 [2026-03-04 01:11:24][INFO ] dm_start_session complete
 [2026-03-04 01:11:24][INFO ] _post_download_dialog
 [2026-03-04 01:11:30][INFO ] User chose exit
+[2026-03-04 07:40:15][INFO ] Checking: yad
+[2026-03-04 07:40:15][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 07:40:15][INFO ] Checking: yt-dlp
+[2026-03-04 07:40:15][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 07:40:15][INFO ] Checking: ffmpeg
+[2026-03-04 07:40:15][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 07:40:15][INFO ] start_ui: loading preferences
+[2026-03-04 07:40:15][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 07:40:15][INFO ] show_main_window
+[2026-03-04 07:40:57][INFO ] Main window: btn=0
+[2026-03-04 07:40:57][INFO ] _submit: raw=[https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 07:40:57][INFO ] Dev mode: false
+[2026-03-04 07:40:57][INFO ] Platform: youtube
+[2026-03-04 07:40:57][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 07:40:57][INFO ] URL type: playlist
+[2026-03-04 07:40:57][INFO ] _handle_playlist_flow
+[2026-03-04 07:40:57][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1
+[2026-03-04 07:41:27][INFO ] Playlist has 367 videos
+[2026-03-04 07:41:27][INFO ] Limiting display to first 50 of 367 videos
+[2026-03-04 07:41:27][INFO ] Showing playlist selector with 200 entries
+[2026-03-04 07:41:31][INFO ] Playlist selector closed: btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+27|
+28|
+34|
+35|
+36|
+37|
+38|
+39|
+41|
+42|
+43|
+44|
+45|
+48|
+49|
+50|
+52|
+55|
+58|
+59|
+60|
+61|
+62|
+63|
+64|]
+[2026-03-04 07:41:31][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,34,35,36,37,38,39,41,42,43,44,45,48,49,50,52,55,58,59,60,61,62,63,64
+[2026-03-04 07:41:31][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,34,35,36,37,38,39,41,42,43,44,45,48,49,50,52,55,58,59,60,61,62,63,64
+[2026-03-04 07:41:31][INFO ] Downloading 50 videos from playlist
+[2026-03-04 07:41:31][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1 mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,34,35,36,37,38,39,41,42,43,44,45,48,49,50,52,55,58,59,60,61,62,63,64]
+[2026-03-04 07:41:31][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 07:41:31][INFO ] Feeder PID: 2356280
+[2026-03-04 07:41:31][INFO ] Feeder started
+[2026-03-04 07:41:31][INFO ] Launching progress window with inline logs
+[2026-03-04 07:41:31][INFO ] YAD PID: 2356285
+[2026-03-04 07:41:31][INFO ] === Starting job #1 ===
+[2026-03-04 07:41:31][INFO ] Fetching title for job #1...
+[2026-03-04 07:41:34][INFO ] Title: Ani Choying Drolma - Phoolko Aankhama [Official Lyrical Video]
+[2026-03-04 07:41:34][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,34,35,36,37,38,39,41,42,43,44,45,48,49,50,52,55,58,59,60,61,62,63,64]
+[2026-03-04 07:41:34][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,34,35,36,37,38,39,41,42,43,44,45,48,49,50,52,55,58,59,60,61,62,63,64
+[2026-03-04 07:41:34][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,34,35,36,37,38,39,41,42,43,44,45,48,49,50,52,55,58,59,60,61,62,63,64 --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --ignore-errors --newline https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1
+[2026-03-04 07:41:34][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 07:41:34][INFO ] yt-dlp PID: 2356505
+[2026-03-04 07:41:41][INFO ] Saving to: 01 - Ani Choying Drolma - Phoolko Aankhama [Official Lyrical Video].f136.mp4
+[2026-03-04 07:41:42][INFO ] Saving to: 01 - Ani Choying Drolma - Phoolko Aankhama [Official Lyrical Video].f140.m4a
+[2026-03-04 07:41:46][INFO ] Saving to: 02 - Om Mani Padme Hum ｜｜ Meditating & Spiritual Music.f298.mp4
+[2026-03-04 07:42:16][INFO ] Saving to: 02 - Om Mani Padme Hum ｜｜ Meditating & Spiritual Music.f140.m4a
+[2026-03-04 07:42:21][INFO ] Saving to: 03 - Tara mantra Om tare tutare ture swoha.f134.mp4
+[2026-03-04 07:42:22][INFO ] Saving to: 03 - Tara mantra Om tare tutare ture swoha.f140.m4a
+[2026-03-04 07:42:26][INFO ] Saving to: 04 - Ani Choying Drolma - Namo Ratna (Great Compassion Mantra).f136.mp4
+[2026-03-04 07:42:28][INFO ] Saving to: 04 - Ani Choying Drolma - Namo Ratna (Great Compassion Mantra).f140.m4a
+[2026-03-04 07:42:32][INFO ] Saving to: 05 - Ko Ho Sano.f136.mp4
+[2026-03-04 07:42:32][INFO ] Saving to: 05 - Ko Ho Sano.f140.m4a
+[2026-03-04 07:42:35][INFO ] Saving to: 06 - Ankita Pun - Maili (Official Music Video).f136.mp4
+[2026-03-04 07:42:36][INFO ] Saving to: 06 - Ankita Pun - Maili (Official Music Video).f140.m4a
+[2026-03-04 07:42:39][INFO ] Saving to: 07 - Bipul Chettri - Aashish (Official Video).f136.mp4
+[2026-03-04 07:42:43][INFO ] Saving to: 07 - Bipul Chettri - Aashish (Official Video).f140.m4a
+[2026-03-04 07:42:47][INFO ] Saving to: 08 - Nachahe ko Hoina -The Edge Band I Official Music Video.f137.mp4
+[2026-03-04 07:43:01][INFO ] Saving to: 08 - Nachahe ko Hoina -The Edge Band I Official Music Video.f140.m4a
+[2026-03-04 07:43:05][INFO ] Saving to: 09 - Salin magar  -Timi ra ma ft.Deeya gurung  [official release] Prativa X Muskan.f136.mp4
+[2026-03-04 07:43:13][INFO ] Saving to: 09 - Salin magar  -Timi ra ma ft.Deeya gurung  [official release] Prativa X Muskan.f140.m4a
+[2026-03-04 07:43:17][INFO ] Saving to: 10 - Teenpatey - Dekhera Timi Lai ｜ Official Lyrical Video ｜ Sujan Chapagain & Bidhya Tiwari.f136.mp4
+[2026-03-04 07:43:23][INFO ] Saving to: 10 - Teenpatey - Dekhera Timi Lai ｜ Official Lyrical Video ｜ Sujan Chapagain & Bidhya Tiwari.f140.m4a
+[2026-03-04 07:43:27][INFO ] Saving to: 11 - फूल [Phool] Film ऊनको स्वीटर [Full Version OST] ArtMandu ｜Sujan Chapagain｜ Bipin Karki, Miruna Magar.f136.mp4
+[2026-03-04 07:43:29][INFO ] Saving to: 11 - फूल [Phool] Film ऊनको स्वीटर [Full Version OST] ArtMandu ｜Sujan Chapagain｜ Bipin Karki, Miruna Magar.f140.m4a
+[2026-03-04 07:43:34][INFO ] Saving to: 12 - Ani Choying Drolma - Bhagwan Kaha Ma Jaun [Official Lyrical Video].f136.mp4
+[2026-03-04 07:43:46][INFO ] Saving to: 12 - Ani Choying Drolma - Bhagwan Kaha Ma Jaun [Official Lyrical Video].f140.m4a
+[2026-03-04 07:43:51][INFO ] Saving to: 13 - Ani Choying Drolma - Jannu Bhaneko [Official lyrical video].f136.mp4
+[2026-03-04 07:43:54][INFO ] Saving to: 13 - Ani Choying Drolma - Jannu Bhaneko [Official lyrical video].f140.m4a
+[2026-03-04 07:43:59][INFO ] Saving to: 14 - Buddha Mantra ｜ Brief Sukhavati Aspiration ｜संक्षिप्त सुखावती प्रार्थना ｜ Boby Lama ｜ Ft.Mona Lama ｜.f136.mp4
+[2026-03-04 07:44:12][INFO ] Saving to: 14 - Buddha Mantra ｜ Brief Sukhavati Aspiration ｜संक्षिप्त सुखावती प्रार्थना ｜ Boby Lama ｜ Ft.Mona Lama ｜.f140.m4a
+[2026-03-04 07:44:18][INFO ] Saving to: 15 - Namo Namo - Lyrical ｜ Kedarnath ｜ Sushant Rajput ｜ Sara Ali Khan ｜ Amit Trivedi ｜ Amitabh B.f136.mp4
+[2026-03-04 07:44:26][INFO ] Saving to: 15 - Namo Namo - Lyrical ｜ Kedarnath ｜ Sushant Rajput ｜ Sara Ali Khan ｜ Amit Trivedi ｜ Amitabh B.f140.m4a
+[2026-03-04 07:44:30][INFO ] Saving to: 16 - Radha - Swoopna Suman ft. Abhigya ( Official MV ).f136.mp4
+[2026-03-04 07:44:35][INFO ] Saving to: 16 - Radha - Swoopna Suman ft. Abhigya ( Official MV ).f140.m4a
+[2026-03-04 07:44:39][INFO ] Saving to: 17 - Suna Kancha ( सुन कान्छा ) - Trishna Gurung ｜｜ Official Video ｜｜.f298.mp4
+[2026-03-04 07:44:41][INFO ] Saving to: 17 - Suna Kancha ( सुन कान्छा ) - Trishna Gurung ｜｜ Official Video ｜｜.f140.m4a
+[2026-03-04 07:44:44][INFO ] Saving to: 18 - Hey Krishna Malai Mitho Bamsi Lyrical Video - Raju Adhikari Nepali Bhajan ｜｜ Srd Bhakti Bhajan.f298.mp4
+[2026-03-04 07:44:54][INFO ] Saving to: 18 - Hey Krishna Malai Mitho Bamsi Lyrical Video - Raju Adhikari Nepali Bhajan ｜｜ Srd Bhakti Bhajan.f140.m4a
+[2026-03-04 07:45:00][INFO ] Saving to: 19 - Nepali New Bhajan Shanker Bhola ｜｜ Cover By Rajni Rai ｜｜ #nepali_song #nepali_bhajan.f136.mp4
+[2026-03-04 07:45:05][INFO ] Saving to: 19 - Nepali New Bhajan Shanker Bhola ｜｜ Cover By Rajni Rai ｜｜ #nepali_song #nepali_bhajan.f140.m4a
+[2026-03-04 07:45:08][INFO ] Saving to: 20 - MAYA PIRATI  - TRISHNA GURUNG [COVER].f136.mp4
+[2026-03-04 07:45:17][INFO ] Saving to: 20 - MAYA PIRATI  - TRISHNA GURUNG [COVER].f140.m4a
+[2026-03-04 07:45:20][INFO ] Saving to: 21 - RAIL LAI MA - TRISHNA GURUNG [OFFICIAL VIDEO].f136.mp4
+[2026-03-04 07:45:23][INFO ] Saving to: 21 - RAIL LAI MA - TRISHNA GURUNG [OFFICIAL VIDEO].f140.m4a
+[2026-03-04 07:45:26][INFO ] Saving to: 22 - Bistarai Bistarai - Rohit John Chettri ｜ Nepali Acoustic Classic.f136.mp4
+[2026-03-04 07:45:27][INFO ] Saving to: 22 - Bistarai Bistarai - Rohit John Chettri ｜ Nepali Acoustic Classic.f140.m4a
+[2026-03-04 07:45:31][INFO ] Saving to: 23 - A Mai Re ll Kuma Sagar  ' Hawa Ko Lahar '.f136.mp4
+[2026-03-04 07:45:31][INFO ] Checking: yad
+[2026-03-04 07:45:31][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 07:45:31][INFO ] Checking: yt-dlp
+[2026-03-04 07:45:31][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 07:45:31][INFO ] Checking: ffmpeg
+[2026-03-04 07:45:31][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 07:45:31][INFO ] start_ui: loading preferences
+[2026-03-04 07:45:31][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 07:45:31][INFO ] show_main_window
+[2026-03-04 07:45:32][INFO ] Saving to: 23 - A Mai Re ll Kuma Sagar  ' Hawa Ko Lahar '.f140.m4a
+[2026-03-04 07:45:36][INFO ] Saving to: 24 - Sathi - Sushant KC (Official Music Video).f136.mp4
+[2026-03-04 07:45:37][INFO ] Saving to: 24 - Sathi - Sushant KC (Official Music Video).f140.m4a
+[2026-03-04 07:45:40][INFO ] Saving to: 25 - Samir Shrestha - Hera na ( Official Lyrical Video ) ｜ Prod. Foeseal.f136.mp4
+[2026-03-04 07:45:40][INFO ] Saving to: 25 - Samir Shrestha - Hera na ( Official Lyrical Video ) ｜ Prod. Foeseal.f140.m4a
+[2026-03-04 07:45:44][INFO ] Saving to: 27 - Prabesh Kumar Shrestha - Aau Timi [Official Lyrical Video] Prod. Foeseal.f136.mp4
+[2026-03-04 07:45:45][INFO ] Saving to: 27 - Prabesh Kumar Shrestha - Aau Timi [Official Lyrical Video] Prod. Foeseal.f140.m4a
+[2026-03-04 07:45:49][INFO ] Saving to: 28 - Akash Khadka X Samir Shrestha - Timi Bhayera Prod. Kila Music(Official Music Video) ｜ ft. Situsit.f298.mp4
+[2026-03-04 07:45:52][INFO ] Saving to: 28 - Akash Khadka X Samir Shrestha - Timi Bhayera Prod. Kila Music(Official Music Video) ｜ ft. Situsit.f140.m4a
+[2026-03-04 07:45:56][INFO ] Saving to: 34 - AXIX - Muskan (official music video) 2016.f136.mp4
+[2026-03-04 07:46:00][INFO ] Saving to: 34 - AXIX - Muskan (official music video) 2016.f140.m4a
+[2026-03-04 07:46:04][INFO ] Saving to: 35 - Yabesh Thapa - Kasari ⧸ कसरी.f136.mp4
+[2026-03-04 07:46:06][INFO ] Saving to: 35 - Yabesh Thapa - Kasari ⧸ कसरी.f140.m4a
+[2026-03-04 07:46:10][INFO ] Saving to: 36 - Salin magar  -Timi ra ma ft.Deeya gurung  [official release] Prativa X Muskan.f136.mp4
+[2026-03-04 07:46:13][INFO ] Saving to: 36 - Salin magar  -Timi ra ma ft.Deeya gurung  [official release] Prativa X Muskan.f140.m4a
+[2026-03-04 07:46:18][INFO ] Saving to: 37 - Je Chhau Timi - Swoopna Suman x Samir Shrestha ( Official M⧸V).f136.mp4
+[2026-03-04 07:46:20][INFO ] Saving to: 37 - Je Chhau Timi - Swoopna Suman x Samir Shrestha ( Official M⧸V).f140.m4a
+[2026-03-04 07:46:23][INFO ] Saving to: 38 - A Mai Re ll Kuma Sagar  ' Hawa Ko Lahar '.f136.mp4
+[2026-03-04 07:46:24][INFO ] Saving to: 38 - A Mai Re ll Kuma Sagar  ' Hawa Ko Lahar '.f140.m4a
+[2026-03-04 07:46:28][INFO ] Saving to: 39 - Subodh KC - Ma Haraye ｜ Official Audio & Lyrical Video ｜.f136.mp4
+[2026-03-04 07:46:29][INFO ] Saving to: 39 - Subodh KC - Ma Haraye ｜ Official Audio & Lyrical Video ｜.f140.m4a
+[2026-03-04 07:46:32][INFO ] Saving to: 41 - Suna Kancha ( सुन कान्छा ) - Trishna Gurung ｜｜ Official Video ｜｜.f298.mp4
+[2026-03-04 07:46:35][INFO ] Saving to: 41 - Suna Kancha ( सुन कान्छा ) - Trishna Gurung ｜｜ Official Video ｜｜.f140.m4a
+[2026-03-04 07:46:39][INFO ] Saving to: 42 - Kasari Bhanu - Official Lyrical Video - Swoopna Suman - Arbitrary Originals.f136.mp4
+[2026-03-04 07:46:40][INFO ] Saving to: 42 - Kasari Bhanu - Official Lyrical Video - Swoopna Suman - Arbitrary Originals.f140.m4a
+[2026-03-04 07:46:44][INFO ] Saving to: 43 - EKDEV LIMBU - Jhim Jhimaune Aankha [Official Music Video].f136.mp4
+[2026-03-04 07:46:51][INFO ] Saving to: 43 - EKDEV LIMBU - Jhim Jhimaune Aankha [Official Music Video].f140.m4a
+[2026-03-04 07:46:54][INFO ] Saving to: 44 - Ashutosh KC - MAYA (Official Lyrics Video).f136.mp4
+[2026-03-04 07:46:55][INFO ] Saving to: 44 - Ashutosh KC - MAYA (Official Lyrics Video).f140.m4a
+[2026-03-04 07:46:59][INFO ] Saving to: 45 - Sushant KC - Sarangi (Official Music Video).f136.mp4
+[2026-03-04 07:47:05][INFO ] Saving to: 45 - Sushant KC - Sarangi (Official Music Video).f140.m4a
+[2026-03-04 07:47:10][INFO ] Saving to: 48 - Purna Rai - Kalo⧸Seto (official music video).f136.mp4
+[2026-03-04 07:47:12][INFO ] Saving to: 48 - Purna Rai - Kalo⧸Seto (official music video).f140.m4a
+[2026-03-04 07:47:16][INFO ] Saving to: 49 - Cobweb - Timro Maya I The 30's Edition I Live.f136.mp4
+[2026-03-04 07:47:19][INFO ] Saving to: 49 - Cobweb - Timro Maya I The 30's Edition I Live.f140.m4a
+[2026-03-04 07:47:23][INFO ] Saving to: 50 - Timi Bhane - Albatross (Barahsinghe Acoustic Sessions).f136.mp4
+[2026-03-04 07:47:25][INFO ] Saving to: 50 - Timi Bhane - Albatross (Barahsinghe Acoustic Sessions).f140.m4a
+[2026-03-04 07:47:29][INFO ] Saving to: 52 - Timro Pratiksa - Shallum Lama [To Mini][Official Video].f298.mp4
+[2026-03-04 07:47:29][INFO ] Saving to: 52 - Timro Pratiksa - Shallum Lama [To Mini][Official Video].f140.m4a
+[2026-03-04 07:47:33][INFO ] Saving to: 55 - Ma Sansar Jitne Att (Unpluggedd) Sabin Rai & The Elektrix(Lyrics).f136.mp4
+[2026-03-04 07:47:33][INFO ] Saving to: 55 - Ma Sansar Jitne Att (Unpluggedd) Sabin Rai & The Elektrix(Lyrics).f140.m4a
+[2026-03-04 07:47:36][INFO ] Saving to: 58 - Birsiney Hau Ki - The Elements  ｜ Tuborg Open Sessions.f136.mp4
+[2026-03-04 07:47:39][INFO ] Saving to: 58 - Birsiney Hau Ki - The Elements  ｜ Tuborg Open Sessions.f140.m4a
+[2026-03-04 07:47:42][INFO ] Saving to: 59 - Purna Rai - Manaka kura.f298.mp4
+[2026-03-04 07:47:43][INFO ] Saving to: 59 - Purna Rai - Manaka kura.f140.m4a
+[2026-03-04 07:47:47][INFO ] Saving to: 60 - Bistarai Bistarai - Rohit John Chettri ｜ Nepali Acoustic Classic.f136.mp4
+[2026-03-04 07:47:47][INFO ] Saving to: 60 - Bistarai Bistarai - Rohit John Chettri ｜ Nepali Acoustic Classic.f140.m4a
+[2026-03-04 07:47:51][INFO ] Saving to: 61 - MAYA PIRATI  - TRISHNA GURUNG [COVER].f136.mp4
+[2026-03-04 07:47:56][INFO ] Saving to: 61 - MAYA PIRATI  - TRISHNA GURUNG [COVER].f140.m4a
+[2026-03-04 07:47:59][INFO ] Saving to: 62 - Sujan Chapagain ｜ Gala Pukka - Ma Fakauchu Bhanera Hola [Official Lyrical Video] ｜ Shailesh Giri.f136.mp4
+[2026-03-04 07:48:00][INFO ] Saving to: 62 - Sujan Chapagain ｜ Gala Pukka - Ma Fakauchu Bhanera Hola [Official Lyrical Video] ｜ Shailesh Giri.f140.m4a
+[2026-03-04 07:48:05][INFO ] Saving to: 63 - Sujan Chapagain ｜｜ LAJAYERA - Aba Ta Badhiyeko Kesh  ｜｜ Official Lyrical Video ｜｜ Composer Version.f136.mp4
+[2026-03-04 07:48:11][INFO ] Saving to: 63 - Sujan Chapagain ｜｜ LAJAYERA - Aba Ta Badhiyeko Kesh  ｜｜ Official Lyrical Video ｜｜ Composer Version.f140.m4a
+[2026-03-04 07:48:15][INFO ] Saving to: 64 - Radha - Swoopna Suman ft. Abhigya ( Official MV ).f136.mp4
+[2026-03-04 07:48:25][INFO ] Saving to: 64 - Radha - Swoopna Suman ft. Abhigya ( Official MV ).f140.m4a
+[2026-03-04 07:48:27][INFO ] _dm_run_ytdlp exit code: 0
+[2026-03-04 07:48:27][INFO ] Job #1 attempt 1 exit_code=0
+[2026-03-04 07:48:27][INFO ] Job #1 finished: status=done completed=1 failed=0
+[2026-03-04 07:48:27][INFO ] All jobs processed. Completed=1 Failed=0
+[2026-03-04 07:48:27][INFO ] Feeder: ALL_DONE — exiting
+[2026-03-04 07:48:27][INFO ] Feeder exited
+[2026-03-04 07:48:28][INFO ] dm_start_session complete
+[2026-03-04 07:48:28][INFO ] _post_download_dialog
+[2026-03-04 07:48:31][INFO ] User chose exit
+[2026-03-04 07:53:53][INFO ] Checking: yad
+[2026-03-04 07:53:53][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 07:53:53][INFO ] Checking: yt-dlp
+[2026-03-04 07:53:53][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 07:53:53][INFO ] Checking: ffmpeg
+[2026-03-04 07:53:53][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 07:53:53][INFO ] start_ui: loading preferences
+[2026-03-04 07:53:53][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 07:53:53][INFO ] show_main_window
+[2026-03-04 07:53:59][INFO ] Main window: btn=252
+[2026-03-04 07:53:59][WARN ] Unknown btn 252
+[2026-03-04 07:53:59][INFO ] show_main_window
+[2026-03-04 07:54:05][INFO ] Main window: btn=1
+[2026-03-04 07:54:05][INFO ] User exited
+[2026-03-04 07:54:33][INFO ] Checking: yad
+[2026-03-04 07:54:33][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 07:54:33][INFO ] Checking: yt-dlp
+[2026-03-04 07:54:33][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 07:54:33][INFO ] Checking: ffmpeg
+[2026-03-04 07:54:33][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 07:54:33][INFO ] start_ui: loading preferences
+[2026-03-04 07:54:33][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 07:54:33][INFO ] show_main_window
+[2026-03-04 07:54:50][INFO ] Main window: btn=0
+[2026-03-04 07:54:50][INFO ] _submit: raw=[https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 07:54:50][INFO ] Dev mode: false
+[2026-03-04 07:54:50][INFO ] Platform: youtube
+[2026-03-04 07:54:50][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 07:54:50][INFO ] URL type: playlist
+[2026-03-04 07:54:50][INFO ] _handle_playlist_flow
+[2026-03-04 07:54:50][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1
+[2026-03-04 07:55:21][INFO ] Playlist has 345 videos
+[2026-03-04 07:55:21][INFO ] Limiting display to first 50 of 345 videos
+[2026-03-04 07:55:21][INFO ] Showing playlist selector (checked_state=TRUE, 200 entries)
+[2026-03-04 07:55:27][INFO ] Playlist selector btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+28|
+31|
+32|
+33|
+36|
+37|
+38|
+40|
+41|
+42|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+50|
+51|
+52|
+53|
+54|
+55|
+56|
+57|]
+[2026-03-04 07:55:27][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,31,32,33,36,37,38,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57
+[2026-03-04 07:55:27][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,31,32,33,36,37,38,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57
+[2026-03-04 07:55:27][INFO ] Downloading 50 videos from playlist
+[2026-03-04 07:55:27][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1 mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,31,32,33,36,37,38,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57]
+[2026-03-04 07:55:27][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 07:55:27][INFO ] Feeder PID: 2383054
+[2026-03-04 07:55:27][INFO ] Feeder started
+[2026-03-04 07:55:27][INFO ] Launching progress window with inline logs
+[2026-03-04 07:55:27][INFO ] YAD PID: 2383059
+[2026-03-04 07:55:27][INFO ] === Starting job #1 ===
+[2026-03-04 07:55:27][INFO ] Fetching title for job #1...
+[2026-03-04 07:55:31][INFO ] Title: Ani Choying Drolma - Phoolko Aankhama [Official Lyrical Video]
+[2026-03-04 07:55:31][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,31,32,33,36,37,38,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57]
+[2026-03-04 07:55:31][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,31,32,33,36,37,38,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57
+[2026-03-04 07:55:31][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,31,32,33,36,37,38,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57 --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --ignore-errors --newline https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1
+[2026-03-04 07:55:31][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 07:55:31][INFO ] yt-dlp PID: 2383290
+[2026-03-04 07:55:39][INFO ] Saving to: 02 - GAJALU TI THULA THULA AANKHA ＂गाजलु ति ठुला ठुला आँखा＂ ｜ Ghulam Ali ｜ Old Nepali Song ｜ Music Nepal.f136.mp4
+[2026-03-04 07:55:40][INFO ] Saving to: 02 - GAJALU TI THULA THULA AANKHA ＂गाजलु ति ठुला ठुला आँखा＂ ｜ Ghulam Ali ｜ Old Nepali Song ｜ Music Nepal.f140.m4a
+[2026-03-04 07:55:43][INFO ] Saving to: 03 - Kun Mandir Ma Janchau Yatri ｜ Laxmi Prasad Devkota ｜ Robin Sharma ｜ Music Nepal Official.f136.mp4
+[2026-03-04 07:55:45][INFO ] Saving to: 03 - Kun Mandir Ma Janchau Yatri ｜ Laxmi Prasad Devkota ｜ Robin Sharma ｜ Music Nepal Official.f140.m4a
+[2026-03-04 07:55:49][INFO ] Saving to: 04 - Ani Choying Drolma - Jannu Bhaneko [Official lyrical video].f136.mp4
+[2026-03-04 07:55:50][INFO ] Saving to: 04 - Ani Choying Drolma - Jannu Bhaneko [Official lyrical video].f140.m4a
+[2026-03-04 07:55:53][INFO ] Saving to: 05 - Tara mantra Om tare tutare ture swoha.f134.mp4
+[2026-03-04 07:55:54][INFO ] Saving to: 05 - Tara mantra Om tare tutare ture swoha.f140.m4a
+[2026-03-04 07:55:57][INFO ] Saving to: 06 - Ani Choying Drolma - Namo Ratna (Great Compassion Mantra).f136.mp4
+[2026-03-04 07:56:00][INFO ] Saving to: 06 - Ani Choying Drolma - Namo Ratna (Great Compassion Mantra).f140.m4a
+[2026-03-04 07:56:03][INFO ] Saving to: 07 - फूल [Phool] Film ऊनको स्वीटर [Full Version OST] ArtMandu ｜Sujan Chapagain｜ Bipin Karki, Miruna Magar.f136.mp4
+[2026-03-04 07:56:04][INFO ] Saving to: 07 - फूल [Phool] Film ऊनको स्वीटर [Full Version OST] ArtMandu ｜Sujan Chapagain｜ Bipin Karki, Miruna Magar.f140.m4a
+[2026-03-04 07:56:07][INFO ] Saving to: 08 - Asare Mahinama ＂असारै महिनामा＂ ｜ Prashant Tamang ｜ Pooja Sharma ｜ Nepali Superhit Song.f135.mp4
+[2026-03-04 07:56:09][INFO ] Saving to: 08 - Asare Mahinama ＂असारै महिनामा＂ ｜ Prashant Tamang ｜ Pooja Sharma ｜ Nepali Superhit Song.f140.m4a
+[2026-03-04 07:56:12][INFO ] Saving to: 09 - Bipul Chettri - Aashish (Official Video).f136.mp4
+[2026-03-04 07:56:16][INFO ] Saving to: 09 - Bipul Chettri - Aashish (Official Video).f140.m4a
+[2026-03-04 07:56:19][INFO ] Saving to: 10 - Birsiney Hau Ki - The Elements  ｜ Tuborg Open Sessions.f136.mp4
+[2026-03-04 07:56:22][INFO ] Saving to: 10 - Birsiney Hau Ki - The Elements  ｜ Tuborg Open Sessions.f140.m4a
+[2026-03-04 07:56:27][INFO ] Saving to: 11 - Purna Rai - Kalo⧸Seto (official music video).f136.mp4
+[2026-03-04 07:56:27][INFO ] Saving to: 11 - Purna Rai - Kalo⧸Seto (official music video).f140.m4a
+[2026-03-04 07:56:30][INFO ] Saving to: 12 - Teenpatey - Dekhera Timi Lai ｜ Official Lyrical Video ｜ Sujan Chapagain & Bidhya Tiwari.f136.mp4
+[2026-03-04 07:56:34][INFO ] Saving to: 12 - Teenpatey - Dekhera Timi Lai ｜ Official Lyrical Video ｜ Sujan Chapagain & Bidhya Tiwari.f140.m4a
+[2026-03-04 07:56:37][INFO ] Saving to: 13 - Radha - Swoopna Suman ft. Abhigya ( Official MV ).f136.mp4
+[2026-03-04 07:56:42][INFO ] Saving to: 13 - Radha - Swoopna Suman ft. Abhigya ( Official MV ).f140.m4a
+[2026-03-04 07:56:45][INFO ] Saving to: 14 - Namo Namo - Lyrical ｜ Kedarnath ｜ Sushant Rajput ｜ Sara Ali Khan ｜ Amit Trivedi ｜ Amitabh B.f136.mp4
+[2026-03-04 07:56:49][INFO ] Saving to: 14 - Namo Namo - Lyrical ｜ Kedarnath ｜ Sushant Rajput ｜ Sara Ali Khan ｜ Amit Trivedi ｜ Amitabh B.f140.m4a
+[2026-03-04 07:56:52][INFO ] Saving to: 15 - A Mai Re ll Kuma Sagar  ' Hawa Ko Lahar '.f136.mp4
+[2026-03-04 07:56:54][INFO ] Saving to: 15 - A Mai Re ll Kuma Sagar  ' Hawa Ko Lahar '.f140.m4a
+[2026-03-04 07:56:57][INFO ] Saving to: 16 - Furfuri - Kuma Sagar.f136.mp4
+[2026-03-04 07:56:58][INFO ] Saving to: 16 - Furfuri - Kuma Sagar.f140.m4a
+[2026-03-04 07:57:01][INFO ] Saving to: 17 - Nepathya - Resham (रेशम).f135.mp4
+[2026-03-04 07:57:03][INFO ] Saving to: 17 - Nepathya - Resham (रेशम).f140.m4a
+[2026-03-04 07:57:06][INFO ] Saving to: 18 - Bidesh Jane Mayalu Timilai ｜ Deepak Thapa ｜ Old Nepali Song.f136.mp4
+[2026-03-04 07:57:10][INFO ] Saving to: 18 - Bidesh Jane Mayalu Timilai ｜ Deepak Thapa ｜ Old Nepali Song.f140.m4a
+[2026-03-04 07:57:14][INFO ] Saving to: 19 - Chaubandi Choli by 1974AD.f136.mp4
+[2026-03-04 07:57:14][INFO ] Saving to: 19 - Chaubandi Choli by 1974AD.f140.m4a
+[2026-03-04 07:57:17][INFO ] Saving to: 20 - Udaayo Mann ｜ BEHULI from MEGHAULI Nepali Movie Official Song ｜ Swastima Khadka ｜ Simran Khadka.f136.mp4
+[2026-03-04 07:57:22][INFO ] Saving to: 20 - Udaayo Mann ｜ BEHULI from MEGHAULI Nepali Movie Official Song ｜ Swastima Khadka ｜ Simran Khadka.f140.m4a
+[2026-03-04 07:57:26][INFO ] Saving to: 21 - Bachunjelilai - Lata Mangeshkar ｜ Ram Krishna Dhakal ｜ Jharana Bajracharya ｜ Nepali Song.f136.mp4
+[2026-03-04 07:57:29][INFO ] Saving to: 21 - Bachunjelilai - Lata Mangeshkar ｜ Ram Krishna Dhakal ｜ Jharana Bajracharya ｜ Nepali Song.f140.m4a
+[2026-03-04 07:57:33][INFO ] Saving to: 22 - Deuralima Batas - Premdhoj Pradhan ｜ Natikaji ｜ Nepali Classic Song.f136.mp4
+[2026-03-04 07:57:33][INFO ] Saving to: 22 - Deuralima Batas - Premdhoj Pradhan ｜ Natikaji ｜ Nepali Classic Song.f140.m4a
+[2026-03-04 07:57:37][INFO ] Saving to: 23 - Gopal Yonjan - Baneko Chha Paharale ＂बनेको छ पहराले＂ ｜｜ Nepali All time Hit Songs ｜ Music Nepal.f136.mp4
+[2026-03-04 07:57:38][INFO ] Saving to: 23 - Gopal Yonjan - Baneko Chha Paharale ＂बनेको छ पहराले＂ ｜｜ Nepali All time Hit Songs ｜ Music Nepal.f140.m4a
+[2026-03-04 07:57:42][INFO ] Saving to: 24 - ＂किन किन तिम्रो तस्बिर​＂ Kina Kina Timro Tasbir - Gulam Ali ｜ MBB Shah ｜ Deepak Jangam ｜ Music Nepal.f136.mp4
+[2026-03-04 07:57:43][INFO ] Saving to: 24 - ＂किन किन तिम्रो तस्बिर​＂ Kina Kina Timro Tasbir - Gulam Ali ｜ MBB Shah ｜ Deepak Jangam ｜ Music Nepal.f140.m4a
+[2026-03-04 07:57:46][INFO ] Saving to: 25 - Arabau Manchhe Haruma.f136.mp4
+[2026-03-04 07:57:46][INFO ] Saving to: 25 - Arabau Manchhe Haruma.f140.m4a
+[2026-03-04 07:57:49][INFO ] Saving to: 28 - Ankita Pun - Maili (Official Music Video).f136.mp4
+[2026-03-04 07:57:51][INFO ] Saving to: 28 - Ankita Pun - Maili (Official Music Video).f140.m4a
+[2026-03-04 07:57:54][INFO ] Saving to: 31 - Je Chhau Timi - Swoopna Suman x Samir Shrestha ( Official M⧸V).f136.mp4
+[2026-03-04 07:57:55][WARN ] Caught SIGTERM/SIGHUP — session active, prompting user...
+[2026-03-04 07:57:56][INFO ] Saving to: 31 - Je Chhau Timi - Swoopna Suman x Samir Shrestha ( Official M⧸V).f140.m4a
+[2026-03-04 07:57:57][WARN ] User confirmed exit during active session. Killing workers.
+[2026-03-04 07:57:57][WARN ] Caught SIGTERM/SIGHUP — cleaning up and exiting
+[2026-03-04 07:57:57][INFO ] _dm_run_ytdlp exit code: 143
+[2026-03-04 07:58:05][INFO ] Checking: yad
+[2026-03-04 07:58:05][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 07:58:05][INFO ] Checking: yt-dlp
+[2026-03-04 07:58:05][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 07:58:05][INFO ] Checking: ffmpeg
+[2026-03-04 07:58:05][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 07:58:05][INFO ] start_ui: loading preferences
+[2026-03-04 07:58:05][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 07:58:05][INFO ] show_main_window
+[2026-03-04 07:58:32][INFO ] Main window: btn=0
+[2026-03-04 07:58:32][INFO ] _submit: raw=[https://www.youtube.com/watch?v=17l66cbys_M&list=PLWQ7-wrisHJgD6_fQS0Me4OwJXKhTA1uc|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 07:58:32][INFO ] Dev mode: false
+[2026-03-04 07:58:32][INFO ] Platform: youtube
+[2026-03-04 07:58:32][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 07:58:32][INFO ] URL type: video_in_playlist
+[2026-03-04 07:58:32][INFO ] video_in_playlist — asking user intent
+[2026-03-04 07:58:34][INFO ] User chose: 1
+[2026-03-04 07:58:34][INFO ] _handle_playlist_flow
+[2026-03-04 07:58:34][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=17l66cbys_M&list=PLWQ7-wrisHJgD6_fQS0Me4OwJXKhTA1uc
+[2026-03-04 07:59:05][INFO ] Playlist has 24 videos
+[2026-03-04 07:59:05][INFO ] Showing playlist selector (checked_state=TRUE, 96 entries)
+[2026-03-04 07:59:09][INFO ] Playlist selector btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+21|
+22|
+23|
+24|
+25|]
+[2026-03-04 07:59:09][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23,24,25
+[2026-03-04 07:59:09][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23,24,25
+[2026-03-04 07:59:09][INFO ] Downloading 24 videos from playlist
+[2026-03-04 07:59:09][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=17l66cbys_M&list=PLWQ7-wrisHJgD6_fQS0Me4OwJXKhTA1uc mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23,24,25]
+[2026-03-04 07:59:09][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 07:59:09][INFO ] Feeder started
+[2026-03-04 07:59:09][INFO ] Feeder PID: 2394604
+[2026-03-04 07:59:09][INFO ] Launching progress window with inline logs
+[2026-03-04 07:59:09][INFO ] YAD PID: 2394609
+[2026-03-04 07:59:09][INFO ] === Starting job #1 ===
+[2026-03-04 07:59:09][INFO ] Fetching title for job #1...
+[2026-03-04 07:59:13][INFO ] Title: Sajjan Raj Vaidya - Suna Kaanchi [Official Release]
+[2026-03-04 07:59:13][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23,24,25]
+[2026-03-04 07:59:13][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23,24,25
+[2026-03-04 07:59:13][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23,24,25 --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --ignore-errors --newline https://www.youtube.com/watch?v=17l66cbys_M&list=PLWQ7-wrisHJgD6_fQS0Me4OwJXKhTA1uc
+[2026-03-04 07:59:13][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 07:59:13][INFO ] yt-dlp PID: 2394847
+[2026-03-04 07:59:18][INFO ] Saving to: 01 - Sajjan Raj Vaidya - Suna Kaanchi [Official Release].f136.mp4
+[2026-03-04 07:59:22][INFO ] Saving to: 01 - Sajjan Raj Vaidya - Suna Kaanchi [Official Release].f140.m4a
+[2026-03-04 07:59:26][INFO ] Saving to: 02 - Wangden Sherpa - Timi Nacha Na  [Official Lyric Visualizer] Prod. FRWNY.f136.mp4
+[2026-03-04 07:59:29][INFO ] Saving to: 02 - Wangden Sherpa - Timi Nacha Na  [Official Lyric Visualizer] Prod. FRWNY.f140.m4a
+[2026-03-04 07:59:32][INFO ] Saving to: 03 - Sushant KC - Maya ma (Official Music Video).f136.mp4
+[2026-03-04 07:59:34][INFO ] Saving to: 03 - Sushant KC - Maya ma (Official Music Video).f140.m4a
+[2026-03-04 07:59:37][INFO ] Saving to: 04 - Prabesh Kumar Shrestha - Aau Timi [Official Lyrical Video] Prod. Foeseal.f136.mp4
+[2026-03-04 07:59:38][INFO ] Saving to: 04 - Prabesh Kumar Shrestha - Aau Timi [Official Lyrical Video] Prod. Foeseal.f140.m4a
+[2026-03-04 07:59:41][INFO ] Saving to: 05 - Sometimes by AUR ｜ سم ٹائمز  (Official Audio).f135.mp4
+[2026-03-04 07:59:42][INFO ] Saving to: 05 - Sometimes by AUR ｜ سم ٹائمز  (Official Audio).f140.m4a
+[2026-03-04 07:59:45][INFO ] Saving to: 06 - Sajjan Raj Vaidya - Parkhaai [Official Release].f298.mp4
+[2026-03-04 07:59:47][INFO ] Saving to: 06 - Sajjan Raj Vaidya - Parkhaai [Official Release].f140.m4a
+[2026-03-04 07:59:50][INFO ] Saving to: 07 - Harayeko Maya - ShreeGo Feat. Wiffeyy ｜ Official Lyrcial Video ｜ Music Prod by B2 Sanjal ｜.f136.mp4
+[2026-03-04 07:59:52][INFO ] Saving to: 07 - Harayeko Maya - ShreeGo Feat. Wiffeyy ｜ Official Lyrcial Video ｜ Music Prod by B2 Sanjal ｜.f140.m4a
+[2026-03-04 07:59:56][INFO ] Saving to: 08 - Bhawana - Apurva Tamang (Feat. TWK) ｜ Official Video ｜.f136.mp4
+[2026-03-04 07:59:57][INFO ] Saving to: 08 - Bhawana - Apurva Tamang (Feat. TWK) ｜ Official Video ｜.f140.m4a
+[2026-03-04 08:00:00][INFO ] Saving to: 09 - Baacha Bhayo -  (Our Wedding Song) - Jyotsna & Swoopna.f298.mp4
+[2026-03-04 08:00:03][INFO ] Saving to: 09 - Baacha Bhayo -  (Our Wedding Song) - Jyotsna & Swoopna.f140.m4a
+[2026-03-04 08:00:09][INFO ] Saving to: 10 - Yabesh Thapa X TWK - Aakhale (Lyrical Visualizer).f136.mp4
+[2026-03-04 08:00:12][INFO ] Saving to: 10 - Yabesh Thapa X TWK - Aakhale (Lyrical Visualizer).f140.m4a
+[2026-03-04 08:00:15][INFO ] Saving to: 11 - VEK - Lai Bari Lai.f136.mp4
+[2026-03-04 08:00:20][INFO ] Saving to: 11 - VEK - Lai Bari Lai.f140.m4a
+[2026-03-04 08:00:23][INFO ] Saving to: 12 - Oshin Karki - Rahar⧸ रहर.f136.mp4
+[2026-03-04 08:00:27][INFO ] Saving to: 12 - Oshin Karki - Rahar⧸ रहर.f140.m4a
+[2026-03-04 08:00:31][INFO ] Saving to: 13 - Waiba Buddha - Kina ？ Ft. Priya Basnet ( Official M⧸V ) @CardanoADA_OfficiaI @blessed3330.f136.mp4
+[2026-03-04 08:00:38][INFO ] Saving to: 13 - Waiba Buddha - Kina ？ Ft. Priya Basnet ( Official M⧸V ) @CardanoADA_OfficiaI @blessed3330.f140.m4a
+[2026-03-04 08:00:41][INFO ] Saving to: 14 - Batash ｜ Official Music Video ｜ Shashwot Khadka.f136.mp4
+[2026-03-04 08:00:43][INFO ] Saving to: 14 - Batash ｜ Official Music Video ｜ Shashwot Khadka.f140.m4a
+[2026-03-04 08:00:47][INFO ] Saving to: 15 - Lil Dicky - Earth (Official Music Video).f136.mp4
+[2026-03-04 08:00:55][INFO ] Saving to: 15 - Lil Dicky - Earth (Official Music Video).f140.m4a
+[2026-03-04 08:00:59][INFO ] Saving to: 16 - Ekdev Limbu - Fijeko Kesh [Official Music Video].f136.mp4
+[2026-03-04 08:01:02][INFO ] Saving to: 16 - Ekdev Limbu - Fijeko Kesh [Official Music Video].f140.m4a
+[2026-03-04 08:01:06][INFO ] Saving to: 17 - ＂SAHARA＂ Tribal Rain sikkim Lt Rahul Rai oct14.f136.mp4
+[2026-03-04 08:01:10][INFO ] Saving to: 17 - ＂SAHARA＂ Tribal Rain sikkim Lt Rahul Rai oct14.f140.m4a
+[2026-03-04 08:01:13][INFO ] Saving to: 18 - Akash Khadka - Suna Meri Juna Prod. esther rijan (Official Lyrical Video).f136.mp4
+[2026-03-04 08:01:14][INFO ] Saving to: 18 - Akash Khadka - Suna Meri Juna Prod. esther rijan (Official Lyrical Video).f140.m4a
+[2026-03-04 08:01:17][WARN ] Caught SIGTERM/SIGHUP — session active, prompting user...
+[2026-03-04 08:01:18][INFO ] Saving to: 19 - Sushant KC - Gajalu (Official Lyrical Video).f136.mp4
+[2026-03-04 08:01:19][INFO ] Saving to: 19 - Sushant KC - Gajalu (Official Lyrical Video).f140.m4a
+[2026-03-04 08:01:19][WARN ] User confirmed exit during active session. Killing workers.
+[2026-03-04 08:01:19][WARN ] Caught SIGTERM/SIGHUP — cleaning up and exiting
+[2026-03-04 08:01:19][INFO ] _dm_run_ytdlp exit code: 143
+[2026-03-04 08:03:28][INFO ] Checking: yad
+[2026-03-04 08:03:28][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 08:03:28][INFO ] Checking: yt-dlp
+[2026-03-04 08:03:28][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 08:03:28][INFO ] Checking: ffmpeg
+[2026-03-04 08:03:28][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 08:03:28][INFO ] start_ui: loading preferences
+[2026-03-04 08:03:28][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 08:03:28][INFO ] show_main_window
+[2026-03-04 08:03:46][INFO ] Main window: btn=0
+[2026-03-04 08:03:46][INFO ] _submit: raw=[https://www.youtube.com/watch?v=WafvNKk7Tco&list=PLDIoUOhQQPlWm_njQtKkNIk5RYSGgzomm|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 08:03:46][INFO ] Dev mode: false
+[2026-03-04 08:03:46][INFO ] Platform: youtube
+[2026-03-04 08:03:46][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 08:03:46][INFO ] URL type: video_in_playlist
+[2026-03-04 08:03:46][INFO ] video_in_playlist — asking user intent
+[2026-03-04 08:03:48][INFO ] User chose: 1
+[2026-03-04 08:03:48][INFO ] _handle_playlist_flow
+[2026-03-04 08:03:48][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=WafvNKk7Tco&list=PLDIoUOhQQPlWm_njQtKkNIk5RYSGgzomm
+[2026-03-04 08:04:19][INFO ] Playlist has 110 videos
+[2026-03-04 08:04:19][INFO ] Limiting display to first 50 of 110 videos
+[2026-03-04 08:04:19][INFO ] Showing playlist selector (checked_state=TRUE, 200 entries)
+[2026-03-04 08:04:21][INFO ] Playlist selector btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+26|
+27|
+28|
+29|
+30|
+31|
+32|
+33|
+34|
+35|
+36|
+37|
+38|
+39|
+40|
+41|
+42|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+50|]
+[2026-03-04 08:04:21][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
+[2026-03-04 08:04:21][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
+[2026-03-04 08:04:21][INFO ] Downloading 50 videos from playlist
+[2026-03-04 08:04:21][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=WafvNKk7Tco&list=PLDIoUOhQQPlWm_njQtKkNIk5RYSGgzomm mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+[2026-03-04 08:04:21][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 08:04:21][INFO ] Feeder PID: 2405011
+[2026-03-04 08:04:21][INFO ] Feeder started
+[2026-03-04 08:04:21][INFO ] Launching progress window with inline logs
+[2026-03-04 08:04:21][INFO ] YAD PID: 2405016
+[2026-03-04 08:04:21][INFO ] === Starting job #1 ===
+[2026-03-04 08:04:21][INFO ] Fetching title for job #1...
+[2026-03-04 08:04:27][INFO ] Title: KATSEYE - Internet Girl (Lyrics)
+[2026-03-04 08:04:27][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+[2026-03-04 08:04:27][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
+[2026-03-04 08:04:27][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50 --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --ignore-errors --newline https://www.youtube.com/watch?v=WafvNKk7Tco&list=PLDIoUOhQQPlWm_njQtKkNIk5RYSGgzomm
+[2026-03-04 08:04:27][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 08:04:27][INFO ] yt-dlp PID: 2405287
+[2026-03-04 08:04:36][INFO ] Saving to: 01 - Alex Warren - Ordinary (Lyrics).f136.mp4
+[2026-03-04 08:04:36][INFO ] Saving to: 01 - Alex Warren - Ordinary (Lyrics).f140.m4a
+[2026-03-04 08:04:39][INFO ] Saving to: 02 - Taylor Swift - Opalite (Lyrics).f136.mp4
+[2026-03-04 08:04:41][INFO ] Saving to: 02 - Taylor Swift - Opalite (Lyrics).f140.m4a
+[2026-03-04 08:04:44][INFO ] Saving to: 03 - PinkPantheress - Stateside + Zara Larsson (Lyrics).f136.mp4
+[2026-03-04 08:04:44][INFO ] Saving to: 03 - PinkPantheress - Stateside + Zara Larsson (Lyrics).f140.m4a
+[2026-03-04 08:04:48][INFO ] Saving to: 04 - I Thought I Saw Your Face Today - She And Him (Lyrics).f298.mp4
+[2026-03-04 08:04:49][INFO ] Saving to: 04 - I Thought I Saw Your Face Today - She And Him (Lyrics).f140.m4a
+[2026-03-04 08:04:54][INFO ] Saving to: 05 - Dave, Tems - Raindance (Lyrics).f136.mp4
+[2026-03-04 08:04:54][INFO ] Saving to: 05 - Dave, Tems - Raindance (Lyrics).f140.m4a
+[2026-03-04 08:04:58][INFO ] Saving to: 06 - Zara Larsson - Lush Life (Lyrics).f136.mp4
+[2026-03-04 08:04:58][INFO ] Saving to: 06 - Zara Larsson - Lush Life (Lyrics).f140.m4a
+[2026-03-04 08:05:02][INFO ] Saving to: 07 - Tyla - CHANEL (Lyrics).f136.mp4
+[2026-03-04 08:05:03][INFO ] Saving to: 07 - Tyla - CHANEL (Lyrics).f140.m4a
+[2026-03-04 08:05:12][INFO ] Saving to: 08 - Sienna Spiro - Die On This Hill (Lyrics).f136.mp4
+[2026-03-04 08:05:13][INFO ] Saving to: 08 - Sienna Spiro - Die On This Hill (Lyrics).f140.m4a
+[2026-03-04 08:05:17][INFO ] Saving to: 09 - Taylor Swift - The Fate of Ophelia.f136.mp4
+[2026-03-04 08:05:18][INFO ] Saving to: 09 - Taylor Swift - The Fate of Ophelia.f140.m4a
+[2026-03-04 08:05:22][INFO ] Saving to: 10 - Waylon Wyatt & Wyatt Flores - Didn't Forget (Official Lyric Visualizer).f136.mp4
+[2026-03-04 08:05:27][INFO ] Saving to: 10 - Waylon Wyatt & Wyatt Flores - Didn't Forget (Official Lyric Visualizer).f140.m4a
+[2026-03-04 08:05:32][INFO ] Saving to: 11 - Djo - End Of Beginning (Lyrics).f136.mp4
+[2026-03-04 08:05:32][INFO ] Saving to: 11 - Djo - End Of Beginning (Lyrics).f140.m4a
+[2026-03-04 08:05:39][INFO ] Saving to: 12 - Kato - Turn The Lights Off feat. Jon.f136.mp4
+[2026-03-04 08:05:44][INFO ] Saving to: 12 - Kato - Turn The Lights Off feat. Jon.f140.m4a
+[2026-03-04 08:05:51][INFO ] Saving to: 13 - HAVEN. - I RUN (Lyrics).f298.mp4
+[2026-03-04 08:05:52][INFO ] Saving to: 13 - HAVEN. - I RUN (Lyrics).f140.m4a
+[2026-03-04 08:05:57][INFO ] Saving to: 14 - T.I. - LET 'EM KNOW (Official Lyric Video).f136.mp4
+[2026-03-04 08:05:59][INFO ] Saving to: 14 - T.I. - LET 'EM KNOW (Official Lyric Video).f140.m4a
+[2026-03-04 08:06:03][INFO ] Saving to: 15 - Huntrix - Golden (Lyrics) KPop Demon Hunters.f136.mp4
+[2026-03-04 08:06:03][INFO ] Saving to: 15 - Huntrix - Golden (Lyrics) KPop Demon Hunters.f140.m4a
+[2026-03-04 08:06:08][INFO ] Saving to: 16 - Lady Gaga, Bruno Mars - Die With A Smile (Lyrics).f136.mp4
+[2026-03-04 08:06:08][INFO ] Saving to: 16 - Lady Gaga, Bruno Mars - Die With A Smile (Lyrics).f140.m4a
+[2026-03-04 08:06:12][INFO ] Saving to: 17 - ZLATA OGNEVICH - ONE DAY.f136.mp4
+[2026-03-04 08:06:19][INFO ] Saving to: 17 - ZLATA OGNEVICH - ONE DAY.f140.m4a
+[2026-03-04 08:06:25][INFO ] Saving to: 18 - Rihanna – Breakin' Dishes (Lyrics).f298.mp4
+[2026-03-04 08:06:25][INFO ] Saving to: 18 - Rihanna – Breakin' Dishes (Lyrics).f140.m4a
+[2026-03-04 08:06:29][INFO ] Saving to: 19 - Tate McRae - TIT FOR TAT (Lyric Video).f136.mp4
+[2026-03-04 08:06:32][INFO ] Saving to: 19 - Tate McRae - TIT FOR TAT (Lyric Video).f140.m4a
+[2026-03-04 08:06:37][INFO ] Saving to: 20 - Joyce Wrice - Break Me In (Official Music Video).f136.mp4
+[2026-03-04 08:06:41][INFO ] Saving to: 20 - Joyce Wrice - Break Me In (Official Music Video).f140.m4a
+[2026-03-04 08:06:45][INFO ] Saving to: 21 - KATSEYE - Internet Girl (Lyrics).f136.mp4
+[2026-03-04 08:06:46][INFO ] Saving to: 21 - KATSEYE - Internet Girl (Lyrics).f140.m4a
+[2026-03-04 08:06:50][INFO ] Saving to: 22 - Doechii - Anxiety (Lyrics).f136.mp4
+[2026-03-04 08:06:51][INFO ] Saving to: 22 - Doechii - Anxiety (Lyrics).f140.m4a
+[2026-03-04 08:06:57][INFO ] Saving to: 23 - Sabrina Carpenter - Please Please Please (Lyrics).f136.mp4
+[2026-03-04 08:06:58][INFO ] Saving to: 23 - Sabrina Carpenter - Please Please Please (Lyrics).f140.m4a
+[2026-03-04 08:07:01][INFO ] Saving to: 24 - yung kai - blue (Lyrics).f136.mp4
+[2026-03-04 08:07:02][INFO ] Saving to: 24 - yung kai - blue (Lyrics).f140.m4a
+[2026-03-04 08:07:06][INFO ] Saving to: 25 - Olivia Dean - Man I Need (Lyrics).f136.mp4
+[2026-03-04 08:07:07][INFO ] Saving to: 25 - Olivia Dean - Man I Need (Lyrics).f140.m4a
+[2026-03-04 08:07:11][INFO ] Saving to: 26 - Ariana Grande - We Can’t Be Friends (Lyrics).f136.mp4
+[2026-03-04 08:07:12][INFO ] Saving to: 26 - Ariana Grande - We Can’t Be Friends (Lyrics).f140.m4a
+[2026-03-04 08:07:15][INFO ] Saving to: 27 - Metito - On my mind (Lyrics).f136.mp4
+[2026-03-04 08:07:18][INFO ] Saving to: 27 - Metito - On my mind (Lyrics).f140.m4a
+[2026-03-04 08:07:21][INFO ] Saving to: 28 - Alphaville - Forever Young (Lyrics).f136.mp4
+[2026-03-04 08:07:23][INFO ] Saving to: 28 - Alphaville - Forever Young (Lyrics).f140.m4a
+[2026-03-04 08:07:26][INFO ] Saving to: 29 - Post Malone & Morgan Wallen - I Had Some Help (Lyrics).f136.mp4
+[2026-03-04 08:07:27][INFO ] Saving to: 29 - Post Malone & Morgan Wallen - I Had Some Help (Lyrics).f140.m4a
+[2026-03-04 08:07:31][INFO ] Saving to: 30 - WizTheMc, bees & honey - Show Me Love (Lyrics).f136.mp4
+[2026-03-04 08:07:32][INFO ] Saving to: 30 - WizTheMc, bees & honey - Show Me Love (Lyrics).f140.m4a
+[2026-03-04 08:07:35][INFO ] Saving to: 31 - sombr - back to friends (lyrics).f136.mp4
+[2026-03-04 08:07:43][INFO ] Saving to: 31 - sombr - back to friends (lyrics).f140.m4a
+[2026-03-04 08:07:46][INFO ] Saving to: 32 - Teddy Swims - Bad Dreams (Lyrics).f136.mp4
+[2026-03-04 08:07:47][INFO ] Saving to: 32 - Teddy Swims - Bad Dreams (Lyrics).f140.m4a
+[2026-03-04 08:07:51][INFO ] Saving to: 33 - ROSÉ & Bruno Mars - APT. (Lyrics).f136.mp4
+[2026-03-04 08:07:51][INFO ] Saving to: 33 - ROSÉ & Bruno Mars - APT. (Lyrics).f140.m4a
+[2026-03-04 08:07:56][INFO ] Saving to: 34 - Gracie Abrams - That’s So True (Lyrics).f136.mp4
+[2026-03-04 08:07:56][INFO ] Saving to: 34 - Gracie Abrams - That’s So True (Lyrics).f140.m4a
+[2026-03-04 08:07:59][INFO ] Saving to: 35 - Darin feat. Eloise - Falling In love (Music Video).f136.mp4
+[2026-03-04 08:08:00][INFO ] Saving to: 35 - Darin feat. Eloise - Falling In love (Music Video).f140.m4a
+[2026-03-04 08:08:04][INFO ] Saving to: 36 - Billie Eilish - BIRDS OF A FEATHER (Official Lyric Video).f136.mp4
+[2026-03-04 08:08:04][INFO ] Saving to: 36 - Billie Eilish - BIRDS OF A FEATHER (Official Lyric Video).f140.m4a
+[2026-03-04 08:08:07][INFO ] Saving to: 37 - Tyla - PUSH 2 START (Lyrics).f136.mp4
+[2026-03-04 08:08:08][INFO ] Saving to: 37 - Tyla - PUSH 2 START (Lyrics).f140.m4a
+[2026-03-04 08:08:12][INFO ] Saving to: 38 - sombr - undressed (official lyric video).f136.mp4
+[2026-03-04 08:08:12][INFO ] Saving to: 38 - sombr - undressed (official lyric video).f140.m4a
+[2026-03-04 08:08:15][INFO ] Saving to: 39 - Alex Warren - Eternity (Lyrics).f136.mp4
+[2026-03-04 08:08:16][INFO ] Saving to: 39 - Alex Warren - Eternity (Lyrics).f140.m4a
+[2026-03-04 08:08:20][INFO ] Saving to: 40 - Eloise - It All Goes (Visualizer).f136.mp4
+[2026-03-04 08:08:22][INFO ] Saving to: 40 - Eloise - It All Goes (Visualizer).f140.m4a
+[2026-03-04 08:08:25][INFO ] Saving to: 41 - Rock That Body - The Black Eyed Peas (Lyrics).f136.mp4
+[2026-03-04 08:08:26][INFO ] Saving to: 41 - Rock That Body - The Black Eyed Peas (Lyrics).f140.m4a
+[2026-03-04 08:08:30][INFO ] Saving to: 42 - Gigi Perez – Sailor Song (Lyrics).f298.mp4
+[2026-03-04 08:08:31][INFO ] Saving to: 42 - Gigi Perez – Sailor Song (Lyrics).f140.m4a
+[2026-03-04 08:08:35][INFO ] Saving to: 43 - Kendrick Lamar - luther (Lyrics) ft. SZA.f136.mp4
+[2026-03-04 08:08:35][INFO ] Saving to: 43 - Kendrick Lamar - luther (Lyrics) ft. SZA.f140.m4a
+[2026-03-04 08:08:39][INFO ] Saving to: 44 - Alexia - I just might (Visualizer).f136.mp4
+[2026-03-04 08:08:40][INFO ] Saving to: 44 - Alexia - I just might (Visualizer).f140.m4a
+[2026-03-04 08:08:43][INFO ] Saving to: 45 - Justin Bieber - Yukon (Lyrics).f136.mp4
+[2026-03-04 08:08:43][INFO ] Saving to: 45 - Justin Bieber - Yukon (Lyrics).f140.m4a
+[2026-03-04 08:08:46][INFO ] Saving to: 46 - BLACKPINK '뛰어(JUMP)' (Color Coded Lyrics).f136.mp4
+[2026-03-04 08:08:46][INFO ] Saving to: 46 - BLACKPINK '뛰어(JUMP)' (Color Coded Lyrics).f140.m4a
+[2026-03-04 08:08:49][INFO ] Saving to: 47 - Lola Young - Messy (Lyrics).f136.mp4
+[2026-03-04 08:08:50][INFO ] Saving to: 47 - Lola Young - Messy (Lyrics).f140.m4a
+[2026-03-04 08:08:58][INFO ] Saving to: 48 - Sabrina Carpenter - Tears (Lyrics).f298.mp4
+[2026-03-04 08:08:59][INFO ] Saving to: 48 - Sabrina Carpenter - Tears (Lyrics).f140.m4a
+[2026-03-04 08:09:02][INFO ] Saving to: 49 - Saja Boys - Your Idol (Lyrics) KPop Demon Hunters.f136.mp4
+[2026-03-04 08:09:03][INFO ] Saving to: 49 - Saja Boys - Your Idol (Lyrics) KPop Demon Hunters.f140.m4a
+[2026-03-04 08:09:07][INFO ] Saving to: 50 - Lady Gaga - Abracadabra (Lyrics).f136.mp4
+[2026-03-04 08:09:07][INFO ] Saving to: 50 - Lady Gaga - Abracadabra (Lyrics).f140.m4a
+[2026-03-04 08:09:08][INFO ] _dm_run_ytdlp exit code: 0
+[2026-03-04 08:09:08][INFO ] Job #1 attempt 1 exit_code=0
+[2026-03-04 08:09:08][INFO ] Job #1 finished: status=done completed=1 failed=0
+[2026-03-04 08:09:08][INFO ] All jobs processed. Completed=1 Failed=0
+[2026-03-04 08:09:09][INFO ] dm_start_session complete
+[2026-03-04 08:09:09][INFO ] _post_download_dialog
+[2026-03-04 08:09:19][INFO ] User chose exit
+[2026-03-04 08:09:47][INFO ] Checking: yad
+[2026-03-04 08:09:47][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 08:09:47][INFO ] Checking: yt-dlp
+[2026-03-04 08:09:47][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 08:09:47][INFO ] Checking: ffmpeg
+[2026-03-04 08:09:47][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 08:09:47][INFO ] start_ui: loading preferences
+[2026-03-04 08:09:47][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 08:09:47][INFO ] show_main_window
+[2026-03-04 08:09:56][INFO ] Main window: btn=0
+[2026-03-04 08:09:56][INFO ] _submit: raw=[https://www.youtube.com/watch?v=AdBzzpq3xV4&list=PLP32wGpgzmIlInfgKVFfCwVsxgGqZNIiS|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 08:09:56][INFO ] Dev mode: false
+[2026-03-04 08:09:56][INFO ] Platform: youtube
+[2026-03-04 08:09:56][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 08:09:56][INFO ] URL type: video_in_playlist
+[2026-03-04 08:09:56][INFO ] video_in_playlist — asking user intent
+[2026-03-04 08:10:00][INFO ] User chose: 1
+[2026-03-04 08:10:00][INFO ] _handle_playlist_flow
+[2026-03-04 08:10:00][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=AdBzzpq3xV4&list=PLP32wGpgzmIlInfgKVFfCwVsxgGqZNIiS
+[2026-03-04 08:10:30][INFO ] Playlist has 100 videos
+[2026-03-04 08:10:31][INFO ] Limiting display to first 50 of 100 videos
+[2026-03-04 08:10:31][INFO ] Showing playlist selector (checked_state=TRUE, 200 entries)
+[2026-03-04 08:10:46][INFO ] Playlist selector btn=2 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+26|
+27|
+28|
+29|
+30|
+31|
+32|
+33|
+34|
+35|
+36|
+37|
+38|
+39|
+40|
+41|
+42|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+50|]
+[2026-03-04 08:10:46][INFO ] Select All clicked
+[2026-03-04 08:10:46][INFO ] Showing playlist selector (checked_state=TRUE, 200 entries)
+[2026-03-04 08:10:53][INFO ] Playlist selector btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+26|
+27|
+28|
+29|
+30|
+31|
+32|
+33|
+34|
+35|
+36|
+37|
+38|
+39|
+40|
+41|
+42|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+50|]
+[2026-03-04 08:10:53][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
+[2026-03-04 08:10:53][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
+[2026-03-04 08:10:53][INFO ] Downloading 50 videos from playlist
+[2026-03-04 08:10:53][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=AdBzzpq3xV4&list=PLP32wGpgzmIlInfgKVFfCwVsxgGqZNIiS mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+[2026-03-04 08:10:53][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 08:10:53][INFO ] Feeder PID: 2422114
+[2026-03-04 08:10:53][INFO ] Feeder started
+[2026-03-04 08:10:53][INFO ] Launching progress window with inline logs
+[2026-03-04 08:10:53][INFO ] YAD PID: 2422119
+[2026-03-04 08:10:53][INFO ] === Starting job #1 ===
+[2026-03-04 08:10:53][INFO ] Fetching title for job #1...
+[2026-03-04 08:11:02][INFO ] Title: Lady Gaga, Bruno Mars - Die With A Smile
+[2026-03-04 08:11:02][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+[2026-03-04 08:11:02][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
+[2026-03-04 08:11:02][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50 --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --ignore-errors --newline https://www.youtube.com/watch?v=AdBzzpq3xV4&list=PLP32wGpgzmIlInfgKVFfCwVsxgGqZNIiS
+[2026-03-04 08:11:02][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 08:11:02][INFO ] yt-dlp PID: 2422446
+[2026-03-04 08:11:08][INFO ] Saving to: 01 - Lady Gaga, Bruno Mars - Die With A Smile.f298.mp4
+[2026-03-04 08:11:09][INFO ] Saving to: 01 - Lady Gaga, Bruno Mars - Die With A Smile.f140.m4a
+[2026-03-04 08:11:13][INFO ] Saving to: 02 - Huntrix - Golden (Lyrics) KPop Demon Hunters.f136.mp4
+[2026-03-04 08:11:13][INFO ] Saving to: 02 - Huntrix - Golden (Lyrics) KPop Demon Hunters.f140.m4a
+[2026-03-04 08:11:16][INFO ] Saving to: 03 - Alex Warren - Ordinary (Lyrics).f136.mp4
+[2026-03-04 08:11:17][INFO ] Saving to: 03 - Alex Warren - Ordinary (Lyrics).f140.m4a
+[2026-03-04 08:11:21][INFO ] Saving to: 04 - Gigi Perez - Sailor Song (Lyrics).f136.mp4
+[2026-03-04 08:11:21][INFO ] Saving to: 04 - Gigi Perez - Sailor Song (Lyrics).f140.m4a
+[2026-03-04 08:11:25][INFO ] Saving to: 05 - Gracie Abrams - That’s So True (Lyrics).f136.mp4
+[2026-03-04 08:11:26][INFO ] Saving to: 05 - Gracie Abrams - That’s So True (Lyrics).f140.m4a
+[2026-03-04 08:11:29][INFO ] Saving to: 06 - Benson Boone - Beautiful Things (Lyrics).f298.mp4
+[2026-03-04 08:11:29][INFO ] Saving to: 06 - Benson Boone - Beautiful Things (Lyrics).f140.m4a
+[2026-03-04 08:11:32][INFO ] Saving to: 07 - Doechii - Anxiety (Lyrics).f136.mp4
+[2026-03-04 08:11:33][INFO ] Saving to: 07 - Doechii - Anxiety (Lyrics).f140.m4a
+[2026-03-04 08:11:37][INFO ] Saving to: 08 - Taylor Swift - The Fate of Ophelia.f136.mp4
+[2026-03-04 08:11:38][INFO ] Saving to: 08 - Taylor Swift - The Fate of Ophelia.f140.m4a
+[2026-03-04 08:11:41][INFO ] Saving to: 09 - sombr - back to friends (lyrics).f136.mp4
+[2026-03-04 08:11:45][INFO ] Saving to: 09 - sombr - back to friends (lyrics).f140.m4a
+[2026-03-04 08:11:50][INFO ] Saving to: 10 - Mimi Webb - Ends In Y (Official Music Video).f136.mp4
+[2026-03-04 08:11:55][INFO ] Saving to: 10 - Mimi Webb - Ends In Y (Official Music Video).f140.m4a
+[2026-03-04 08:11:59][INFO ] Saving to: 11 - yung kai - blue (Lyrics).f136.mp4
+[2026-03-04 08:11:59][INFO ] Saving to: 11 - yung kai - blue (Lyrics).f140.m4a
+[2026-03-04 08:12:03][INFO ] Saving to: 12 - Myles Smith - Stargazing (Lyrics).f298.mp4
+[2026-03-04 08:12:04][INFO ] Saving to: 12 - Myles Smith - Stargazing (Lyrics).f140.m4a
+[2026-03-04 08:12:08][INFO ] Saving to: 13 - Ed Sheeran - Azizam (Lyric Video).f136.mp4
+[2026-03-04 08:12:12][INFO ] Saving to: 13 - Ed Sheeran - Azizam (Lyric Video).f140.m4a
+[2026-03-04 08:12:15][INFO ] Saving to: 14 - Darin feat. Eloise - Falling In love (Music Video).f136.mp4
+[2026-03-04 08:12:16][INFO ] Saving to: 14 - Darin feat. Eloise - Falling In love (Music Video).f140.m4a
+[2026-03-04 08:12:20][INFO ] Saving to: 15 - Lola Young - Messy (Lyrics).f136.mp4
+[2026-03-04 08:12:20][INFO ] Saving to: 15 - Lola Young - Messy (Lyrics).f140.m4a
+[2026-03-04 08:12:23][INFO ] Saving to: 16 - Billie Eilish - BIRDS OF A FEATHER (Official Lyric Video).f136.mp4
+[2026-03-04 08:12:24][INFO ] Saving to: 16 - Billie Eilish - BIRDS OF A FEATHER (Official Lyric Video).f140.m4a
+[2026-03-04 08:12:27][INFO ] Saving to: 17 - MBNel - Kept My Word (Official Video).f136.mp4
+[2026-03-04 08:12:30][INFO ] Saving to: 17 - MBNel - Kept My Word (Official Video).f140.m4a
+[2026-03-04 08:12:39][INFO ] Saving to: 18 - Sabrina Carpenter - Manchild (Lyrics).f136.mp4
+[2026-03-04 08:12:39][INFO ] Saving to: 18 - Sabrina Carpenter - Manchild (Lyrics).f140.m4a
+[2026-03-04 08:12:42][INFO ] Saving to: 19 - Taylor Swift - Opalite (Lyric Video).f136.mp4
+[2026-03-04 08:12:46][INFO ] Saving to: 19 - Taylor Swift - Opalite (Lyric Video).f140.m4a
+[2026-03-04 08:12:49][INFO ] Saving to: 20 - T.I. - LET 'EM KNOW (Official Lyric Video).f136.mp4
+[2026-03-04 08:12:51][INFO ] Saving to: 20 - T.I. - LET 'EM KNOW (Official Lyric Video).f140.m4a
+[2026-03-04 08:12:54][INFO ] Saving to: 21 - Justin Bieber - Yukon (Lyrics).f136.mp4
+[2026-03-04 08:12:54][INFO ] Saving to: 21 - Justin Bieber - Yukon (Lyrics).f140.m4a
+[2026-03-04 08:12:57][INFO ] Saving to: 22 - sombr - undressed (official lyric video).f136.mp4
+[2026-03-04 08:12:58][INFO ] Saving to: 22 - sombr - undressed (official lyric video).f140.m4a
+[2026-03-04 08:13:01][INFO ] Saving to: 23 - Mystical Magical - ​⁠Benson Boone (Lyrics).f136.mp4
+[2026-03-04 08:13:02][INFO ] Saving to: 23 - Mystical Magical - ​⁠Benson Boone (Lyrics).f140.m4a
+[2026-03-04 08:13:05][INFO ] Saving to: 24 - Deb Never - ARCADE (Official Music Video).f136.mp4
+[2026-03-04 08:13:09][INFO ] Saving to: 24 - Deb Never - ARCADE (Official Music Video).f140.m4a
+[2026-03-04 08:13:13][INFO ] Saving to: 25 - Ravyn Lenae - Love Me Not (Lyrics).f136.mp4
+[2026-03-04 08:13:13][INFO ] Saving to: 25 - Ravyn Lenae - Love Me Not (Lyrics).f140.m4a
+[2026-03-04 08:13:17][INFO ] Saving to: 26 - Sabrina Carpenter - When Did You Get Hot？ (Lyrics).f136.mp4
+[2026-03-04 08:13:17][INFO ] Saving to: 26 - Sabrina Carpenter - When Did You Get Hot？ (Lyrics).f140.m4a
+[2026-03-04 08:13:21][INFO ] Saving to: 27 - HoodTrophy Bino - Fallin 4 U ft. Star2 (Official Music Video).f136.mp4
+[2026-03-04 08:13:24][INFO ] Saving to: 27 - HoodTrophy Bino - Fallin 4 U ft. Star2 (Official Music Video).f140.m4a
+[2026-03-04 08:13:28][INFO ] Saving to: 28 - Kid Cudi - Maui Wowie (Lyrics).f298.mp4
+[2026-03-04 08:13:30][INFO ] Saving to: 28 - Kid Cudi - Maui Wowie (Lyrics).f140.m4a
+[2026-03-04 08:13:34][INFO ] Saving to: 29 - Justin Bieber - DAISIES (Lyrics).f136.mp4
+[2026-03-04 08:13:34][INFO ] Saving to: 29 - Justin Bieber - DAISIES (Lyrics).f140.m4a
+[2026-03-04 08:13:38][INFO ] Saving to: 30 - Saja Boys - Your Idol (Lyrics) KPop Demon Hunters.f136.mp4
+[2026-03-04 08:13:38][INFO ] Saving to: 30 - Saja Boys - Your Idol (Lyrics) KPop Demon Hunters.f140.m4a
+[2026-03-04 08:13:42][INFO ] Saving to: 31 - Trillwop - Survivor’s Remorse (feat. Reese Youngn) (Official Music Video).f136.mp4
+[2026-03-04 08:13:47][INFO ] Saving to: 31 - Trillwop - Survivor’s Remorse (feat. Reese Youngn) (Official Music Video).f140.m4a
+[2026-03-04 08:13:51][INFO ] Saving to: 32 - ＊NSYNC - Bye Bye Bye (Lyrics) (Deadpool 3 Soundtrack).f136.mp4
+[2026-03-04 08:13:51][INFO ] Saving to: 32 - ＊NSYNC - Bye Bye Bye (Lyrics) (Deadpool 3 Soundtrack).f140.m4a
+[2026-03-04 08:13:56][INFO ] Saving to: 33 - Taylor Swift - The Life of a Showgirl (Feat. Sabrina Carpenter) (Lyric Video).f136.mp4
+[2026-03-04 08:14:00][INFO ] Saving to: 33 - Taylor Swift - The Life of a Showgirl (Feat. Sabrina Carpenter) (Lyric Video).f140.m4a
+[2026-03-04 08:14:04][INFO ] Saving to: 34 - Joyce Wrice - Break Me In (Official Music Video).f136.mp4
+[2026-03-04 08:14:06][INFO ] Saving to: 34 - Joyce Wrice - Break Me In (Official Music Video).f140.m4a
+[2026-03-04 08:14:10][INFO ] Saving to: 35 - Lola Young - Messy (Lyrics).f136.mp4
+[2026-03-04 08:14:11][INFO ] Saving to: 35 - Lola Young - Messy (Lyrics).f140.m4a
+[2026-03-04 08:14:15][INFO ] Saving to: 36 - Man I Need - Olivia Dean (Lyrics).f136.mp4
+[2026-03-04 08:14:16][INFO ] Saving to: 36 - Man I Need - Olivia Dean (Lyrics).f140.m4a
+[2026-03-04 08:14:19][INFO ] Saving to: 37 - Sabrina Carpenter - Please Please Please (Lyrics).f136.mp4
+[2026-03-04 08:14:20][INFO ] Saving to: 37 - Sabrina Carpenter - Please Please Please (Lyrics).f140.m4a
+[2026-03-04 08:14:23][INFO ] Saving to: 38 - Mike WiLL Made-It ft. NBA Youngboy & Chief Keef - ROOMS (Official Visualizer).f136.mp4
+[2026-03-04 08:14:29][INFO ] Saving to: 38 - Mike WiLL Made-It ft. NBA Youngboy & Chief Keef - ROOMS (Official Visualizer).f140.m4a
+[2026-03-04 08:14:33][INFO ] Saving to: 39 - Doja Cat - Jealous Type (Lyrics).f136.mp4
+[2026-03-04 08:14:34][INFO ] Saving to: 39 - Doja Cat - Jealous Type (Lyrics).f140.m4a
+[2026-03-04 08:14:37][INFO ] Saving to: 40 - She & Him - I Thought I Saw Your Face Today (Official Lyric Video).f298.mp4
+[2026-03-04 08:14:39][INFO ] Saving to: 40 - She & Him - I Thought I Saw Your Face Today (Official Lyric Video).f140.m4a
+[2026-03-04 08:14:42][INFO ] Saving to: 41 - Chappell Roan – The Subway (Lyrics).f298.mp4
+[2026-03-04 08:14:43][INFO ] Saving to: 41 - Chappell Roan – The Subway (Lyrics).f140.m4a
+[2026-03-04 08:14:46][INFO ] Saving to: 42 - Alexia - I just might (Visualizer).f136.mp4
+[2026-03-04 08:14:47][INFO ] Saving to: 42 - Alexia - I just might (Visualizer).f140.m4a
+[2026-03-04 08:14:50][INFO ] Saving to: 43 - HUNTRIX - What It Sounds Like (Lyrics) KPop Demon Hunters.f136.mp4
+[2026-03-04 08:14:51][INFO ] Saving to: 43 - HUNTRIX - What It Sounds Like (Lyrics) KPop Demon Hunters.f140.m4a
+[2026-03-04 08:14:54][INFO ] Saving to: 44 - ROSÉ & Bruno Mars 'APT.' (Color Coded Lyrics).f136.mp4
+[2026-03-04 08:14:54][INFO ] Saving to: 44 - ROSÉ & Bruno Mars 'APT.' (Color Coded Lyrics).f140.m4a
+[2026-03-04 08:14:57][INFO ] Saving to: 45 - Teddy Swims - Bad Dreams (Lyrics).f136.mp4
+[2026-03-04 08:14:58][INFO ] Saving to: 45 - Teddy Swims - Bad Dreams (Lyrics).f140.m4a
+[2026-03-04 08:15:07][INFO ] Saving to: 46 - Tyler, The Creator - Sugar On My Tongue (Lyrics).f298.mp4
+[2026-03-04 08:15:07][INFO ] Saving to: 46 - Tyler, The Creator - Sugar On My Tongue (Lyrics).f140.m4a
+[2026-03-04 08:15:10][INFO ] Saving to: 47 - Eloise - It All Goes (Visualizer).f136.mp4
+[2026-03-04 08:15:12][INFO ] Saving to: 47 - Eloise - It All Goes (Visualizer).f140.m4a
+[2026-03-04 08:15:15][INFO ] Saving to: 48 - Lady Gaga - Abracadabra (Lyrics).f136.mp4
+[2026-03-04 08:15:16][INFO ] Saving to: 48 - Lady Gaga - Abracadabra (Lyrics).f140.m4a
+[2026-03-04 08:15:20][INFO ] Saving to: 49 - Taylor Swift - Cruel Summer.f298.mp4
+[2026-03-04 08:15:21][INFO ] Saving to: 49 - Taylor Swift - Cruel Summer.f140.m4a
+[2026-03-04 08:15:25][INFO ] Saving to: 50 - Huntrix - Takedown (Lyrics) KPop Demon Hunters.f298.mp4
+[2026-03-04 08:15:26][INFO ] Saving to: 50 - Huntrix - Takedown (Lyrics) KPop Demon Hunters.f140.m4a
+[2026-03-04 08:15:27][INFO ] _dm_run_ytdlp exit code: 0
+[2026-03-04 08:15:27][INFO ] Job #1 attempt 1 exit_code=0
+[2026-03-04 08:15:27][INFO ] Job #1 finished: status=done completed=1 failed=0
+[2026-03-04 08:15:27][INFO ] All jobs processed. Completed=1 Failed=0
+[2026-03-04 08:15:27][INFO ] Feeder: ALL_DONE — exiting
+[2026-03-04 08:15:27][INFO ] Feeder exited
+[2026-03-04 08:15:28][INFO ] dm_start_session complete
+[2026-03-04 08:15:28][INFO ] _post_download_dialog
+[2026-03-04 08:18:22][INFO ] User chose exit
+[2026-03-04 08:18:44][INFO ] Checking: yad
+[2026-03-04 08:18:44][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 08:18:44][INFO ] Checking: yt-dlp
+[2026-03-04 08:18:44][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 08:18:44][INFO ] Checking: ffmpeg
+[2026-03-04 08:18:44][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 08:18:44][INFO ] start_ui: loading preferences
+[2026-03-04 08:18:44][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 08:18:44][INFO ] show_main_window
+[2026-03-04 08:18:58][INFO ] Main window: btn=0
+[2026-03-04 08:18:58][INFO ] _submit: raw=[https://www.youtube.com/watch?v=htk6MRjmcnQ&list=PLTo6svdhIL1cxS4ffGueFpVCF756ip-ab|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 08:18:58][INFO ] Dev mode: false
+[2026-03-04 08:18:58][INFO ] Platform: youtube
+[2026-03-04 08:18:58][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 08:18:58][INFO ] URL type: video_in_playlist
+[2026-03-04 08:18:58][INFO ] video_in_playlist — asking user intent
+[2026-03-04 08:19:00][INFO ] User chose: 1
+[2026-03-04 08:19:00][INFO ] _handle_playlist_flow
+[2026-03-04 08:19:00][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=htk6MRjmcnQ&list=PLTo6svdhIL1cxS4ffGueFpVCF756ip-ab
+[2026-03-04 08:19:30][INFO ] Playlist has 120 videos
+[2026-03-04 08:19:30][INFO ] Limiting display to first 50 of 120 videos
+[2026-03-04 08:19:30][INFO ] Showing playlist selector (checked_state=TRUE show_all=false showing=50 of 120)
+[2026-03-04 08:19:45][INFO ] Playlist selector btn=4 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+26|
+27|
+28|
+29|
+30|
+31|
+32|
+33|
+34|
+35|
+36|
+37|
+38|
+39|
+40|
+41|
+42|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+50|]
+[2026-03-04 08:19:45][INFO ] Show All clicked — expanding to all 120 videos
+[2026-03-04 08:19:45][INFO ] Showing playlist selector (checked_state=TRUE show_all=true showing=120 of 120)
+[2026-03-04 08:19:49][INFO ] Playlist selector btn=3 selection=[]
+[2026-03-04 08:19:49][INFO ] Deselect All clicked
+[2026-03-04 08:19:49][INFO ] Showing playlist selector (checked_state=FALSE show_all=true showing=120 of 120)
+[2026-03-04 08:19:52][INFO ] Playlist selector btn=2 selection=[]
+[2026-03-04 08:19:52][INFO ] Select All clicked
+[2026-03-04 08:19:52][INFO ] Showing playlist selector (checked_state=TRUE show_all=true showing=120 of 120)
+[2026-03-04 08:19:59][INFO ] Playlist selector btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+26|
+27|
+28|
+29|
+30|
+31|
+32|
+33|
+34|
+35|
+36|
+37|
+38|
+39|
+40|
+41|
+42|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+50|
+51|
+52|
+53|
+54|
+55|
+56|
+57|
+58|
+59|
+60|
+61|
+62|
+63|
+64|
+65|
+66|
+67|
+68|
+69|
+70|
+71|
+72|
+73|
+74|
+75|
+76|
+77|
+78|
+79|
+80|
+81|
+82|
+83|
+84|
+85|
+86|
+87|
+88|
+89|
+90|
+91|
+92|
+93|
+94|
+95|
+96|
+97|
+98|
+99|
+100|
+101|
+102|
+103|
+104|
+105|
+106|
+107|
+108|
+109|
+110|
+111|
+112|
+113|
+114|
+115|
+116|
+117|
+118|
+119|
+120|]
+[2026-03-04 08:19:59][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120
+[2026-03-04 08:19:59][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120
+[2026-03-04 08:19:59][INFO ] Downloading 120 videos from playlist
+[2026-03-04 08:19:59][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=htk6MRjmcnQ&list=PLTo6svdhIL1cxS4ffGueFpVCF756ip-ab mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120]
+[2026-03-04 08:19:59][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 08:19:59][INFO ] Feeder started
+[2026-03-04 08:19:59][INFO ] Feeder PID: 2444625
+[2026-03-04 08:19:59][INFO ] Launching progress window with inline logs
+[2026-03-04 08:19:59][INFO ] YAD PID: 2444630
+[2026-03-04 08:19:59][INFO ] === Starting job #1 ===
+[2026-03-04 08:19:59][INFO ] Fetching title for job #1...
+[2026-03-04 08:20:03][INFO ] Title: Huntrix - Golden (Lyrics) KPop Demon Hunters
+[2026-03-04 08:20:03][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120]
+[2026-03-04 08:20:03][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120
+[2026-03-04 08:20:03][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120 --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --ignore-errors --newline https://www.youtube.com/watch?v=htk6MRjmcnQ&list=PLTo6svdhIL1cxS4ffGueFpVCF756ip-ab
+[2026-03-04 08:20:03][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 08:20:03][INFO ] yt-dlp PID: 2444886
+[2026-03-04 08:20:10][INFO ] Saving to: 01 - Huntrix - Golden (Lyrics) KPop Demon Hunters.f136.mp4
+[2026-03-04 08:20:13][INFO ] Saving to: 01 - Huntrix - Golden (Lyrics) KPop Demon Hunters.f140.m4a
+[2026-03-04 08:20:16][INFO ] Saving to: 02 - Rock That Body - The Black Eyed Peas (Lyrics).f136.mp4
+[2026-03-04 08:20:18][INFO ] Saving to: 02 - Rock That Body - The Black Eyed Peas (Lyrics).f140.m4a
+[2026-03-04 08:20:22][INFO ] Saving to: 03 - The Neighbourhood - Sweater Weather (Lyrics).f136.mp4
+[2026-03-04 08:20:23][INFO ] Saving to: 03 - The Neighbourhood - Sweater Weather (Lyrics).f140.m4a
+[2026-03-04 08:20:27][INFO ] Saving to: 04 - [TikTok] Kato feat. Jon - Turn The Lights Off ｜ Jon Hamm.f298.mp4
+[2026-03-04 08:20:31][INFO ] Saving to: 04 - [TikTok] Kato feat. Jon - Turn The Lights Off ｜ Jon Hamm.f140.m4a
+[2026-03-04 08:20:38][WARN ] Caught SIGTERM/SIGHUP — session active, prompting user...
+[2026-03-04 08:20:39][WARN ] User confirmed exit during active session. Killing workers.
+[2026-03-04 08:20:39][WARN ] Caught SIGTERM/SIGHUP — cleaning up and exiting
+[2026-03-04 08:20:39][INFO ] _dm_run_ytdlp exit code: 143

@@ -111,6 +111,10 @@ dm_start_session() {
         # Also set DEV_LOG_PIPE for logger.sh compat (logger writes to this path);
         # logger will try -p check which will be false → it won't block.
         DEV_LOG_PIPE="$DM_DEV_LOG_FILE"
+    else
+        # Always create a log file even in normal mode so the YAD log pane
+        # shows filtered human-readable status lines (Saving, Merging, errors).
+        DM_DEV_LOG_FILE=$(mktemp /tmp/carmedia_devlog_XXXXXX)
     fi
 
     _dm_init_state
@@ -337,12 +341,12 @@ _dm_run_ytdlp() {
 
     yt-dlp "${YT_DLP_ARGS[@]}" 2>&1 | {
         while IFS= read -r line; do
-            # Always log raw line
+            # Always log raw line to file log
             log_debug "[yt-dlp] $line"
-            # Append raw line to the dev log file (non-blocking) so it shows in YAD
-            if [[ -n "$DM_DEV_LOG_FILE" ]]; then
-                echo "$line" >> "$DM_DEV_LOG_FILE" 2>/dev/null || true
-            fi
+
+            # Always write every raw yt-dlp line to the log file.
+            # The feeder streams this to YAD's log pane (visible at the bottom).
+            [[ -n "$DM_DEV_LOG_FILE" ]] && echo "$line" >> "$DM_DEV_LOG_FILE" 2>/dev/null || true
 
             # ── Parse progress line ───────────────────────────────────────────────
             # Format: [download]  68.4% of 321.09MiB at  22.77MiB/s ETA 00:09
@@ -406,6 +410,7 @@ _dm_run_ytdlp() {
 _dm_feeder() {
     local state_file="$1" fifo="$2" dev_log_file="${3:-}"
     local last_pct=-1
+    local last_title="" last_status=""   # change-detect: only send # when something changes
     local dev_log_pos=0   # byte offset — tracks how far we've read the dev log file
     log_info "Feeder started"
 
@@ -421,27 +426,29 @@ _dm_feeder() {
 
         if [[ "$ALL_DONE" == "1" ]]; then
             echo "100" >&3
-            echo "#  All downloads complete!" >&3
+            # Only send final label once
+            printf '# ✅  All downloads complete!\n' >&3
             log_info "Feeder: ALL_DONE — exiting"
             break
         fi
 
-        # Push percentage
+        # Push percentage only when it changes
         if [[ "$PCT" != "$last_pct" ]]; then
             echo "$PCT" >&3
             last_pct="$PCT"
         fi
 
-        # Push label (multi-line Pango markup)
-        {
-            printf '# '
-            printf '<b>%s</b>\n' "$TITLE"
-            printf ' Speed: %s    ETA: %s    %s\n' "$SPEED" "$ETA" "$DL_SIZE"
-            printf '%s\n' "$STATUS"
-            [[ -n "$QUEUE_INFO" ]] && printf '<small>%s</small>\n' "$QUEUE_INFO"
-        } >&3
+        # Push label ONLY when title or status actually changes.
+        # YAD with --enable-log echoes every '# TEXT' line into the log pane,
+        # so sending it every 0.5s floods the log. Sending only on real
+        # transitions (new file, Merging, Complete, etc.) = near-zero spam.
+        if [[ "$TITLE" != "$last_title" || "$STATUS" != "$last_status" ]]; then
+            printf '# <b>%s</b>  |  %s\n' "$TITLE" "$STATUS" >&3
+            last_title="$TITLE"
+            last_status="$STATUS"
+        fi
 
-        # Stream new lines from the dev log file to YAD's always-expanded log pane.
+        # Stream new raw yt-dlp lines from the dev log file to the log pane.
         # Uses tail-style byte-offset reads so we never block or re-send old lines.
         if [[ -n "$dev_log_file" && -f "$dev_log_file" ]]; then
             local new_lines
@@ -454,7 +461,7 @@ _dm_feeder() {
             fi
         fi
 
-        sleep 0.5
+        sleep 0.3
     done
 
     exec 3>&-   # close fd

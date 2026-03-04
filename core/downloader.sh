@@ -123,6 +123,16 @@ build_yt_dlp_args() {
     YT_DLP_ARGS+=( --retries 3 --fragment-retries 5 )
     YT_DLP_ARGS+=( --retry-sleep linear=1::2 )
 
+    # ── Browser Cookies (for age-restricted / login-required videos) ──────────
+    # Set COOKIE_BROWSER to chrome, firefox, brave, or chromium in Settings.
+    # yt-dlp will read the browser's cookie store so authenticated downloads
+    # work even for members-only / age-gated / sign-in-required content.
+    local cb="${COOKIE_BROWSER:-none}"
+    if [[ "$cb" != "none" && -n "$cb" ]]; then
+        YT_DLP_ARGS+=( --cookies-from-browser "$cb" )
+        log_info "  Using cookies from browser: $cb"
+    fi
+
     # Skip unavailable videos in a playlist (don't abort the whole batch)
     [[ "$url_type" == "playlist" ]] && YT_DLP_ARGS+=( --ignore-errors )
 
@@ -134,3 +144,4 @@ build_yt_dlp_args() {
 
     log_info "  Full yt-dlp command: yt-dlp ${YT_DLP_ARGS[*]}"
 }
+
