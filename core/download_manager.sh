@@ -333,70 +333,66 @@ _dm_run_ytdlp() {
     local title="${DM_TITLE[$id]}"
     local completed_so_far=$DM_COMPLETED
     local total=$DM_TOTAL_JOBS
-
-    # Capture yt-dlp's real exit code via a temp file.
-    # We cannot use PIPESTATUS inside a process substitution, so we run yt-dlp
-    # on the left side of a pipe and save the exit code explicitly.
     local exit_code_file; exit_code_file=$(mktemp /tmp/carmedia_ytdlp_rc_XXXXXX)
 
-    yt-dlp "${YT_DLP_ARGS[@]}" 2>&1 | {
-        while IFS= read -r line; do
-            # Always log raw line to file log
-            log_debug "[yt-dlp] $line"
+    # Run yt-dlp, capture exit code BEFORE any piping
+    yt-dlp "${YT_DLP_ARGS[@]}" > "$exit_code_file.out" 2>&1
+    local ytdlp_rc=$?
+    
+    # Now parse the output
+    while IFS= read -r line; do
+        # Always log raw line
+        log_debug "[yt-dlp] $line"
 
-            # Always write every raw yt-dlp line to the log file.
-            # The feeder streams this to YAD's log pane (visible at the bottom).
-            [[ -n "$DM_DEV_LOG_FILE" ]] && echo "$line" >> "$DM_DEV_LOG_FILE" 2>/dev/null || true
+        # Write every raw yt-dlp line to the log file for YAD streaming
+        [[ -n "$DM_DEV_LOG_FILE" ]] && echo "$line" >> "$DM_DEV_LOG_FILE" 2>/dev/null || true
 
-            # ── Parse progress line ───────────────────────────────────────────────
-            # Format: [download]  68.4% of 321.09MiB at  22.77MiB/s ETA 00:09
-            if [[ "$line" =~ \[download\][[:space:]]+([0-9]+)(\.[0-9]+)?% ]]; then
-                local pct="${BASH_REMATCH[1]}"
-                local speed="—" eta="—" total_size="—"
+        # ── Parse progress line ───────────────────────────────────────────────
+        # Format: [download]  68.4% of 321.09MiB at  22.77MiB/s ETA 00:09
+        if [[ "$line" =~ \[download\][[:space:]]+([0-9]+)(\.[0-9]+)?% ]]; then
+            local pct="${BASH_REMATCH[1]}"
+            local speed="—" eta="—" total_size="—"
 
-                [[ "$line" =~ at[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B/s) ]] \
-                    && speed="${BASH_REMATCH[1]}"
-                [[ "$line" =~ ETA[[:space:]]+([0-9:]+) ]] \
-                    && eta="${BASH_REMATCH[1]}"
-                [[ "$line" =~ of[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B) ]] \
-                    && total_size="${BASH_REMATCH[1]}"
+            [[ "$line" =~ at[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B/s) ]] \
+                && speed="${BASH_REMATCH[1]}"
+            [[ "$line" =~ ETA[[:space:]]+([0-9:]+) ]] \
+                && eta="${BASH_REMATCH[1]}"
+            [[ "$line" =~ of[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B) ]] \
+                && total_size="${BASH_REMATCH[1]}"
 
-                local queue_info="Video $((completed_so_far+1)) of $total | Done: $completed_so_far | Left: $((total-completed_so_far))"
+            local queue_info="Video $((completed_so_far+1)) of $total | Done: $completed_so_far | Left: $((total-completed_so_far))"
 
-                _dm_write_state "$id" " Downloading" \
-                    "$pct" "$speed" "$eta" "$total_size" "$title" "$queue_info"
+            _dm_write_state "$id" " Downloading" \
+                "$pct" "$speed" "$eta" "$total_size" "$title" "$queue_info"
 
-            # ── Merge / ffmpeg line ───────────────────────────────────────────────
-            elif [[ "$line" =~ \[Merger\]|\[ffmpeg\]|\[VideoConvertor\] ]]; then
-                _dm_write_state "$id" " Merging streams…" \
-                    99 "—" "Almost done…" "—" "$title"
+        # ── Merge / ffmpeg line ───────────────────────────────────────────────
+        elif [[ "$line" =~ \[Merger\]|\[ffmpeg\]|\[VideoConvertor\] ]]; then
+            _dm_write_state "$id" " Merging streams…" \
+                99 "—" "Almost done…" "—" "$title"
 
-            # ── Destination line (file saved) ─────────────────────────────────────
-            elif [[ "$line" =~ \[download\]\ Destination:(.+) ]]; then
-                local fname; fname=$(basename "${BASH_REMATCH[1]}")
-                log_info "Saving to: $fname"
+        # ── Destination line (file saved) ─────────────────────────────────────
+        elif [[ "$line" =~ \[download\]\ Destination:(.+) ]]; then
+            local fname; fname=$(basename "${BASH_REMATCH[1]}")
+            log_info "Saving to: $fname"
 
-            # ── Already downloaded ────────────────────────────────────────────────
-            elif [[ "$line" =~ \[download\].*has\ already\ been\ downloaded ]]; then
-                _dm_write_state "$id" " Already downloaded" \
-                    100 "—" "—" "—" "$title"
+        # ── Already downloaded ────────────────────────────────────────────────
+        elif [[ "$line" =~ \[download\].*has\ already\ been\ downloaded ]]; then
+            _dm_write_state "$id" " Already downloaded" \
+                100 "—" "—" "—" "$title"
+            ytdlp_rc=0  # Treat as success
 
-            # ── Error line ────────────────────────────────────────────────────────
-            elif [[ "$line" =~ ERROR: ]]; then
-                log_error "yt-dlp: $line"
-                _dm_write_status "$id" " ${line:0:80}"
-            fi
-        done
-    }
-    # PIPESTATUS[0] is yt-dlp's exit code (left side of pipe), PIPESTATUS[1] is the subshell
-    local ytdlp_rc="${PIPESTATUS[0]}"
-    echo "$ytdlp_rc" > "$exit_code_file"
+        # ── Error line ────────────────────────────────────────────────────────
+        elif [[ "$line" =~ ERROR: ]]; then
+            log_error "yt-dlp: $line"
+            _dm_write_status "$id" " ${line:0:80}"
+        fi
+    done < "$exit_code_file.out"
 
-    local rc; rc=$(cat "$exit_code_file" 2>/dev/null); rc=${rc:-1}
-    rm -f "$exit_code_file"
-    log_info "_dm_run_ytdlp exit code: $rc"
-    return "$rc"
+    rm -f "$exit_code_file" "$exit_code_file.out"
+    log_info "_dm_run_ytdlp job #$id exit code: $ytdlp_rc"
+    return "$ytdlp_rc"
 }
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # _dm_feeder STATE_FILE FIFO FEEDER_PID

@@ -272,6 +272,242 @@ _post_download_dialog() {
         || { log_info "User chose exit"; exit 0; }
 }
 
+# Add this new function before show_settings_window()
+
+# ─────────────────────────────────────────────────────────────────────────────
+# _show_cookie_setup_guide
+# Shows step-by-step guide for extracting browser cookies manually
+# ─────────────────────────────────────────────────────────────────────────────
+_show_cookie_setup_guide() {
+    yad --text-info \
+        --title="$APP_TITLE – Browser Cookie Setup" \
+        --filename=/dev/stdin \
+        --width=720 --height=480 \
+        --wrap \
+        --button="I've Copied Cookies!gtk-ok:0" \
+        --button="Cancel!gtk-cancel:1" \
+        2>/dev/null << 'GUIDE'
+<b>🍪 How to Enable Age-Restricted Videos</b>
+
+Some videos require login. You can either:
+
+<b>OPTION A: Auto-extract from your browser (RECOMMENDED)</b>
+  Go to Settings → 🍪 Cookie Source → Select your browser
+  The app will automatically use your logged-in session.
+
+<b>OPTION B: Manual cookie paste (if Option A doesn't work)</b>
+
+1️⃣  Open your browser and go to <tt>youtube.com</tt>
+2️⃣  Sign in with your account
+3️⃣  Open Developer Tools: Press <tt>F12</tt>
+4️⃣  Go to <tt>Storage</tt> tab → <tt>Cookies</tt> → <tt>youtube.com</tt>
+5️⃣  <b>Install this extension:</b>
+    • Chrome: "Get cookies.txt LOCALLY" by @kairi
+    • Firefox: "Export Cookies" by @Rotem Dan
+6️⃣  Click the extension icon → Download cookies.txt
+7️⃣  Copy the file contents (Ctrl+A, Ctrl+C)
+8️⃣  Paste in the next dialog
+
+The app will save this and use it for all downloads.
+
+<b>How often?</b> Once per month or when you get login errors.
+GUIDE
+
+    [[ $? -eq 0 ]] && _show_cookie_paste_dialog || return 1
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# _show_cookie_paste_dialog
+# YAD form for pasting raw cookies.txt content
+# ─────────────────────────────────────────────────────────────────────────────
+_show_cookie_paste_dialog() {
+    local cookie_content
+    
+    cookie_content=$(yad --text-info \
+        --title="$APP_TITLE – Paste Cookies" \
+        --text="Paste your cookies.txt file contents below:\n(Right-click in text area → Paste)" \
+        --width=700 --height=300 \
+        --button=" Save Cookies!gtk-ok:0" \
+        --button="Cancel!gtk-cancel:1" \
+        2>/dev/null)
+
+    local btn=$?
+    
+    if [[ $btn -eq 0 && -n "$cookie_content" ]]; then
+        echo "$cookie_content" > "${BASE_DIR}/config/cookies.txt"
+        chmod 600 "${BASE_DIR}/config/cookies.txt"
+        log_info "Cookies saved to config/cookies.txt"
+        show_success_dialog "Cookies Saved" "Your cookies have been saved.\n\nDownloads will now use your logged-in session."
+        return 0
+    else
+        log_info "Cookie paste cancelled"
+        return 1
+    fi
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Now update show_settings_window to add the setup button
+# ─────────────────────────────────────────────────────────────────────────────
+
+show_settings_window() {
+    log_info "show_settings_window"
+    local result btn
+
+    # Build cookie browser combo (active item first)
+    local _cb_active="${COOKIE_BROWSER:-none}"
+    local _cb_list="None!Chrome!Firefox!Brave!Chromium"
+    case "$_cb_active" in
+        chrome)   _cb_list="Chrome!None!Firefox!Brave!Chromium" ;;
+        firefox)  _cb_list="Firefox!None!Chrome!Brave!Chromium" ;;
+        brave)    _cb_list="Brave!None!Chrome!Firefox!Chromium" ;;
+        chromium) _cb_list="Chromium!None!Chrome!Firefox!Brave" ;;
+    esac
+
+    result=$(yad --form \
+        --title="$APP_TITLE – Settings" \
+        --text="<b>⚙  Preferences</b>" \
+        --width=560 --center \
+        --separator="|" \
+        --field="📁  Default Download Folder":DIR    "${SAVE_DIR:-$HOME/CarMedia}" \
+        --field="📦  Default Mode":CB                "Video!Music" \
+        --field="🎬  Default Video Profile":CB       "$(_video_profile_combo)" \
+        --field="🎵  Default Music Profile":CB       "$(_music_profile_combo)" \
+        --field="🔢  Max Playlist Items (threshold)":NUM "${MAX_PLAYLIST_LIMIT:-50}!1..500!1!0" \
+        --field="⚡  Concurrent Fragments (speed)":NUM "${YT_CONCURRENT_FRAGS:-5}!1..16!1!0" \
+        --field="🔄  Auto-update yt-dlp on start":CHK "${AUTO_UPDATE:-false}" \
+        --field="🍪  Browser Cookies (auto-extract)":CB "$_cb_list" \
+        --button="🍪 Manual Cookie Setup:3" \
+        --button="⬆ Update yt-dlp Now:2" \
+        --button="gtk-cancel:1" \
+        --button="gtk-save:0" \
+        2>/dev/null)
+    btn=$?
+
+    log_info "Settings: btn=$btn"
+    case $btn in
+        0) _save_settings "$result" ;;
+        2) update_ytdlp_with_ui; show_settings_window ;;
+        3) _show_cookie_setup_guide; show_settings_window ;;
+    esac
+}
+# ─────────────────────────────────────────────────────────────────────────────
+# _show_cookie_setup_guide
+# Shows step-by-step guide for extracting browser cookies manually
+# ─────────────────────────────────────────────────────────────────────────────
+_show_cookie_setup_guide() {
+    yad --text-info \
+        --title="$APP_TITLE – Browser Cookie Setup" \
+        --filename=/dev/stdin \
+        --width=720 --height=480 \
+        --wrap \
+        --button="I've Copied Cookies!gtk-ok:0" \
+        --button="Cancel!gtk-cancel:1" \
+        2>/dev/null << 'GUIDE'
+<b>🍪 How to Enable Age-Restricted Videos</b>
+
+Some videos require login. You can either:
+
+<b>OPTION A: Auto-extract from your browser (RECOMMENDED)</b>
+  Go to Settings → 🍪 Cookie Source → Select your browser
+  The app will automatically use your logged-in session.
+
+<b>OPTION B: Manual cookie paste (if Option A doesn't work)</b>
+
+1️⃣  Open your browser and go to <tt>youtube.com</tt>
+2️⃣  Sign in with your account
+3️⃣  Open Developer Tools: Press <tt>F12</tt>
+4️⃣  Go to <tt>Storage</tt> tab → <tt>Cookies</tt> → <tt>youtube.com</tt>
+5️⃣  <b>Install this extension:</b>
+    • Chrome: "Get cookies.txt LOCALLY" by @kairi
+    • Firefox: "Export Cookies" by @Rotem Dan
+6️⃣  Click the extension icon → Download cookies.txt
+7️⃣  Copy the file contents (Ctrl+A, Ctrl+C)
+8️⃣  Paste in the next dialog
+
+The app will save this and use it for all downloads.
+
+<b>How often?</b> Once per month or when you get login errors.
+GUIDE
+
+    [[ $? -eq 0 ]] && _show_cookie_paste_dialog || return 1
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# _show_cookie_paste_dialog
+# YAD form for pasting raw cookies.txt content
+# ─────────────────────────────────────────────────────────────────────────────
+_show_cookie_paste_dialog() {
+    local cookie_content
+    
+    cookie_content=$(yad --text-info \
+        --title="$APP_TITLE – Paste Cookies" \
+        --text="Paste your cookies.txt file contents below:\n(Right-click in text area → Paste)" \
+        --width=700 --height=300 \
+        --button=" Save Cookies!gtk-ok:0" \
+        --button="Cancel!gtk-cancel:1" \
+        2>/dev/null)
+
+    local btn=$?
+    
+    if [[ $btn -eq 0 && -n "$cookie_content" ]]; then
+        echo "$cookie_content" > "${BASE_DIR}/config/cookies.txt"
+        chmod 600 "${BASE_DIR}/config/cookies.txt"
+        log_info "Cookies saved to config/cookies.txt"
+        show_success_dialog "Cookies Saved" "Your cookies have been saved.\n\nDownloads will now use your logged-in session."
+        return 0
+    else
+        log_info "Cookie paste cancelled"
+        return 1
+    fi
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Now update show_settings_window to add the setup button
+# ─────────────────────────────────────────────────────────────────────────────
+
+show_settings_window() {
+    log_info "show_settings_window"
+    local result btn
+
+    # Build cookie browser combo (active item first)
+    local _cb_active="${COOKIE_BROWSER:-none}"
+    local _cb_list="None!Chrome!Firefox!Brave!Chromium"
+    case "$_cb_active" in
+        chrome)   _cb_list="Chrome!None!Firefox!Brave!Chromium" ;;
+        firefox)  _cb_list="Firefox!None!Chrome!Brave!Chromium" ;;
+        brave)    _cb_list="Brave!None!Chrome!Firefox!Chromium" ;;
+        chromium) _cb_list="Chromium!None!Chrome!Firefox!Brave" ;;
+    esac
+
+    result=$(yad --form \
+        --title="$APP_TITLE – Settings" \
+        --text="<b>⚙  Preferences</b>" \
+        --width=560 --center \
+        --separator="|" \
+        --field="📁  Default Download Folder":DIR    "${SAVE_DIR:-$HOME/CarMedia}" \
+        --field="📦  Default Mode":CB                "Video!Music" \
+        --field="🎬  Default Video Profile":CB       "$(_video_profile_combo)" \
+        --field="🎵  Default Music Profile":CB       "$(_music_profile_combo)" \
+        --field="🔢  Max Playlist Items (threshold)":NUM "${MAX_PLAYLIST_LIMIT:-50}!1..500!1!0" \
+        --field="⚡  Concurrent Fragments (speed)":NUM "${YT_CONCURRENT_FRAGS:-5}!1..16!1!0" \
+        --field="🔄  Auto-update yt-dlp on start":CHK "${AUTO_UPDATE:-false}" \
+        --field="🍪  Browser Cookies (auto-extract)":CB "$_cb_list" \
+        --button="🍪 Manual Cookie Setup:3" \
+        --button="⬆ Update yt-dlp Now:2" \
+        --button="gtk-cancel:1" \
+        --button="gtk-save:0" \
+        2>/dev/null)
+    btn=$?
+
+    log_info "Settings: btn=$btn"
+    case $btn in
+        0) _save_settings "$result" ;;
+        2) update_ytdlp_with_ui; show_settings_window ;;
+        3) _show_cookie_setup_guide; show_settings_window ;;
+    esac
+}
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # show_settings_window
 # ─────────────────────────────────────────────────────────────────────────────

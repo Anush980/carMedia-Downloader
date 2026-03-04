@@ -1,4 +1,77 @@
-[2026-03-03 19:14:27] [ERROR] Required tool not found: yt-dlp\nInstall with: pip install yt-dlp  OR  sudo pacman -S yt-dlp
+#!/usr/bin/env bash
+# ...existing code...
+
+# ─────────────────────────────────────────────────────────────────────────────
+# _dm_run_ytdlp JOB_ID
+# Runs yt-dlp, parses each output line, updates the STATE_FILE.
+# FIXED: Properly captures yt-dlp exit code without losing it in subshell.
+# ─────────────────────────────────────────────────────────────────────────────
+_dm_run_ytdlp() {
+    local id="$1"
+    local title="${DM_TITLE[$id]}"
+    local completed_so_far=$DM_COMPLETED
+    local total=$DM_TOTAL_JOBS
+    local exit_code_file; exit_code_file=$(mktemp /tmp/carmedia_ytdlp_rc_XXXXXX)
+
+    # Run yt-dlp, capture exit code BEFORE any piping
+    yt-dlp "${YT_DLP_ARGS[@]}" > "$exit_code_file.out" 2>&1
+    local ytdlp_rc=$?
+    
+    # Now parse the output
+    while IFS= read -r line; do
+        # Always log raw line
+        log_debug "[yt-dlp] $line"
+
+        # Write every raw yt-dlp line to the log file for YAD streaming
+        [[ -n "$DM_DEV_LOG_FILE" ]] && echo "$line" >> "$DM_DEV_LOG_FILE" 2>/dev/null || true
+
+        # ── Parse progress line ───────────────────────────────────────────────
+        # Format: [download]  68.4% of 321.09MiB at  22.77MiB/s ETA 00:09
+        if [[ "$line" =~ \[download\][[:space:]]+([0-9]+)(\.[0-9]+)?% ]]; then
+            local pct="${BASH_REMATCH[1]}"
+            local speed="—" eta="—" total_size="—"
+
+            [[ "$line" =~ at[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B/s) ]] \
+                && speed="${BASH_REMATCH[1]}"
+            [[ "$line" =~ ETA[[:space:]]+([0-9:]+) ]] \
+                && eta="${BASH_REMATCH[1]}"
+            [[ "$line" =~ of[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B) ]] \
+                && total_size="${BASH_REMATCH[1]}"
+
+            local queue_info="Video $((completed_so_far+1)) of $total | Done: $completed_so_far | Left: $((total-completed_so_far))"
+
+            _dm_write_state "$id" " Downloading" \
+                "$pct" "$speed" "$eta" "$total_size" "$title" "$queue_info"
+
+        # ── Merge / ffmpeg line ───────────────────────────────────────────────
+        elif [[ "$line" =~ \[Merger\]|\[ffmpeg\]|\[VideoConvertor\] ]]; then
+            _dm_write_state "$id" " Merging streams…" \
+                99 "—" "Almost done…" "—" "$title"
+
+        # ── Destination line (file saved) ─────────────────────────────────────
+        elif [[ "$line" =~ \[download\]\ Destination:(.+) ]]; then
+            local fname; fname=$(basename "${BASH_REMATCH[1]}")
+            log_info "Saving to: $fname"
+
+        # ── Already downloaded ────────────────────────────────────────────────
+        elif [[ "$line" =~ \[download\].*has\ already\ been\ downloaded ]]; then
+            _dm_write_state "$id" " Already downloaded" \
+                100 "—" "—" "—" "$title"
+            ytdlp_rc=0  # Treat as success
+
+        # ── Error line ────────────────────────────────────────────────────────
+        elif [[ "$line" =~ ERROR: ]]; then
+            log_error "yt-dlp: $line"
+            _dm_write_status "$id" " ${line:0:80}"
+        fi
+    done < "$exit_code_file.out"
+
+    rm -f "$exit_code_file" "$exit_code_file.out"
+    log_info "_dm_run_ytdlp job #$id exit code: $ytdlp_rc"
+    return "$ytdlp_rc"
+}
+
+# ...existing code...[2026-03-03 19:14:27] [ERROR] Required tool not found: yt-dlp\nInstall with: pip install yt-dlp  OR  sudo pacman -S yt-dlp
 
 Usage: yt-dlp [OPTIONS] URL [URL...]
 

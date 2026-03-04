@@ -27394,3 +27394,200 @@ playlist
 [2026-03-04 08:20:39][WARN ] User confirmed exit during active session. Killing workers.
 [2026-03-04 08:20:39][WARN ] Caught SIGTERM/SIGHUP — cleaning up and exiting
 [2026-03-04 08:20:39][INFO ] _dm_run_ytdlp exit code: 143
+[2026-03-04 08:33:42][INFO ] Checking: yad
+[2026-03-04 08:33:42][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 08:33:42][INFO ] Checking: yt-dlp
+[2026-03-04 08:33:42][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 08:33:42][INFO ] Checking: ffmpeg
+[2026-03-04 08:33:42][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 08:33:42][INFO ] start_ui: loading preferences
+[2026-03-04 08:33:42][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 08:33:42][INFO ] show_main_window
+[2026-03-04 08:34:03][INFO ] Main window: btn=0
+[2026-03-04 08:34:03][INFO ] _submit: raw=[https://www.youtube.com/watch?v=q8TTdhoxWm8&list=PL0Z67tlyTaWphlJ8dod2fSFGmBlUW_KJJ|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 08:34:03][INFO ] Dev mode: false
+[2026-03-04 08:34:03][INFO ] Platform: youtube
+[2026-03-04 08:34:03][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 08:34:03][INFO ] URL type: video_in_playlist
+[2026-03-04 08:34:03][INFO ] video_in_playlist — asking user intent
+[2026-03-04 08:34:05][INFO ] User chose: 1
+[2026-03-04 08:34:05][INFO ] _handle_playlist_flow
+[2026-03-04 08:34:05][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=q8TTdhoxWm8&list=PL0Z67tlyTaWphlJ8dod2fSFGmBlUW_KJJ
+[2026-03-04 08:34:35][INFO ] Playlist has 355 videos
+[2026-03-04 08:34:35][INFO ] Limiting display to first 50 of 355 videos
+[2026-03-04 08:34:35][INFO ] Showing playlist selector (checked_state=TRUE show_all=false showing=50 of 355)
+[2026-03-04 08:34:42][INFO ] Playlist selector btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+28|
+29|
+30|
+32|
+33|
+34|
+35|
+36|
+37|
+38|
+40|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+50|
+51|
+52|
+53|
+55|
+56|
+57|]
+[2026-03-04 08:34:42][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,33,34,35,36,37,38,40,43,44,45,46,47,48,49,50,51,52,53,55,56,57
+[2026-03-04 08:34:42][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,33,34,35,36,37,38,40,43,44,45,46,47,48,49,50,51,52,53,55,56,57
+[2026-03-04 08:34:42][INFO ] Downloading 50 videos from playlist
+[2026-03-04 08:34:42][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=q8TTdhoxWm8&list=PL0Z67tlyTaWphlJ8dod2fSFGmBlUW_KJJ mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,33,34,35,36,37,38,40,43,44,45,46,47,48,49,50,51,52,53,55,56,57]
+[2026-03-04 08:34:42][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 08:34:42][INFO ] Feeder PID: 2471545
+[2026-03-04 08:34:42][INFO ] Feeder started
+[2026-03-04 08:34:42][INFO ] Launching progress window with inline logs
+[2026-03-04 08:34:42][INFO ] YAD PID: 2471550
+[2026-03-04 08:34:42][INFO ] === Starting job #1 ===
+[2026-03-04 08:34:42][INFO ] Fetching title for job #1...
+[2026-03-04 08:34:47][INFO ] Title: Nain Matakka | Baby John | Varun Dhawan, Keerthy Suresh, Diljit Dosanjh | Dhee, Thaman S, Irshad K
+[2026-03-04 08:34:47][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,33,34,35,36,37,38,40,43,44,45,46,47,48,49,50,51,52,53,55,56,57]
+[2026-03-04 08:34:47][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,33,34,35,36,37,38,40,43,44,45,46,47,48,49,50,51,52,53,55,56,57
+[2026-03-04 08:34:47][INFO ]   Player client: ios,mweb (anonymous anti-403)
+[2026-03-04 08:34:47][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,33,34,35,36,37,38,40,43,44,45,46,47,48,49,50,51,52,53,55,56,57 --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --extractor-args youtube:player_client=ios,mweb --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --ignore-errors --newline https://www.youtube.com/watch?v=q8TTdhoxWm8&list=PL0Z67tlyTaWphlJ8dod2fSFGmBlUW_KJJ
+[2026-03-04 08:34:47][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 08:34:47][INFO ] yt-dlp PID: 2471932
+[2026-03-04 08:34:58][INFO ] Saving to: 01 - Nain Matakka ｜ Baby John ｜ Varun Dhawan, Keerthy Suresh, Diljit Dosanjh ｜ Dhee, Thaman S, Irshad K.mp4
+[2026-03-04 08:35:08][INFO ] Saving to: 02 - Preet Re ｜ Dhadak 2 ｜ Siddhant Chaturvedi, Triptii Dimri ｜ Darshan R, Jonita G, Rochak K, Gurpreet S.mp4
+[2026-03-04 08:35:20][INFO ] Saving to: 03 - Dil Jhoom ｜ Gadar 2 ｜ Arijit Singh ｜ Sunny Deol, Utkarsh Sharma, Simratt K ｜ Mithoon, Sayeed Quadri.mp4
+[2026-03-04 08:35:31][INFO ] Saving to: 04 - Phir Bhi Tumko Chaahunga - Full Song ｜ Arijit Singh ｜ Arjun K & Shraddha K ｜ Mithoon, Manoj M.mp4
+[2026-03-04 08:35:43][INFO ] Saving to: 05 - Bas Ek Dhadak ｜ Dhadak 2 ｜Siddhant C,Triptii D｜Shreya Ghoshal, Jubin Nautiyal Javed-Mohsin, Rashmi V.mp4
+[2026-03-04 08:35:52][INFO ] Saving to: 06 - Tainu Khabar Nahi - Arijit Singh ｜ Munjya ｜ Sharvari, Abhay Verma｜ Sachin-Jigar,Amitabh Bhattacharya.mp4
+[2026-03-04 08:36:04][INFO ] Saving to: 07 - Hazaar Baar ｜ Baby John ｜ Varun Dhawan, Keerthy S ｜ Thaman S, Arijit Singh, Shreya Ghoshal, Irshad.mp4
+[2026-03-04 08:36:15][INFO ] Saving to: 08 - Ve Maahi ｜ Kesari ｜ Akshay Kumar & Parineeti Chopra ｜ Arijit Singh & Asees Kaur ｜ Tanishk Bagchi.mp4
+[2026-03-04 08:36:26][INFO ] Saving to: 09 - Apna Bana Le - Bhediya ｜ Varun Dhawan, Kriti Sanon｜ Sachin-Jigar, Arijit Singh, Amitabh Bhattacharya.mp4
+[2026-03-04 08:36:38][INFO ] Saving to: 10 - Zohra Jabeen ｜ Sikandar ｜ Salman Khan, Rashmika｜ Pritam｜Nakash, Dev, Mellow D｜ Sajid N｜AR Murugadoss.mp4
+[2026-03-04 08:36:48][INFO ] Saving to: 11 - Mile Ho Tum - Reprise Version ｜ Neha Kakkar ｜ Tony Kakkar ｜ Fever ｜ Gaurav Jang.mp4
+[2026-03-04 08:36:58][INFO ] Saving to: 12 - Hum Aapke Bina ｜ Sikandar ｜ Salman Khan, Rashmika Mandanna ｜ Arijit Singh ｜ Pritam.mp4
+[2026-03-04 08:37:08][INFO ] Saving to: 13 - Thoda Thoda Pyaar ｜ Sidharth Malhotra,Neha Sharma｜Stebin Ben,Nilesh Ahuja,Kumaar｜Zee Music Originals.mp4
+[2026-03-04 08:37:18][INFO ] Saving to: 14 - Makhna - Drive ｜ Sushant Singh Rajput, Jacqueline Fernandez ｜ Tanishk Bagchi, Asees Kaur.mp4
+[2026-03-04 08:37:29][INFO ] Saving to: 15 - Jogi - Lyrical ｜ Shaadi Mein Zaroor Aana ｜ Rajkummar Rao, Kriti Kharbanda ｜ Arko ft Aakanksha Sharma.mp4
+[2026-03-04 08:37:38][INFO ] Saving to: 16 - Hook Up Song -  Student Of The Year 2 ｜ Tiger Shroff & Alia ｜ Vishal and Shekhar ｜Neha Kakkar｜Kumaar.mp4
+[2026-03-04 08:37:48][INFO ] Saving to: 17 - Jitni Dafa - Lyrical ｜ PARMANU ｜ John Abraham , Diana ｜ Jeet Gannguli ｜ RashmiVirag.mp4
+[2026-03-04 08:37:56][INFO ] Saving to: 18 - Naino Ne Baandhi - Lyrical ｜ Gold ｜ Akshay Kumar ｜ Mouni Roy ｜ Arko.mp4
+[2026-03-04 08:38:05][INFO ] Saving to: 19 - Sun Saathiya Full Video ｜ Disney's ABCD 2 ｜ Varun Dhawan , Shraddha Kapoor ｜ Sachin Jigar ｜ Priya S.mp4
+[2026-03-04 08:38:14][INFO ] Saving to: 20 - Zaalima ｜ Raees ｜ Shah Rukh Khan ｜ Arijit Singh & Harshdeep Kaur ｜ JAM8 ｜ Pritam.mp4
+[2026-03-04 08:38:24][INFO ] Saving to: 21 - Nazm Nazm - Lyrical ｜ Bareilly Ki Barfi ｜ Kriti Sanon, Ayushmann Khurrana & Rajkummar Rao ｜ Arko.mp4
+[2026-03-04 08:38:33][INFO ] Saving to: 22 - Ajeeb O Gareeb ｜ Azaad ｜ Aaman D, Rasha Thadani｜ Arijit Singh, Hansika, Amit T, Amitabh ｜ Abhishek K.mp4
+[2026-03-04 08:38:43][INFO ] Saving to: 23 - Tu Hi Hai - Full Video ｜ Half Girlfriend ｜ Arjun Kapoor & Shraddha Kapoor ｜ Rahul Mishra.mp4
+[2026-03-04 08:38:54][INFO ] Saving to: 24 - Rula Ke Gaya Ishq ｜ Bhavin, Sameeksha, Vishal ｜ Stebin Ben, Sunny-Inder, Kumaar｜ Zee Music Originals.mp4
+[2026-03-04 08:39:04][INFO ] Saving to: 25 - Ik Mulaqaat - Dream Girl ｜ Ayushmann Khurrana, Nushrat Bharucha ｜ Meet Bros Ft. Altamash F & Palak M.mp4
+[2026-03-04 08:39:13][INFO ] Saving to: 28 - Qaafirana ｜ Kedarnath ｜ Sushant Rajput ｜ Sara Ali Khan ｜ Arijit Singh & Nikhita ｜ Amit Trivedi.mp4
+[2026-03-04 08:39:24][INFO ] Saving to: 29 - Tere Sang Yaara - Full Video ｜ Rustom ｜ Akshay Kumar & Ileana D'cruz ｜ Arko ｜ Manoj M.mp4
+[2026-03-04 08:39:35][INFO ] Saving to: 30 - Gadar - Udja Kale Kawa (Victory) - Full Song Video ｜ Sunny Deol & Ameesha Patel ｜ Udit Narayan.mp4
+[2026-03-04 08:39:46][INFO ] Saving to: 32 - Zingaat Hindi ｜ Dhadak ｜ Ishaan & Janhvi ｜ Ajay-Atul ｜ Amitabh Bhattacharya.mp4
+[2026-03-04 08:39:55][INFO ] Saving to: 33 - Mera Intkam Dekhegi ｜ Shaadi Mein Zaroor Aana ｜ Rajkummar R, Kriti K ｜ Krishna Beuraa ｜Anand R Anand.mp4
+[2026-03-04 08:40:09][INFO ] Saving to: 34 - Channa Ve - Full Video ｜ Bhoot - Part One： The Haunted Ship ｜ Vicky K & Bhumi P ｜ Akhil & Mansheel.mp4
+[2026-03-04 08:40:18][INFO ] Saving to: 35 - Tenu Na Bol Pawaan - Behen Hogi Teri ｜ Shruti Haasan,Raj Kummar Rao  ｜ Amjad Nadeem.mp4
+[2026-03-04 08:40:28][INFO ] Saving to: 36 - Maiyya Mainu - Lyrical ｜ Jersey ｜ Shahid Kapoor, Mrunal Thakur｜ Sachet-Parampara｜ Shellee ｜ Gowtam T.mp4
+[2026-03-04 08:40:38][INFO ] Saving to: 37 - Maheroo Maheroo ｜ Super Nani ｜ Sharman Joshi ｜ Shweta Kumar ｜Shreya Ghoshal ｜ Sanjeev Darshan.mp4
+[2026-03-04 08:40:49][INFO ] Saving to: 38 - Pal Pal Dil Ke Paas - Title ｜ Arijit Singh ｜ Karan Deol, Sahher ｜ Parampara, Sachet, Rishi Rich.mp4
+[2026-03-04 08:40:58][INFO ] Saving to: 40 - Aaj Se Teri - Lyrical ｜ Padman ｜ Akshay Kumar & Radhika Apte ｜ Arijit Singh ｜ Amit Trivedi.mp4
+[2026-03-04 08:41:08][INFO ] Saving to: 43 - Bang Bang Title Track Full Video ｜ BANG BANG｜Hrithik Roshan Katrina Kaif ｜Vishal Shekhar,Benny,Neeti.mp4
+[2026-03-04 08:41:20][INFO ] Saving to: 44 - Baarish ｜ Half Girlfriend ｜ Arjun Kapoor & Shraddha Kapoor｜ Ash King ,Sashaa ｜ Tanishk｜ Baarish 2024.mp4
+[2026-03-04 08:41:30][INFO ] Saving to: 45 - Roko Na ｜ Haseena ｜ Mohit Arora & Inaayat Sharma ｜ Ali Aslam & Shom Chanda.mp4
+[2026-03-04 08:41:39][INFO ] Saving to: 46 - Jaan Ban Gaye - Khuda Haafiz ｜Vidyut Jammwal , Shivaleeka O ｜ Mithoon Ft. Vishal Mishra, Asees Kaur.mp4
+[2026-03-04 08:41:48][INFO ] Saving to: 47 - Naiyo Lagda - Kisi Ka Bhai Kisi Ki Jaan ｜ Salman Khan & Pooja Hegde ｜ Himesh R, Kamaal K, Palak M.mp4
+[2026-03-04 08:41:57][INFO ] Saving to: 48 - Tu Meri Full Video ｜ BANG BANG! ｜ Hrithik Roshan & Katrina Kaif ｜ Vishal Shekhar ｜ Dance Party Song.mp4
+[2026-03-04 08:42:07][INFO ] Saving to: 49 - Pal Pal Dil Ke Paas - Title Song ｜ Lyrical ｜ Karan Deol, Sahher Bambba ｜ Arijit Singh, Parampara.mp4
+[2026-03-04 08:42:18][INFO ] Saving to: 50 - Teri Meri Kahaani Hai Baarishon Ka Paani - Arijit Singh ｜ Gabbar Is Back ｜ Akshay Kumar & Kareena K.mp4
+[2026-03-04 08:42:28][INFO ] Saving to: 51 - Chal Tere Ishq Mein (Female)- Gadar 2 ｜Utkarsh Sharma,Simratt Kaur ｜Vishal M,Mithoon,Neeti,Sayeed.mp4
+[2026-03-04 08:42:40][INFO ] Saving to: 52 - Sweetheart - Lyrical ｜ Kedarnath ｜ Sushant Singh ｜ Sara Ali Khan ｜ Dev Negi ｜ Amit Trivedi.mp4
+[2026-03-04 08:42:51][INFO ] Saving to: 53 - Tu Itni Khoobsurat Hai Full Video ｜ Barkhaa ｜ Sara Lorren ｜ Amjad Nadeem.mp4
+[2026-03-04 08:43:01][INFO ] Saving to: 55 - Dil Kare Chu Che - Full Video ｜ Singh Is Bliing ｜ Akshay Kumar Amy Jackson ｜ Meet Bros ｜ Dance Party.mp4
+[2026-03-04 08:43:12][INFO ] Saving to: 56 - Mera Mehboob ｜ Awez Darbar & Nagma Mirajkar ｜ Stebin Ben , Kumaar , Kausar｜ Zee Music Originals.mp4
+[2026-03-04 08:43:17][INFO ] Saving to: 57 - Raat Ke Saaye Tale - Bullets ｜Sunny Leone, Karishma ｜ Aakanksha Sharma, Raghav Sachar, Rohit Sharma.mp4
+[2026-03-04 08:43:18][INFO ] _dm_run_ytdlp exit code: 0
+[2026-03-04 08:43:18][INFO ] Job #1 attempt 1 exit_code=0
+[2026-03-04 08:43:18][INFO ] Job #1 finished: status=done completed=1 failed=0
+[2026-03-04 08:43:18][INFO ] All jobs processed. Completed=1 Failed=0
+[2026-03-04 08:43:18][INFO ] Feeder: ALL_DONE — exiting
+[2026-03-04 08:43:18][INFO ] Feeder exited
+[2026-03-04 08:43:19][INFO ] dm_start_session complete
+[2026-03-04 08:43:19][INFO ] _post_download_dialog
+[2026-03-04 08:43:23][INFO ] User chose exit
+[2026-03-04 09:01:57][INFO ] Checking: yad
+[2026-03-04 09:01:57][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-04 09:01:57][INFO ] Checking: yt-dlp
+[2026-03-04 09:01:57][INFO ]   OK: yt-dlp (/usr/bin/yt-dlp)
+[2026-03-04 09:01:57][INFO ] Checking: ffmpeg
+[2026-03-04 09:01:57][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-04 09:01:57][INFO ] start_ui: loading preferences
+[2026-03-04 09:01:57][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-04 09:01:57][INFO ] show_main_window
+[2026-03-04 09:01:59][INFO ] Main window: btn=2
+[2026-03-04 09:01:59][INFO ] show_settings_window
+[2026-03-04 09:02:42][INFO ] Settings: btn=0
+[2026-03-04 09:02:42][INFO ] Settings saved: dir=/home/anush/CarMedia mode=video vp=car mp=mp3 maxpl=50 frags=5 cookies=firefox
+[2026-03-04 09:02:42][INFO ] SUCCESS: Settings Saved
+[2026-03-04 09:02:43][INFO ] show_main_window
+[2026-03-04 09:02:48][INFO ] Main window: btn=0
+[2026-03-04 09:02:48][INFO ] _submit: raw=[https://www.youtube.com/watch?v=ru0K8uYEZWw&list=PLW9z2i0xwq0F3-8LieqflLLWLWZQgvhEX|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|]
+[2026-03-04 09:02:48][INFO ] Dev mode: false
+[2026-03-04 09:02:48][INFO ] Platform: youtube
+[2026-03-04 09:02:48][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-04 09:02:48][INFO ] URL type: video_in_playlist
+[2026-03-04 09:02:48][INFO ] video_in_playlist — asking user intent
+[2026-03-04 09:02:50][INFO ] User chose: 0
+[2026-03-04 09:02:50][INFO ] _handle_single_flow: url_type=video_in_playlist
+[2026-03-04 09:02:50][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=ru0K8uYEZWw&list=PLW9z2i0xwq0F3-8LieqflLLWLWZQgvhEX mode=video profile=car urltype=video_in_playlist items=[]
+[2026-03-04 09:02:50][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-04 09:02:50][INFO ] Feeder PID: 2541461
+[2026-03-04 09:02:50][INFO ] Feeder started
+[2026-03-04 09:02:50][INFO ] Launching progress window with inline logs
+[2026-03-04 09:02:50][INFO ] YAD PID: 2541467
+[2026-03-04 09:02:50][INFO ] === Starting job #1 ===
+[2026-03-04 09:02:50][INFO ] Fetching title for job #1...
+[2026-03-04 09:02:54][INFO ] Title: Justin Timberlake - CAN'T STOP THE FEELING! (from DreamWorks Animation's "TROLLS") (Official Video)
+[2026-03-04 09:02:54][INFO ] build_yt_dlp_args: mode=video profile=car url_type=video_in_playlist items=[]
+[2026-03-04 09:02:54][INFO ]   Using --no-playlist (url_type=video_in_playlist)
+[2026-03-04 09:02:54][INFO ]   Using cookies from browser: firefox
+[2026-03-04 09:02:54][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(title)s.%(ext)s --no-playlist --format bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720] --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --cookies-from-browser firefox --newline https://www.youtube.com/watch?v=ru0K8uYEZWw&list=PLW9z2i0xwq0F3-8LieqflLLWLWZQgvhEX
+[2026-03-04 09:02:54][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-04 09:02:54][INFO ] yt-dlp PID: 2541790
+[2026-03-04 09:03:03][INFO ] Saving to: Justin Timberlake - CAN'T STOP THE FEELING! (from DreamWorks Animation's ＂TROLLS＂) (Official Video).f136.mp4
+[2026-03-04 09:03:03][INFO ] Saving to: Justin Timberlake - CAN'T STOP THE FEELING! (from DreamWorks Animation's ＂TROLLS＂) (Official Video).f140.m4a
+[2026-03-04 09:03:03][INFO ] _dm_run_ytdlp job #1 exit code: 0
+[2026-03-04 09:03:03][INFO ] Job #1 attempt 1 exit_code=0
+[2026-03-04 09:03:03][INFO ] Job #1 finished: status=done completed=1 failed=0
+[2026-03-04 09:03:03][INFO ] All jobs processed. Completed=1 Failed=0
+[2026-03-04 09:03:04][INFO ] dm_start_session complete
+[2026-03-04 09:03:04][INFO ] _post_download_dialog
+[2026-03-04 09:03:07][INFO ] User chose exit
