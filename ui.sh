@@ -97,6 +97,7 @@ show_main_window() {
         --field="🎬  Video Profile":CB                    "$(_video_profile_combo)" \
         --field="🎵  Music Profile":CB                    "$(_music_profile_combo)" \
         --field="📁  Save To":DIR                         "${SAVE_DIR:-$HOME/CarMedia}" \
+        --field="⚡  First video only (skip playlist selector)":CHK "false" \
         --button=" Settings:2" \
         --button="cancel:1" \
         --button=" Download:0" \
@@ -120,8 +121,8 @@ _submit() {
     local raw="$1"
     log_info "_submit: raw=[$raw]"
 
-    local url mode_label video_label music_label save_dir
-    IFS="|" read -r url mode_label video_label music_label save_dir _ <<< "$raw"
+    local url mode_label video_label music_label save_dir single_only
+    IFS="|" read -r url mode_label video_label music_label save_dir single_only _ <<< "$raw"
 
     # Dev mode is only via terminal ENV now
     export DEV_MODE="${DEV_MODE:-false}"
@@ -162,6 +163,14 @@ _submit() {
     log_info "URL type: $url_type"
 
     # ── Route to correct download flow ────────────────────────────────────────
+    # "First video only" checkbox: skip all playlist logic, download the video
+    # in the URL directly using --no-playlist regardless of list= param.
+    if [[ "$single_only" == "TRUE" ]]; then
+        log_info "First-video-only mode — skipping playlist selector"
+        _handle_single_flow "$url" "$mode" "$profile_key" "$save_dir" "video_in_playlist"
+        return
+    fi
+
     case "$url_type" in
         single_video)
             _handle_single_flow "$url" "$mode" "$profile_key" "$save_dir" "single_video"

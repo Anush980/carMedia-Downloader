@@ -22,8 +22,22 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 # ── Video format strings ──────────────────────────────────────────────────────
-PROFILE_CAR_FORMAT='bestvideo[vcodec^=avc1][height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[height<=720]'
-PROFILE_HD_FORMAT='bestvideo[vcodec^=avc1][height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=1080]+bestaudio/best[height<=1080]'
+#
+# WHY no vcodec^=avc1 hard filter:
+#   YouTube no longer guarantees standalone H.264 DASH streams for every video.
+#   A hard [vcodec^=avc1] filter silently finds nothing → "format not available".
+#   The [best[height<=720]] fallback also fails since YouTube rarely serves
+#   pre-muxed streams anymore.
+#
+# HOW CarPlay / car head unit compatibility is achieved WITHOUT the filter:
+#   1. We prefer [ext=mp4] on the video stream — when available this IS H.264
+#   2. --merge-output-format mp4 (set in downloader.sh) wraps everything in MP4
+#   3. ffmpeg re-encodes audio to AAC if needed during the merge step
+#   YouTube's 720p mp4 streams are almost always H.264 in practice; VP9 is
+#   only served as webm. So [ext=mp4] is a soft H.264 preference, not a gamble.
+#
+PROFILE_CAR_FORMAT='bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best'
+PROFILE_HD_FORMAT='bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best'
 PROFILE_FAST_FORMAT='best[ext=mp4]/best'
 PROFILE_BEST_FORMAT='bestvideo+bestaudio/best'
 

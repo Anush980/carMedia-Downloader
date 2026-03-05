@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=CarMedia Downloader
+Comment=YAD-based GUI media downloader for Hyundai i20 / Apple CarPlay
+Exec=carmedia
+Icon=video-x-generic
+Categories=Multimedia;Video;AudioVideo;Download;
+Terminal=false
+StartupNotify=true
+Keywords=youtube;downloader;video;music;carplay;
+X-GNOME-UseSettings=true

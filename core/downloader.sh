@@ -108,20 +108,7 @@ build_yt_dlp_args() {
         YT_DLP_ARGS+=( --add-metadata )
     fi
 
-    # ── Player client (anti-403 fix) ─────────────────────────────────────────
-    # HTTP 403 Forbidden = YouTube's bot-detection blocking the default web
-    # client on anonymous or new IPs. Fix: force the iOS client, which YouTube
-    # does not restrict for anonymous access and does NOT require a PO Token
-    # (unlike the android client which got locked behind PO tokens mid-2024).
-    # The iOS client delivers full HD streams, so car/hd profiles still work.
-    #
-    # When the user has configured a browser cookie source we skip this — the
-    # authenticated web session already bypasses 403 naturally.
     local cb="${COOKIE_BROWSER:-none}"
-    if [[ "$cb" == "none" || -z "$cb" ]]; then
-        YT_DLP_ARGS+=( --extractor-args "youtube:player_client=ios,mweb" )
-        log_info "  Player client: ios,mweb (anonymous anti-403)"
-    fi
 
     # Parallel fragment download (DASH/HLS)
     YT_DLP_ARGS+=( --concurrent-fragments "${YT_CONCURRENT_FRAGS:-5}" )

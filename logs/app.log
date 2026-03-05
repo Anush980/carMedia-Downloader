@@ -27591,3 +27591,134 @@ playlist
 [2026-03-04 09:03:04][INFO ] dm_start_session complete
 [2026-03-04 09:03:04][INFO ] _post_download_dialog
 [2026-03-04 09:03:07][INFO ] User chose exit
+[2026-03-05 22:30:28][INFO ] Checking: yad
+[2026-03-05 22:30:28][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-05 22:30:28][INFO ] Checking: yt-dlp
+[2026-03-05 22:30:28][INFO ]   OK: yt-dlp (/home/anush/.local/bin/yt-dlp)
+[2026-03-05 22:30:28][INFO ] Checking: ffmpeg
+[2026-03-05 22:30:28][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-05 22:30:28][INFO ] start_ui: loading preferences
+[2026-03-05 22:30:28][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-05 22:30:28][INFO ] show_main_window
+[2026-03-05 22:30:53][INFO ] Main window: btn=0
+[2026-03-05 22:30:53][INFO ] _submit: raw=[https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDMMidFsTTlHuOs&start_radio=1|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|TRUE|]
+[2026-03-05 22:30:53][INFO ] Dev mode: false
+[2026-03-05 22:30:53][INFO ] Platform: youtube
+[2026-03-05 22:30:53][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-05 22:30:53][INFO ] URL type: playlist
+[2026-03-05 22:30:53][INFO ] First-video-only mode — skipping playlist selector
+[2026-03-05 22:30:53][INFO ] _handle_single_flow: url_type=video_in_playlist
+[2026-03-05 22:30:53][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDMMidFsTTlHuOs&start_radio=1 mode=video profile=car urltype=video_in_playlist items=[]
+[2026-03-05 22:30:53][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-05 22:30:53][INFO ] Feeder PID: 299740
+[2026-03-05 22:30:53][INFO ] Feeder started
+[2026-03-05 22:30:53][INFO ] Launching progress window with inline logs
+[2026-03-05 22:30:53][INFO ] YAD PID: 299745
+[2026-03-05 22:30:53][INFO ] === Starting job #1 ===
+[2026-03-05 22:30:53][INFO ] Fetching title for job #1...
+[2026-03-05 22:30:55][INFO ] Title: 
+[2026-03-05 22:30:55][INFO ] build_yt_dlp_args: mode=video profile=car url_type=video_in_playlist items=[]
+[2026-03-05 22:30:55][INFO ]   Using --no-playlist (url_type=video_in_playlist)
+[2026-03-05 22:30:55][INFO ]   Using cookies from browser: firefox
+[2026-03-05 22:30:55][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(title)s.%(ext)s --no-playlist --format bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --cookies-from-browser firefox --newline https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDMMidFsTTlHuOs&start_radio=1
+[2026-03-05 22:30:55][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-05 22:30:55][INFO ] yt-dlp PID: 299949
+[2026-03-05 22:31:01][INFO ] Saving to: Kunai Arko Sansar - Neetesh Jung Kunwar [Video].f398.mp4
+[2026-03-05 22:31:01][INFO ] Saving to: Kunai Arko Sansar - Neetesh Jung Kunwar [Video].f140.m4a
+[2026-03-05 22:31:01][INFO ] _dm_run_ytdlp job #1 exit code: 0
+[2026-03-05 22:31:01][INFO ] Job #1 attempt 1 exit_code=0
+[2026-03-05 22:31:01][INFO ] Job #1 finished: status=done completed=1 failed=0
+[2026-03-05 22:31:01][INFO ] All jobs processed. Completed=1 Failed=0
+[2026-03-05 22:31:01][INFO ] Feeder: ALL_DONE — exiting
+[2026-03-05 22:31:01][INFO ] Feeder exited
+[2026-03-05 22:31:03][INFO ] dm_start_session complete
+[2026-03-05 22:31:03][INFO ] _post_download_dialog
+[2026-03-05 22:31:14][INFO ] User chose exit
+[2026-03-05 22:31:23][INFO ] Checking: yad
+[2026-03-05 22:31:23][INFO ]   OK: yad (/usr/bin/yad)
+[2026-03-05 22:31:23][INFO ] Checking: yt-dlp
+[2026-03-05 22:31:23][INFO ]   OK: yt-dlp (/home/anush/.local/bin/yt-dlp)
+[2026-03-05 22:31:23][INFO ] Checking: ffmpeg
+[2026-03-05 22:31:23][INFO ]   OK: ffmpeg (/usr/bin/ffmpeg)
+[2026-03-05 22:31:23][INFO ] start_ui: loading preferences
+[2026-03-05 22:31:23][INFO ] Starting main window (mode=video profile_v=car profile_m=mp3)
+[2026-03-05 22:31:23][INFO ] show_main_window
+[2026-03-05 22:31:42][INFO ] Main window: btn=0
+[2026-03-05 22:31:42][INFO ] _submit: raw=[https://www.youtube.com/watch?v=aeR2kpSr32g&list=RDaeR2kpSr32g&start_radio=1|Video|Car Compatible (720p H.264+AAC)|MP3 320kbps (Music)|/home/anush/CarMedia|FALSE|]
+[2026-03-05 22:31:42][INFO ] Dev mode: false
+[2026-03-05 22:31:42][INFO ] Platform: youtube
+[2026-03-05 22:31:42][INFO ] Mode=video profile=car dir=/home/anush/CarMedia
+[2026-03-05 22:31:42][INFO ] URL type: playlist
+[2026-03-05 22:31:42][INFO ] _handle_playlist_flow
+[2026-03-05 22:31:42][INFO ] Fetching playlist metadata from: https://www.youtube.com/watch?v=aeR2kpSr32g&list=RDaeR2kpSr32g&start_radio=1
+[2026-03-05 22:32:12][INFO ] Playlist has 341 videos
+[2026-03-05 22:32:12][INFO ] Limiting display to first 50 of 341 videos
+[2026-03-05 22:32:12][INFO ] Showing playlist selector (checked_state=TRUE show_all=false showing=50 of 341)
+[2026-03-05 22:32:15][INFO ] Playlist selector btn=0 selection=[1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+28|
+29|
+30|
+32|
+35|
+37|
+38|
+39|
+40|
+42|
+43|
+44|
+45|
+46|
+47|
+48|
+49|
+78|
+79|
+80|
+81|
+82|
+83|
+84|
+86|]
+[2026-03-05 22:32:15][INFO ] User selected indices: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,35,37,38,39,40,42,43,44,45,46,47,48,49,78,79,80,81,82,83,84,86
+[2026-03-05 22:32:15][INFO ] User selected playlist items: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,35,37,38,39,40,42,43,44,45,46,47,48,49,78,79,80,81,82,83,84,86
+[2026-03-05 22:32:15][INFO ] Downloading 50 videos from playlist
+[2026-03-05 22:32:15][INFO ] Job #1 queued: url=https://www.youtube.com/watch?v=aeR2kpSr32g&list=RDaeR2kpSr32g&start_radio=1 mode=video profile=car urltype=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,35,37,38,39,40,42,43,44,45,46,47,48,49,78,79,80,81,82,83,84,86]
+[2026-03-05 22:32:15][INFO ] dm_start_session: 1 job(s) queued
+[2026-03-05 22:32:15][INFO ] Feeder PID: 303100
+[2026-03-05 22:32:15][INFO ] Feeder started
+[2026-03-05 22:32:15][INFO ] Launching progress window with inline logs
+[2026-03-05 22:32:15][INFO ] YAD PID: 303105
+[2026-03-05 22:32:15][INFO ] === Starting job #1 ===
+[2026-03-05 22:32:15][INFO ] Fetching title for job #1...
+[2026-03-05 22:32:18][INFO ] Title: 
+[2026-03-05 22:32:18][INFO ] build_yt_dlp_args: mode=video profile=car url_type=playlist items=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,35,37,38,39,40,42,43,44,45,46,47,48,49,78,79,80,81,82,83,84,86]
+[2026-03-05 22:32:18][INFO ]   Using --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,35,37,38,39,40,42,43,44,45,46,47,48,49,78,79,80,81,82,83,84,86
+[2026-03-05 22:32:18][INFO ]   Using cookies from browser: firefox
+[2026-03-05 22:32:18][INFO ]   Full yt-dlp command: yt-dlp --output /home/anush/CarMedia/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s --playlist-items 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,29,30,32,35,37,38,39,40,42,43,44,45,46,47,48,49,78,79,80,81,82,83,84,86 --format bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best --merge-output-format mp4 --add-metadata --concurrent-fragments 5 --retries 3 --fragment-retries 5 --retry-sleep linear=1::2 --cookies-from-browser firefox --ignore-errors --newline https://www.youtube.com/watch?v=aeR2kpSr32g&list=RDaeR2kpSr32g&start_radio=1
+[2026-03-05 22:32:18][INFO ] Job #1 attempt 1 — running yt-dlp
+[2026-03-05 22:32:18][INFO ] yt-dlp PID: 303323
