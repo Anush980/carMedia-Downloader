@@ -106,7 +106,34 @@ if ! command -v pip3 &>/dev/null && ! command -v pip &>/dev/null; then
     esac
 fi
 
-# ── 3. Install yt-dlp via pip (always latest) ─────────────────────────────────
+# ── 3. Install Node.js (required for yt-dlp remote components) ───────────────
+header "Installing Node.js"
+
+if command -v node &>/dev/null; then
+    success "Node.js already installed ($(node --version))"
+else
+    info "Installing Node.js..."
+    case "$PKG_MGR" in
+        apt)
+            # Use NodeSource for a modern version (distro packages are often too old)
+            if command -v curl &>/dev/null; then
+                curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - 2>/dev/null \
+                    && sudo apt-get install -y nodejs \
+                    && success "Node.js installed via NodeSource ($(node --version))" \
+                    || { install_pkg nodejs && success "Node.js installed ($(node --version 2>/dev/null))"; }
+            else
+                install_pkg nodejs && success "Node.js installed"
+            fi
+            ;;
+        dnf)     install_pkg nodejs && success "Node.js installed" ;;
+        pacman)  install_pkg nodejs npm && success "Node.js installed" ;;
+        zypper)  install_pkg nodejs && success "Node.js installed" ;;
+        *)       warn "Please install Node.js manually from https://nodejs.org" ;;
+    esac
+    command -v node &>/dev/null || warn "Node.js install may have failed — yt-dlp remote components may not work"
+fi
+
+# ── 4. Install yt-dlp via pip (always latest) ─────────────────────────────────
 header "Installing yt-dlp"
 
 PIP_CMD="pip3"
@@ -129,7 +156,7 @@ else
     fi
 fi
 
-# ── 4. Make scripts executable ────────────────────────────────────────────────
+# ── 5. Make scripts executable ────────────────────────────────────────────────
 header "Setting permissions"
 
 chmod +x "${INSTALL_DIR}/main.sh" \
@@ -138,7 +165,44 @@ chmod +x "${INSTALL_DIR}/main.sh" \
          "${INSTALL_DIR}/services/"*.sh
 success "All scripts are now executable"
 
-# ── 5. Write default config if missing ───────────────────────────────────────
+# ── 6. Write yt-dlp config + app config ──────────────────────────────────────
+header "Writing configuration"
+
+# Detect which browser is installed for cookies
+DETECTED_BROWSER=""
+for b in firefox chromium-browser google-chrome brave-browser chromium; do
+    command -v "$b" &>/dev/null || continue
+    case "$b" in
+        firefox)              DETECTED_BROWSER="firefox"  ;;
+        google-chrome|chrome) DETECTED_BROWSER="chrome"   ;;
+        brave-browser)        DETECTED_BROWSER="brave"    ;;
+        chromium*)            DETECTED_BROWSER="chromium" ;;
+    esac
+    break
+done
+
+# Write ~/.config/yt-dlp/config so yt-dlp works from terminal too
+# (The app uses --ignore-config and manages cookies itself, but this
+#  makes manual terminal use work out of the box)
+mkdir -p "$HOME/.config/yt-dlp"
+cat > "$HOME/.config/yt-dlp/config" << YTDLP_CONF
+--merge-output-format mp4
+--add-metadata
+--concurrent-fragments 3
+--retries 3
+--fragment-retries 5
+--retry-sleep linear=1::2
+--socket-timeout 30
+--throttled-rate 50K
+--newline
+YTDLP_CONF
+
+if [[ -n "$DETECTED_BROWSER" ]]; then
+    echo "--cookies-from-browser $DETECTED_BROWSER" >> "$HOME/.config/yt-dlp/config"
+    success "yt-dlp config written with browser cookies: $DETECTED_BROWSER"
+else
+    success "yt-dlp config written (no browser detected — add --cookies-from-browser manually if needed)"
+fi
 header "Configuration"
 
 if [[ ! -f "$CONFIG_FILE" ]]; then
@@ -149,9 +213,9 @@ DEFAULT_MODE="video"
 DEFAULT_VIDEO_PROFILE="car"
 DEFAULT_MUSIC_PROFILE="mp3"
 MAX_PLAYLIST_LIMIT=50
-YT_CONCURRENT_FRAGS=5
+YT_CONCURRENT_FRAGS=3
 AUTO_UPDATE="false"
-COOKIE_BROWSER="none"
+COOKIE_BROWSER="auto"
 CONF
     success "Default config written to config/settings.conf"
 else
@@ -161,7 +225,7 @@ fi
 mkdir -p "$HOME/CarMedia"
 success "Download folder ready: $HOME/CarMedia"
 
-# ── 6. Create .desktop launcher ──────────────────────────────────────────────
+# ── 7. Create .desktop launcher ──────────────────────────────────────────────
 header "Creating app launcher"
 
 DESKTOP_DIR="$HOME/.local/share/applications"
@@ -175,7 +239,7 @@ Type=Application
 Name=CarMedia Pro
 Comment=YouTube downloader optimised for car head units
 Exec=bash ${MAIN_SCRIPT}
-Icon=video-display
+Icon=${INSTALL_DIR}/assets/carmedia.png
 Terminal=false
 Categories=AudioVideo;Video;
 Keywords=youtube;download;car;media;
@@ -194,7 +258,7 @@ if [[ -d "$HOME/Desktop" ]]; then
     success "Desktop shortcut created"
 fi
 
-# ── 7. Final summary ─────────────────────────────────────────────────────────
+# ── 8. Final summary ─────────────────────────────────────────────────────────
 echo ""
 echo -e "${BOLD}${GREEN}╔══════════════════════════════════════════╗"
 echo    "║          Installation Complete! ✅       ║"

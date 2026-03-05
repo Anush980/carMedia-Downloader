@@ -165,6 +165,12 @@ dm_start_session() {
     rm -f "$DM_STATE_FILE" "$DM_FIFO" "$DM_DEV_LOG_FILE"
     DM_SESSION_ACTIVE=false
     log_info "dm_start_session complete"
+
+    # If bot detection triggered and user clicked "Go to Settings", open it now
+    if [[ -f /tmp/carmedia_open_settings ]]; then
+        rm -f /tmp/carmedia_open_settings
+        show_settings_window
+    fi
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -325,73 +331,74 @@ _dm_run_job() {
 
 # ─────────────────────────────────────────────────────────────────────────────
 # _dm_run_ytdlp JOB_ID
-# Runs yt-dlp, parses each output line, updates the STATE_FILE.
-# This runs as a subprocess (background &) so we can get its PID.
+# Runs yt-dlp with LIVE output streaming to both app.log and the GUI log pane.
+# Every line appears in the GUI the instant yt-dlp prints it — no buffering,
+# same as watching in a terminal.
+# ─────────────────────────────────────────────────────────────────────────────
+# _dm_run_ytdlp JOB_ID
+# Runs yt-dlp with LIVE output streaming to both app.log and the GUI log pane.
 # ─────────────────────────────────────────────────────────────────────────────
 _dm_run_ytdlp() {
     local id="$1"
     local title="${DM_TITLE[$id]}"
     local completed_so_far=$DM_COMPLETED
     local total=$DM_TOTAL_JOBS
-    local exit_code_file; exit_code_file=$(mktemp /tmp/carmedia_ytdlp_rc_XXXXXX)
+    local rc_file; rc_file=$(mktemp /tmp/carmedia_rc_XXXXXX)
+    local bot_detected=false
+    echo "1" > "$rc_file"
 
-    # Run yt-dlp, capture exit code BEFORE any piping
-    yt-dlp "${YT_DLP_ARGS[@]}" > "$exit_code_file.out" 2>&1
-    local ytdlp_rc=$?
-    
-    # Now parse the output
     while IFS= read -r line; do
-        # Always log raw line
-        log_debug "[yt-dlp] $line"
 
-        # Write every raw yt-dlp line to the log file for YAD streaming
-        [[ -n "$DM_DEV_LOG_FILE" ]] && echo "$line" >> "$DM_DEV_LOG_FILE" 2>/dev/null || true
+        # Raw line → app.log AND GUI log pane (unfiltered)
+        log_info "[yt-dlp] $line"
+        [[ -n "$DM_DEV_LOG_FILE" ]] && printf '%s\n' "$line" >> "$DM_DEV_LOG_FILE" 2>/dev/null || true
 
-        # ── Parse progress line ───────────────────────────────────────────────
-        # Format: [download]  68.4% of 321.09MiB at  22.77MiB/s ETA 00:09
-        if [[ "$line" =~ \[download\][[:space:]]+([0-9]+)(\.[0-9]+)?% ]]; then
-            local pct="${BASH_REMATCH[1]}"
-            local speed="—" eta="—" total_size="—"
-
-            [[ "$line" =~ at[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B/s) ]] \
-                && speed="${BASH_REMATCH[1]}"
-            [[ "$line" =~ ETA[[:space:]]+([0-9:]+) ]] \
-                && eta="${BASH_REMATCH[1]}"
-            [[ "$line" =~ of[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B) ]] \
-                && total_size="${BASH_REMATCH[1]}"
-
-            local queue_info="Video $((completed_so_far+1)) of $total | Done: $completed_so_far | Left: $((total-completed_so_far))"
-
-            _dm_write_state "$id" " Downloading" \
-                "$pct" "$speed" "$eta" "$total_size" "$title" "$queue_info"
-
-        # ── Merge / ffmpeg line ───────────────────────────────────────────────
-        elif [[ "$line" =~ \[Merger\]|\[ffmpeg\]|\[VideoConvertor\] ]]; then
-            _dm_write_state "$id" " Merging streams…" \
-                99 "—" "Almost done…" "—" "$title"
-
-        # ── Destination line (file saved) ─────────────────────────────────────
-        elif [[ "$line" =~ \[download\]\ Destination:(.+) ]]; then
-            local fname; fname=$(basename "${BASH_REMATCH[1]}")
-            log_info "Saving to: $fname"
-
-        # ── Already downloaded ────────────────────────────────────────────────
-        elif [[ "$line" =~ \[download\].*has\ already\ been\ downloaded ]]; then
-            _dm_write_state "$id" " Already downloaded" \
-                100 "—" "—" "—" "$title"
-            ytdlp_rc=0  # Treat as success
-
-        # ── Error line ────────────────────────────────────────────────────────
-        elif [[ "$line" =~ ERROR: ]]; then
-            log_error "yt-dlp: $line"
-            _dm_write_status "$id" " ${line:0:80}"
+        # Detect cookie expiry / bot check
+        if [[ "$line" == *"Sign in to confirm"* || "$line" == *"confirm you're not a bot"* ]]; then
+            bot_detected=true
+            _dm_write_status "$id" "🍪 Cookies expired — see warning after download"
         fi
-    done < "$exit_code_file.out"
 
-    rm -f "$exit_code_file" "$exit_code_file.out"
+        # Parse for progress bar / status updates
+        if [[ "$line" =~ \[download\][[:space:]]+([0-9]+)(\.[0-9]+)?% ]]; then
+            local pct="${BASH_REMATCH[1]}" speed="—" eta="—" total_size="—"
+            [[ "$line" =~ at[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B/s) ]] && speed="${BASH_REMATCH[1]}"
+            [[ "$line" =~ ETA[[:space:]]+([0-9:]+) ]]                          && eta="${BASH_REMATCH[1]}"
+            [[ "$line" =~ of[[:space:]]+([0-9.]+[[:space:]]?[KMGTkm]i?B) ]]   && total_size="${BASH_REMATCH[1]}"
+            _dm_write_state "$id" "⬇ Downloading" "$pct" "$speed" "$eta" "$total_size" "$title" \
+                "Video $((completed_so_far+1)) of $total | Done: $completed_so_far | Left: $((total-completed_so_far))"
+
+        elif [[ "$line" =~ \[Merger\]|\[ffmpeg\]|\[VideoConvertor\] ]]; then
+            _dm_write_state "$id" "⚙ Merging…" 99 "—" "Almost done…" "—" "$title"
+
+        elif [[ "$line" =~ \[download\].*has\ already\ been\ downloaded ]]; then
+            _dm_write_state "$id" "✔ Already downloaded" 100 "—" "—" "—" "$title"
+
+        elif [[ "$line" =~ ERROR: ]]; then
+            _dm_write_status "$id" "⚠ ${line:0:120}"
+        fi
+
+    done < <( yt-dlp "${YT_DLP_ARGS[@]}" 2>&1; echo "$?" > "$rc_file" )
+
+    local ytdlp_rc; ytdlp_rc=$(cat "$rc_file")
+    rm -f "$rc_file"
+
+    # Show cookie expiry dialog after the download loop finishes
+    if $bot_detected; then
+        log_warn "Bot detection triggered — cookies expired or missing"
+        yad --warning \
+            --title="CarMedia Pro – 🍪 Cookies Expired" \
+            --text="<b>⚠  YouTube is blocking downloads</b>\n\n<i>\"Sign in to confirm you're not a bot\"</i>\n\nYour cookies have <b>expired</b> — this happens every few weeks.\n\n<b>How to fix (takes 1 minute):</b>\n\n  1. Open Firefox → go to <tt>youtube.com</tt> (stay logged in)\n  2. Click the <b>Get cookies.txt LOCALLY</b> extension\n  3. Click <b>Export</b> → saves .txt to Downloads\n  4. In CarMedia → <b>Settings → 📂 Import cookies.txt</b>\n  5. Select the file → done!\n\nDownloads work immediately after." \
+            --button="📂 Go to Settings:2" \
+            --button="OK:0" \
+            --width=480 --center 2>/dev/null
+        [[ $? -eq 2 ]] && touch /tmp/carmedia_open_settings 2>/dev/null || true
+    fi
+
     log_info "_dm_run_ytdlp job #$id exit code: $ytdlp_rc"
     return "$ytdlp_rc"
 }
+
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -401,66 +408,56 @@ _dm_run_ytdlp() {
 # YAD progress protocol (written to stdin FIFO):
 #   NUMBER     → set progress bar percentage (0-100)
 #   # TEXT     → set the label text (supports Pango markup)
-#   LOG TEXT   → append line to dev log pane (only with --enable-log)
+#   LOG TEXT   → append line to log pane (--enable-log)
 # ─────────────────────────────────────────────────────────────────────────────
 _dm_feeder() {
     local state_file="$1" fifo="$2" dev_log_file="${3:-}"
     local last_pct=-1
-    local last_title="" last_status=""   # change-detect: only send # when something changes
-    local dev_log_pos=0   # byte offset — tracks how far we've read the dev log file
     log_info "Feeder started"
 
-    # Open the FIFO once for writing (fd 3). This avoids re-opening on every
-    # write iteration which can stall if YAD's reader is momentarily slow.
+    # Open FIFO once — keeps YAD's reader happy without re-open stalls
     exec 3>"$fifo"
 
+    # ── Stream raw yt-dlp output live to the GUI log pane ────────────────────
+    # tail -f watches the log file and prints each new line the instant it's
+    # written — exactly like watching output in a terminal. No polling delay,
+    # no missed lines, no filtering. Every LOG line goes straight to YAD.
+    if [[ -n "$dev_log_file" ]]; then
+        touch "$dev_log_file"
+        tail -f "$dev_log_file" 2>/dev/null | while IFS= read -r log_line; do
+            printf 'LOG %s\n' "$log_line" >&3
+        done &
+        local TAIL_PID=$!
+    fi
+
     while true; do
-        # Read state (source the file — safe, it's our own temp file)
         local PCT=0 SPEED="—" ETA="—" DL_SIZE="—" STATUS="Starting"
         local TITLE="Downloading..." QUEUE_INFO="" ALL_DONE=0
         source "$state_file" 2>/dev/null || true
 
         if [[ "$ALL_DONE" == "1" ]]; then
             echo "100" >&3
-            # Only send final label once
             printf '# ✅  All downloads complete!\n' >&3
             log_info "Feeder: ALL_DONE — exiting"
             break
         fi
 
-        # Push percentage only when it changes
+        # Progress bar percentage
         if [[ "$PCT" != "$last_pct" ]]; then
             echo "$PCT" >&3
             last_pct="$PCT"
         fi
 
-        # Push label ONLY when title or status actually changes.
-        # YAD with --enable-log echoes every '# TEXT' line into the log pane,
-        # so sending it every 0.5s floods the log. Sending only on real
-        # transitions (new file, Merging, Complete, etc.) = near-zero spam.
-        if [[ "$TITLE" != "$last_title" || "$STATUS" != "$last_status" ]]; then
-            printf '# <b>%s</b>  |  %s\n' "$TITLE" "$STATUS" >&3
-            last_title="$TITLE"
-            last_status="$STATUS"
-        fi
-
-        # Stream new raw yt-dlp lines from the dev log file to the log pane.
-        # Uses tail-style byte-offset reads so we never block or re-send old lines.
-        if [[ -n "$dev_log_file" && -f "$dev_log_file" ]]; then
-            local new_lines
-            new_lines=$(tail -c +$((dev_log_pos + 1)) "$dev_log_file" 2>/dev/null || true)
-            if [[ -n "$new_lines" ]]; then
-                while IFS= read -r log_line; do
-                    printf 'LOG %s\n' "$log_line" >&3
-                done <<< "$new_lines"
-                dev_log_pos=$(wc -c < "$dev_log_file" 2>/dev/null || echo "$dev_log_pos")
-            fi
-        fi
+        # Status label (top of window)
+        printf '# <b>%s</b>  |  %s\n' "$TITLE" "$STATUS" >&3
 
         sleep 0.3
     done
 
-    exec 3>&-   # close fd
+    # Clean up tail -f background process
+    [[ -n "${TAIL_PID:-}" ]] && kill "$TAIL_PID" 2>/dev/null || true
+
+    exec 3>&-
     log_info "Feeder exited"
 }
 

@@ -36,8 +36,37 @@ start_ui() {
     MAX_PLAYLIST_LIMIT="${MAX_PLAYLIST_LIMIT:-50}"
     AUTO_UPDATE="${AUTO_UPDATE:-false}"
     DEV_MODE="${DEV_MODE:-false}"
-    COOKIE_BROWSER="${COOKIE_BROWSER:-none}"
-    export DEV_MODE
+    COOKIE_BROWSER="${COOKIE_BROWSER:-auto}"
+
+    # ── Auto-detect browser for cookies ──────────────────────────────────────
+    # YouTube now requires cookies on most IPs to prove you're not a bot.
+    # If COOKIE_BROWSER is "auto" (the default), scan for installed browsers
+    # and pick the first one found. User can override in Settings.
+    if [[ "${COOKIE_BROWSER,,}" == "auto" || "${COOKIE_BROWSER,,}" == "none" ]]; then
+        local detected_browser=""
+        for browser in firefox chromium-browser chromium google-chrome brave-browser chrome; do
+            if command -v "$browser" &>/dev/null; then
+                # Map executable name to yt-dlp browser key
+                case "$browser" in
+                    firefox)                         detected_browser="firefox"  ;;
+                    google-chrome|chrome)            detected_browser="chrome"   ;;
+                    brave-browser)                   detected_browser="brave"    ;;
+                    chromium|chromium-browser)       detected_browser="chromium" ;;
+                esac
+                break
+            fi
+        done
+        if [[ -n "$detected_browser" ]]; then
+            log_info "Auto-detected browser for cookies: $detected_browser"
+            COOKIE_BROWSER="$detected_browser"
+            # Persist so Settings shows what's actually being used
+            sed -i "s/^COOKIE_BROWSER=.*/COOKIE_BROWSER=\"$detected_browser\"/" "$cfg" 2>/dev/null || true
+        else
+            log_warn "No supported browser found for cookie auto-detection — downloads may be blocked by YouTube bot check"
+            COOKIE_BROWSER="none"
+        fi
+    fi
+
     export COOKIE_BROWSER
 
     [[ "$AUTO_UPDATE" == "true" ]] && { log_info "Auto-update on"; update_ytdlp; }
@@ -364,12 +393,13 @@ show_settings_window() {
 
     # Build cookie browser combo (active item first)
     local _cb_active="${COOKIE_BROWSER:-none}"
-    local _cb_list="None!Chrome!Firefox!Brave!Chromium"
+    local _cb_list="Auto (detect)!None!Firefox!Chrome!Brave!Chromium"
     case "$_cb_active" in
-        chrome)   _cb_list="Chrome!None!Firefox!Brave!Chromium" ;;
-        firefox)  _cb_list="Firefox!None!Chrome!Brave!Chromium" ;;
-        brave)    _cb_list="Brave!None!Chrome!Firefox!Chromium" ;;
-        chromium) _cb_list="Chromium!None!Chrome!Firefox!Brave" ;;
+        auto|Auto*) ;;  # stays default
+        chrome)   _cb_list="Chrome!Auto (detect)!None!Firefox!Brave!Chromium" ;;
+        firefox)  _cb_list="Firefox!Auto (detect)!None!Chrome!Brave!Chromium" ;;
+        brave)    _cb_list="Brave!Auto (detect)!None!Chrome!Firefox!Chromium" ;;
+        chromium) _cb_list="Chromium!Auto (detect)!None!Chrome!Firefox!Brave" ;;
     esac
 
     result=$(yad --form \
@@ -480,12 +510,13 @@ show_settings_window() {
 
     # Build cookie browser combo (active item first)
     local _cb_active="${COOKIE_BROWSER:-none}"
-    local _cb_list="None!Chrome!Firefox!Brave!Chromium"
+    local _cb_list="Auto (detect)!None!Firefox!Chrome!Brave!Chromium"
     case "$_cb_active" in
-        chrome)   _cb_list="Chrome!None!Firefox!Brave!Chromium" ;;
-        firefox)  _cb_list="Firefox!None!Chrome!Brave!Chromium" ;;
-        brave)    _cb_list="Brave!None!Chrome!Firefox!Chromium" ;;
-        chromium) _cb_list="Chromium!None!Chrome!Firefox!Brave" ;;
+        auto|Auto*) ;;  # stays default
+        chrome)   _cb_list="Chrome!Auto (detect)!None!Firefox!Brave!Chromium" ;;
+        firefox)  _cb_list="Firefox!Auto (detect)!None!Chrome!Brave!Chromium" ;;
+        brave)    _cb_list="Brave!Auto (detect)!None!Chrome!Firefox!Chromium" ;;
+        chromium) _cb_list="Chromium!Auto (detect)!None!Chrome!Firefox!Brave" ;;
     esac
 
     result=$(yad --form \
@@ -526,27 +557,36 @@ show_settings_window() {
 
     # Build cookie browser combo (active item first)
     local _cb_active="${COOKIE_BROWSER:-none}"
-    local _cb_list="None!Chrome!Firefox!Brave!Chromium"
+    local _cb_list="Auto (detect)!None!Firefox!Chrome!Brave!Chromium"
     case "$_cb_active" in
-        chrome)   _cb_list="Chrome!None!Firefox!Brave!Chromium" ;;
-        firefox)  _cb_list="Firefox!None!Chrome!Brave!Chromium" ;;
-        brave)    _cb_list="Brave!None!Chrome!Firefox!Chromium" ;;
-        chromium) _cb_list="Chromium!None!Chrome!Firefox!Brave" ;;
+        auto|Auto*) ;;  # stays default
+        chrome)   _cb_list="Chrome!Auto (detect)!None!Firefox!Brave!Chromium" ;;
+        firefox)  _cb_list="Firefox!Auto (detect)!None!Chrome!Brave!Chromium" ;;
+        brave)    _cb_list="Brave!Auto (detect)!None!Chrome!Firefox!Chromium" ;;
+        chromium) _cb_list="Chromium!Auto (detect)!None!Chrome!Firefox!Brave" ;;
     esac
+
+    local cookies_file="${BASE_DIR}/config/cookies.txt"
+    local cookies_status="No cookies.txt (click 📋 to paste one)"
+    [[ -f "$cookies_file" && -s "$cookies_file" ]] && \
+        cookies_status="✅ cookies.txt active ($(wc -l < "$cookies_file") lines) — overrides browser setting"
 
     result=$(yad --form \
         --title="$APP_TITLE – Settings" \
         --text="<b>⚙  Preferences</b>" \
-        --width=560 --center \
+        --width=580 --center \
         --separator="|" \
         --field="📁  Default Download Folder":DIR    "${SAVE_DIR:-$HOME/CarMedia}" \
         --field="📦  Default Mode":CB                "Video!Music" \
         --field="🎬  Default Video Profile":CB       "$(_video_profile_combo)" \
         --field="🎵  Default Music Profile":CB       "$(_music_profile_combo)" \
         --field="🔢  Max Playlist Items (threshold)":NUM "${MAX_PLAYLIST_LIMIT:-50}!1..500!1!0" \
-        --field="⚡  Concurrent Fragments (speed)":NUM "${YT_CONCURRENT_FRAGS:-5}!1..16!1!0" \
+        --field="⚡  Concurrent Fragments (speed)":NUM "${YT_CONCURRENT_FRAGS:-3}!1..16!1!0" \
         --field="🔄  Auto-update yt-dlp on start":CHK "${AUTO_UPDATE:-false}" \
-        --field="🍪  Browser Cookies (age-restricted/private)":CB "$_cb_list" \
+        --field="🍪  Browser Cookies (needs browser closed)":CB "$_cb_list" \
+        --field="📋  Cookies.txt status":LBL "$cookies_status" \
+        --button="📂 Import cookies.txt:3" \
+        --button="🗑 Clear cookies.txt:4" \
         --button="⬆ Update yt-dlp Now:2" \
         --button="gtk-cancel:1" \
         --button="gtk-save:0" \
@@ -557,7 +597,50 @@ show_settings_window() {
     case $btn in
         0) _save_settings "$result" ;;
         2) update_ytdlp_with_ui; show_settings_window ;;
+        3) _paste_cookies_txt; show_settings_window ;;
+        4) rm -f "$cookies_file"; show_success_dialog "Cleared" "cookies.txt removed."; show_settings_window ;;
     esac
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# _import_cookies_file
+# Opens a file picker so the user can select their exported cookies.txt file.
+# Copies it into config/cookies.txt where yt-dlp can read it.
+_paste_cookies_txt() {
+    local cookies_file="${BASE_DIR}/config/cookies.txt"
+
+    # File picker — user navigates to their cookies.txt and selects it
+    local chosen_file
+    chosen_file=$(yad --file \
+        --title="$APP_TITLE – Select cookies.txt" \
+        --text="Select your exported cookies.txt file\n(must be Netscape format from 'Get cookies.txt LOCALLY' extension)" \
+        --file-filter="Cookie files (*.txt)|*.txt" \
+        --file-filter="All files|*" \
+        --width=700 --height=450 --center \
+        2>/dev/null)
+
+    local btn=$?
+    [[ $btn -ne 0 || -z "$chosen_file" ]] && return 1
+
+    if [[ ! -f "$chosen_file" ]]; then
+        handle_error "user" "File not found:\n$chosen_file"
+        return 1
+    fi
+
+    # Validate it looks like a Netscape cookies file
+    if ! head -3 "$chosen_file" | grep -qi "netscape\|http cookie"; then
+        yad --question \
+            --title="$APP_TITLE – Confirm" \
+            --text="⚠  This file doesn't look like a standard cookies.txt\n(missing Netscape HTTP Cookie File header)\n\nIt might still work. Use it anyway?" \
+            --button="Yes, use it:0" --button="Cancel:1" \
+            --width=420 --center 2>/dev/null || return 1
+    fi
+
+    mkdir -p "${BASE_DIR}/config"
+    cp "$chosen_file" "$cookies_file"
+    chmod 600 "$cookies_file"
+    log_info "cookies.txt imported from: $chosen_file ($(wc -l < "$cookies_file") lines)"
+    show_success_dialog "Cookies Imported ✅" "cookies.txt imported successfully!\n<b>$(wc -l < "$cookies_file") lines</b> from:\n<tt>$chosen_file</tt>\n\nAll downloads will now use these cookies.\nBrowser cookie setting is ignored when this file exists."
 }
 
 _save_settings() {
@@ -574,11 +657,12 @@ _save_settings() {
     # Translate label → yt-dlp browser name (lowercase, 'none' for disabled)
     local new_cookie
     case "${cookie_label,,}" in   # lowercase the label
-        chrome)   new_cookie="chrome"   ;;
-        firefox)  new_cookie="firefox"  ;;
-        brave)    new_cookie="brave"    ;;
-        chromium) new_cookie="chromium" ;;
-        *)        new_cookie="none"     ;;
+        auto*|auto\ *)            new_cookie="auto"     ;;
+        chrome)                   new_cookie="chrome"   ;;
+        firefox)                  new_cookie="firefox"  ;;
+        brave)                    new_cookie="brave"    ;;
+        chromium)                 new_cookie="chromium" ;;
+        *)                        new_cookie="none"     ;;
     esac
 
     cat > "${BASE_DIR}/config/settings.conf" << CONF
