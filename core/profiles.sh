@@ -36,7 +36,8 @@
 #   YouTube's 720p mp4 streams are almost always H.264 in practice; VP9 is
 #   only served as webm. So [ext=mp4] is a soft H.264 preference, not a gamble.
 #
-PROFILE_CAR_FORMAT='bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best'
+# PROFILE_CAR_FORMAT='bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best'
+PROFILE_CAR_FORMAT='bestvideo[vcodec^=avc1][height<=720]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1][height<=720]+bestaudio/best[ext=mp4]'
 PROFILE_HD_FORMAT='bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best'
 PROFILE_FAST_FORMAT='best[ext=mp4]/best'
 PROFILE_BEST_FORMAT='bestvideo+bestaudio/best'

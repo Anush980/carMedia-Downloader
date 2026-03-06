@@ -96,3 +96,7 @@ yt-dlp: error: no such option: --http2
 [2026-03-03 23:53:21][ERROR] [ytdlp] Download failed after 2 attempts.\n\nURL: https://www.youtube.com/watch?v=idFsTTlHuOs&list=RDidFsTTlHuOs&start_radio=1\nTitle: Kunai Arko Sansar - Neetesh Jung Kunwar [Video]
 [2026-03-04 00:03:39][ERROR] Job #1 failed after 2 attempts
 [2026-03-04 00:03:39][ERROR] [ytdlp] Download failed after 2 attempts.\n\nURL: https://www.youtube.com/watch?v=bJNLrJ7MUzM&list=RDbJNLrJ7MUzM&start_radio=1\nTitle: Ani Choying Drolma - Phoolko Aankhama [Official Lyrical Video]
+[2026-03-06 10:32:59][ERROR] Job #1 failed after 2 attempts
+[2026-03-06 10:32:59][ERROR] [ytdlp] Download failed after 2 attempts.\n\nURL: https://www.youtube.com/watch?v=0_sZlZn8aLY&list=PLyTzwitHMGXAyxnaw27ZsY7hx0o4x_ZFA\nTitle: Timro Pratiksa - Shallum Lama [To Mini][Official Video]
+[2026-03-06 10:44:06][ERROR] Job #1 failed after 2 attempts
+[2026-03-06 10:44:06][ERROR] [ytdlp] Download failed after 2 attempts.\n\nURL: https://www.youtube.com/watch?v=H2xaiUjYbRw&list=PLq6yr86PEdlsHbudMCPW7tLisGjtpLGtA\nTitle: Bardali
