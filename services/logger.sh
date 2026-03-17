@@ -22,7 +22,7 @@ mkdir -p "$LOG_DIR"
 
 # Live dev-log FIFO path (set by download_manager when dev mode is on)
 DEV_LOG_PIPE=""
-DEV_MODE="${DEV_MODE:-false}"
+DEV_MODE="${DEV_MODE:-true}"
 
 _log() {
     local level="$1" msg="$2"

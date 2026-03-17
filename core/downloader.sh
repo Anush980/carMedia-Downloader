@@ -20,6 +20,7 @@ build_yt_dlp_args() {
     # from a previous manual run it silently overrides everything and causes
     # "format not available" on every video no matter what settings you change.
     YT_DLP_ARGS+=( --ignore-config )
+    YT_DLP_ARGS+=( --remote-components "ejs:github" )
 
     # Output path
     if [[ "$url_type" == "playlist" ]]; then

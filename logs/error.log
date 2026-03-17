@@ -100,3 +100,5 @@ yt-dlp: error: no such option: --http2
 [2026-03-06 10:32:59][ERROR] [ytdlp] Download failed after 2 attempts.\n\nURL: https://www.youtube.com/watch?v=0_sZlZn8aLY&list=PLyTzwitHMGXAyxnaw27ZsY7hx0o4x_ZFA\nTitle: Timro Pratiksa - Shallum Lama [To Mini][Official Video]
 [2026-03-06 10:44:06][ERROR] Job #1 failed after 2 attempts
 [2026-03-06 10:44:06][ERROR] [ytdlp] Download failed after 2 attempts.\n\nURL: https://www.youtube.com/watch?v=H2xaiUjYbRw&list=PLq6yr86PEdlsHbudMCPW7tLisGjtpLGtA\nTitle: Bardali
+[2026-03-06 11:04:44][ERROR] Job #1 failed after 2 attempts
+[2026-03-06 11:04:45][ERROR] [ytdlp] Download failed after 2 attempts.\n\nURL: https://www.youtube.com/watch?v=H2xaiUjYbRw&list=PLq6yr86PEdlsHbudMCPW7tLisGjtpLGtA&pp=0gcJCbQEOCosWNin\nTitle: Bardali
